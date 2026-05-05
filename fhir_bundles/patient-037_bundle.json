@@ -1,0 +1,1035 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-037"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "King",
+            "given": [
+              "Deborah"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1971-03-08",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "567 Magnolia Blvd"
+            ],
+            "city": "Birmingham",
+            "state": "AL",
+            "postalCode": "35201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-037"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute exacerbation of systolic heart failure and new-onset atrial fibrillation"
+          }
+        ],
+        "period": {
+          "start": "2026-04-29",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f20b8aa7-cc56-43e8-9d65-26a9f4b0d4a9",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I50.20",
+              "display": "Heart failure with reduced EF"
+            }
+          ],
+          "text": "Heart failure with reduced EF"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "onsetDateTime": "2021-02-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8c5d8e0c-fa3e-49bb-8168-640b7dfc677c",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I48.91",
+              "display": "New-onset atrial fibrillation"
+            }
+          ],
+          "text": "New-onset atrial fibrillation"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:175835ce-3239-4ed5-a26f-16cf7040de2b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes"
+            }
+          ],
+          "text": "Type 2 diabetes"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "onsetDateTime": "2013-04-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f24c7456-443f-4f4e-905a-cf377cb223bb",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "onsetDateTime": "2008-06-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eef1e6ae-0e3a-4a9c-880b-2cd94f8a3673",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E66.9",
+              "display": "Obesity, BMI 36"
+            }
+          ],
+          "text": "Obesity, BMI 36"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "onsetDateTime": "2010-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:17407951-5eac-43d1-95ad-81d8681491ec",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G47.33",
+              "display": "Obstructive sleep apnea"
+            }
+          ],
+          "text": "Obstructive sleep apnea"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "onsetDateTime": "2019-08-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4c30265d-8aa8-467a-939a-9a4149ebc0fc",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Apixaban (Eliquis)"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg twice daily (newly started)",
+            "timing": {
+              "code": {
+                "text": "twice daily (newly started)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Stroke prevention for new AFib (CHA2DS2-VASc = 4)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eda46d28-94fd-48f6-bf09-7e482f3a862e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metoprolol succinate"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure and AFib rate control"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f7487d44-e2d2-470c-be60-dbd8e1c25212",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Sacubitril-Valsartan (Entresto)"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "dosageInstruction": [
+          {
+            "text": "24/26mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b9487766-9d63-4505-a503-9773782fce2c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Spironolactone"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:942fbf94-63a6-4e86-8c1f-b36db5a0e9a8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Furosemide"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "dosageInstruction": [
+          {
+            "text": "60mg once daily (increased from 40mg)",
+            "timing": {
+              "code": {
+                "text": "once daily (increased from 40mg)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure fluid management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7fc0b3ad-0af5-44ab-b912-dfe0b8bcf021",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Empagliflozin (Jardiance)"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure and diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9565471d-be43-470f-a8e7-32d4719ff8c5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Potassium chloride"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mEq once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Potassium replacement with diuretics"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:55764888-6d81-4971-80d9-1113727396fc",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Digoxin"
+        },
+        "patient": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe bradycardia"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ddbfab48-26a3-4591-9701-c1a3484c36f4",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Echocardiogram"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8e990fd7-869d-475c-963a-403dac482ed3",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Cardioversion attempt (unsuccessful)"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:36b1be38-04ef-4283-8ec6-aeeb6a425b32",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Ejection Fraction"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "valueString": "28%",
+        "interpretation": [
+          {
+            "text": "Severely reduced (was 32% last year)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:119e54e9-c205-4d67-98ab-54c7ab44be14",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "BNP"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "valueString": "1,100 pg/mL",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:202d832a-8330-4b22-99c5-b0eb20799d57",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Heart rate (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "valueString": "76 bpm (AFib)",
+        "interpretation": [
+          {
+            "text": "Rate controlled"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0e0560b0-2d70-4605-acd1-b1a49407bc01",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Weight loss during admission"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "valueString": "5.2 kg",
+        "interpretation": [
+          {
+            "text": "Good diuresis"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3d5aa079-143c-4a4a-832c-9b341bbac313",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        },
+        "valueString": "4.0 mEq/L",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d5987488-bbcb-4763-b4d9-eb58ba859b3c",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Cardiology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e00349ae-a97d-4db9-9e02-62ec526f6ca9",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (BMP) in 5 days"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7a70eafa-7d9d-4ae4-96ad-d5969db956c9",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Sleep study compliance check (CPAP data download)"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:496efd77-92e0-4c8d-b1ff-430802ea9b0d",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Electrophysiology consultation for AFib ablation"
+        },
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7a131348-db70-404f-828c-7b99bc0c17c4",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Cardiology follow-up",
+        "start": "2026-05-11T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:abe074cf-443e-4fd6-ba53-b9a5df6ca6ae",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "EP consultation",
+        "start": "2026-05-25T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:92bef580-86b1-4361-93f7-33bae155b0de",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "King",
+            "given": [
+              "Anthony"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e964b6fc-dc58-4c1f-bb30-1568f2ce198b",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Heart Failure + New AFib Management",
+        "description": "Daily weights (call if >2lb gain overnight or >5lb in a week), 1.5L fluid restriction, low-sodium diet, CPAP every night, new anticoagulation education",
+        "subject": {
+          "reference": "urn:uuid:96d061f7-b08a-485c-89cf-eb2a8b180fa2"
+        },
+        "encounter": {
+          "reference": "urn:uuid:150ce7a9-fe3f-4818-97cf-3b36c7323f35"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

@@ -1,0 +1,971 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-028"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Clark",
+            "given": [
+              "Raymond"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1953-08-19",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "678 Factory Street"
+            ],
+            "city": "Pittsburgh",
+            "state": "PA",
+            "postalCode": "15201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-028"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "reasonCode": [
+          {
+            "text": "GI bleeding from duodenal ulcer"
+          }
+        ],
+        "period": {
+          "start": "2026-04-26",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8f1b6417-24db-4878-9589-1e869fd89e24",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K26.0",
+              "display": "Duodenal ulcer with hemorrhage"
+            }
+          ],
+          "text": "Duodenal ulcer with hemorrhage"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "onsetDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8ea047b4-7133-4ef9-acfb-1e2242f75e79",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "B96.81",
+              "display": "H. pylori infection"
+            }
+          ],
+          "text": "H. pylori infection"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:06fbeb89-a4a3-4dad-af00-46005e476bf7",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "D62",
+              "display": "Iron deficiency anemia (acute blood loss)"
+            }
+          ],
+          "text": "Iron deficiency anemia (acute blood loss)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "onsetDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:643a3321-96cb-4b2b-91a2-d2635c25ebe9",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Coronary artery disease (prior stent 2023)"
+            }
+          ],
+          "text": "Coronary artery disease (prior stent 2023)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "onsetDateTime": "2023-04-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:57a60de3-d2cf-4377-ad1f-da65fd7fe766",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I48.91",
+              "display": "Atrial fibrillation"
+            }
+          ],
+          "text": "Atrial fibrillation"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "onsetDateTime": "2021-07-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:96e370a2-30b4-40b3-a4d7-29491c394def",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Pantoprazole"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Duodenal ulcer healing"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 8 weeks then reassess"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5cc05fe1-cd15-4cda-b8ff-6c53c8430ff4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amoxicillin"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "H. pylori eradication (part of triple therapy)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 14 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:74d995d7-3810-4117-b1b6-11a381059b45",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Clarithromycin"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "H. pylori eradication (part of triple therapy)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 14 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aa38b90f-a662-4531-a833-cad21ce64971",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Iron sulfate"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "325mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Replete iron stores after GI bleed"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 3 months"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5abbba75-1e90-41a1-a8b9-a5a6d626e537",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Apixaban (Eliquis)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg twice daily \u2014 HOLD until GI follow-up in 2 weeks",
+            "timing": {
+              "code": {
+                "text": "twice daily \u2014 HOLD until GI follow-up in 2 weeks"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "AFib stroke prevention \u2014 temporarily held for bleeding"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing when restarted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7e1528ce-eea1-41c8-b529-15619e7068bc",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Aspirin"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "81mg once daily \u2014 HOLD until GI follow-up in 2 weeks",
+            "timing": {
+              "code": {
+                "text": "once daily \u2014 HOLD until GI follow-up in 2 weeks"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "CAD secondary prevention \u2014 temporarily held for bleeding"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing when restarted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f0efdb34-3015-4b4f-9e88-f849e7794db5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metoprolol"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "AFib rate control and CAD"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:684851b8-ed87-4fca-a5aa-0aa71438ec41",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Atorvastatin"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "80mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "CAD"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:276d69b6-46fd-4de5-8847-cb8f36d72148",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "EGD with epinephrine injection and cauterization"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:98849b19-a2b4-447a-ad32-a5ca94437858",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "H. pylori biopsy (CLO test positive)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:18829bd3-3f27-402c-b549-ff9db98c9f57",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Blood transfusion (2 units pRBC)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e7971e2d-f7de-4799-86e0-d2134b5c6d79",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "valueString": "6.8 g/dL",
+        "interpretation": [
+          {
+            "text": "Severely low - acute blood loss"
+          }
+        ],
+        "effectiveDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0aa9a0d1-e68a-4e37-90d8-f4b8d00404e9",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "valueString": "9.2 g/dL",
+        "interpretation": [
+          {
+            "text": "Improved post-transfusion"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:429a9a94-c6db-4c6e-885b-ddca685bb5d0",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "INR"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "valueString": "1.0",
+        "interpretation": [
+          {
+            "text": "Normal (apixaban held)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:747d3047-bb89-4403-8c1d-602ad157039c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Stool guaiac"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "valueString": "Negative",
+        "interpretation": [
+          {
+            "text": "No ongoing active bleeding"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:81c4ba1f-631c-4349-b429-a0415779d51c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "H. pylori CLO test"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        },
+        "valueString": "Positive",
+        "interpretation": [
+          {
+            "text": "Active infection"
+          }
+        ],
+        "effectiveDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9b56f96-cd57-467f-8867-bb7b9269e2d8",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "GI follow-up in 2 weeks (restart anticoagulation decision)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:90095984-5d7a-4bbd-90b3-aa0e8be2bedf",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Repeat EGD in 8 weeks to confirm ulcer healing"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dd05f9eb-8ef7-4f3c-8abf-2053a990bd6b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "H. pylori breath test in 6 weeks (confirm eradication)"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b3cfccaa-fb9d-4694-bab1-7e6570e270b3",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "CBC in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "encounter": {
+          "reference": "urn:uuid:97d10d08-03dc-4a0b-a4df-2f74c98362b2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9e3f0c80-9779-4c30-ae9a-bd73df95a7b7",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "GI follow-up (anticoagulation restart decision)",
+        "start": "2026-05-17T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e64ea037-e32d-4086-9ca0-8824313dc88f",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:ffd3e992-a04e-4793-b50a-9f4481820083"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Clark",
+            "given": [
+              "Donna"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

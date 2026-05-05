@@ -1,0 +1,1064 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-019"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Johnson",
+            "given": [
+              "Sandra"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1965-08-30",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "901 Highway 52, Rural Route 3"
+            ],
+            "city": "Tupelo",
+            "state": "MS",
+            "postalCode": "38801",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-019"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "reasonCode": [
+          {
+            "text": "Uncontrolled diabetes with hyperosmolar hyperglycemic state"
+          }
+        ],
+        "period": {
+          "start": "2026-04-27",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1dc6f211-98f8-402b-b89d-88bf43920d79",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.00",
+              "display": "Hyperosmolar hyperglycemic state"
+            }
+          ],
+          "text": "Hyperosmolar hyperglycemic state"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a96ed3f0-eecf-45ec-98f4-4afcb325fe25",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.69",
+              "display": "Type 2 diabetes with multiple complications"
+            }
+          ],
+          "text": "Type 2 diabetes with multiple complications"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "onsetDateTime": "2005-03-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:44c8fede-1571-4d98-9595-55c89b78c6c6",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.31",
+              "display": "Diabetic retinopathy"
+            }
+          ],
+          "text": "Diabetic retinopathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "onsetDateTime": "2020-07-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:96d8a8b9-209e-465e-852f-3624884f2d45",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.42",
+              "display": "Diabetic neuropathy"
+            }
+          ],
+          "text": "Diabetic neuropathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "onsetDateTime": "2018-11-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0ccb102f-6037-44fb-a920-22b55f35d111",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.32",
+              "display": "Chronic kidney disease, stage 3b"
+            }
+          ],
+          "text": "Chronic kidney disease, stage 3b"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "onsetDateTime": "2022-04-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c7ae37c4-bb39-4098-bcf8-72f329820a5a",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "onsetDateTime": "2008-06-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fc7ea4f6-dfd6-4603-a097-0dc197be7f9d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E66.01",
+              "display": "Morbid obesity, BMI 42"
+            }
+          ],
+          "text": "Morbid obesity, BMI 42"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "onsetDateTime": "2000-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4442002e-b003-45d0-bcbb-8b8a99f71b8d",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin glargine"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "dosageInstruction": [
+          {
+            "text": "45 units (increased from 35) once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes - basal insulin (dose increased this admission)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:95e90b70-acc0-4087-bec0-1450fc3bffa8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin lispro"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "dosageInstruction": [
+          {
+            "text": "per sliding scale and carb counting before each meal",
+            "timing": {
+              "code": {
+                "text": "before each meal"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes - mealtime coverage"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c45c6834-35c9-4e9a-9134-e1ec15944efa",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Empagliflozin (Jardiance)"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes + kidney and cardiac protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0f6e5e2c-4a66-4add-a82e-b13649ce2929",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Renal protection and hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:301bb9a8-268c-49b1-a446-0b89a7487a01",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amlodipine"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:116d4fa2-b4ef-481b-b19c-3331c0e683be",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Gabapentin"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "dosageInstruction": [
+          {
+            "text": "600mg three times daily",
+            "timing": {
+              "code": {
+                "text": "three times daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetic neuropathy pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:10293be5-28f3-4e5c-a91d-698ead739646",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Semaglutide (Ozempic)"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1mg once weekly (Sundays)",
+            "timing": {
+              "code": {
+                "text": "once weekly (Sundays)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes and weight management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6773f662-6dda-4b08-8b0f-493677bf6bc3",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Metformin"
+        },
+        "patient": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Lactic acidosis (CKD contraindication)"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5b8c5deb-d720-44d8-abc4-d930aaa35f4f",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "IV insulin infusion protocol"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "performedDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:58caee79-d36c-4469-ad5e-880b1aa4686f",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Diabetes education session"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "performedDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:789266c0-05a1-4a2d-9021-6c85b4ab512c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood glucose (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "valueString": "680 mg/dL",
+        "interpretation": [
+          {
+            "text": "Critically high"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dbe85318-13bc-4b37-a594-9910df816e63",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Serum osmolality"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "valueString": "345 mOsm/kg",
+        "interpretation": [
+          {
+            "text": "Severely elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cd0ad311-cdfd-4d86-a964-32584b6eb0df",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood glucose (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "valueString": "165 mg/dL",
+        "interpretation": [
+          {
+            "text": "Improved, near target"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b578bbb8-a957-40a0-9c9e-4c766f7516e3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "valueString": "12.8%",
+        "interpretation": [
+          {
+            "text": "Severely uncontrolled"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b7c045c3-c0b7-4b03-a4a7-09d8405307a9",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "valueString": "2.0 mg/dL",
+        "interpretation": [
+          {
+            "text": "At baseline for CKD 3b"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c392e88a-2fac-4aa2-a22d-a3188c98e078",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Weight"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        },
+        "valueString": "128 kg",
+        "interpretation": [
+          {
+            "text": "BMI 42"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:794afe55-9cdf-490a-80f5-6befb9197b26",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Endocrinology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:41b66aff-cea0-445d-8482-0b370b26d1eb",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Ophthalmology for diabetic retinopathy check"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d46642bc-430e-41ad-bbc5-352c99e4722f",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home health for diabetes management support"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:383facef-512f-49aa-9976-4dc6be362ca3",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Nutrition counseling"
+        },
+        "subject": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d74cf2d2-0479-40e3-ad6a-77569890bb17"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d2df4bb7-9d19-4fc1-a7f1-d91cadc1260f",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Endocrinology follow-up",
+        "start": "2026-05-11T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1ec9d1d3-62fc-4bf1-8d00-37338af27a0e",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:c983cc54-78c9-4f7e-afc4-f9775a201e18"
+        },
+        "relationship": [
+          {
+            "text": "Daughter"
+          }
+        ],
+        "name": [
+          {
+            "family": "Johnson",
+            "given": [
+              "Tammy"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

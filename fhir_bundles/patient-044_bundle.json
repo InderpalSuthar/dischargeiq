@@ -1,0 +1,862 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-044"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Harris",
+            "given": [
+              "Anthony"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1951-02-14",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "456 Veterans Way"
+            ],
+            "city": "Indianapolis",
+            "state": "IN",
+            "postalCode": "46201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-044"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "reasonCode": [
+          {
+            "text": "Spinal stenosis - lumbar laminectomy L3-L5"
+          }
+        ],
+        "period": {
+          "start": "2026-04-26",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d73ce988-dc55-475d-86a6-094a94d3f28c",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M48.06",
+              "display": "Lumbar spinal stenosis, L3-L5"
+            }
+          ],
+          "text": "Lumbar spinal stenosis, L3-L5"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "onsetDateTime": "2024-06-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4eee2348-c7f2-4652-a836-be85079b231a",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.4",
+              "display": "Neurogenic claudication"
+            }
+          ],
+          "text": "Neurogenic claudication"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "onsetDateTime": "2024-06-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1d5297ad-0c63-4f16-8eae-6d0dd2c0c6ca",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "Essential hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "onsetDateTime": "2005-09-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ae51e7a0-8f22-4faf-8b8f-bf306259f0c7",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N40.0",
+              "display": "Benign prostatic hyperplasia"
+            }
+          ],
+          "text": "Benign prostatic hyperplasia"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "onsetDateTime": "2018-07-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:763ccf23-21f8-4cf8-ba29-3d0a05b8b01f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M15.0",
+              "display": "Osteoarthritis, generalized"
+            }
+          ],
+          "text": "Osteoarthritis, generalized"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "onsetDateTime": "2015-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9cf5714a-6c21-4960-ae11-931aaf36d045",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Oxycodone"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg every 6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 10 days then taper"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ac67e307-1df4-4f32-afde-7d0d7c0038f4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg every 6 hours (scheduled)",
+            "timing": {
+              "code": {
+                "text": "every 6 hours (scheduled)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Multimodal pain management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 2 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1cbe509b-5a52-4193-984e-71f7e523a1bd",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Cyclobenzaprine"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg at bedtime as needed",
+            "timing": {
+              "code": {
+                "text": "at bedtime as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Muscle spasms"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 2 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:895c95d0-eb5c-46a8-be6f-f4ba9cd83f82",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Enoxaparin"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "DVT prevention post-spinal surgery"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 14 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:812cfc1c-c90d-4f2a-9341-d1a8a432cf86",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c36d5f74-110d-4420-bad1-e9d6107e8b4e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Tamsulosin"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.4mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "BPH"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:49b05500-c5bc-48b5-9508-83820c3cdf6a",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Gabapentin"
+        },
+        "patient": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe dizziness and confusion"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:693ca85c-578c-40b2-b31d-d07436d7e9e4",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Lumbar laminectomy L3-L5"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "performedDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8b25ae53-4b47-493f-83ac-7f76a1e1bd0e",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "MRI lumbar spine (pre-op)"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "performedDateTime": "2026-04-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:37af5208-6325-4d80-8199-0b98679ff198",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Post-op neurological exam"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "valueString": "Intact motor and sensory, improved leg pain",
+        "interpretation": [
+          {
+            "text": "Good surgical result"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9c791332-0c4f-48b0-9358-ccb69acd323b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "valueString": "11.5 g/dL",
+        "interpretation": [
+          {
+            "text": "Mildly low"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a4fe68b4-9180-4385-a6bd-82c5a764565f",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Pain score (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "valueString": "4/10",
+        "interpretation": [
+          {
+            "text": "Moderate, manageable"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c4f15325-a13a-41e7-9b63-4695db8de60b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Walking distance"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        },
+        "valueString": "200 feet with walker",
+        "interpretation": [
+          {
+            "text": "Improved from pre-op 50 feet"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fc82bbb1-23c5-4f1b-9802-1a37cbcb64cf",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Neurosurgery follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:caf79f5b-8215-4d46-9955-2631fc1bf919",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Physical therapy (outpatient, start in 2 weeks)"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aea691eb-d85d-4051-9b81-07631a611a75",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Wound check by visiting nurse in 5 days"
+        },
+        "subject": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bc954d1c-6792-49ce-859b-6e6c24cba5ae"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c1a30474-1aad-415d-93ae-de199f91fa46",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Neurosurgery follow-up",
+        "start": "2026-05-16T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b1d29b8d-ca08-4327-b913-b963adc25e7e",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:192003ac-a126-4152-9257-8bc4d090ef40"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Harris",
+            "given": [
+              "Sharon"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

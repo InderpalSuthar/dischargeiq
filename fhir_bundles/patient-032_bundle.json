@@ -1,0 +1,971 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-032"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Brooks",
+            "given": [
+              "Kevin"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1957-01-29",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "1567 Canal Street"
+            ],
+            "city": "New Orleans",
+            "state": "LA",
+            "postalCode": "70112",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-032"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "reasonCode": [
+          {
+            "text": "Heart failure with reduced EF and ICD placement"
+          }
+        ],
+        "period": {
+          "start": "2026-04-24",
+          "end": "2026-05-01"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:74908d3f-3f03-4e19-aeb6-78cbdd3f8e1b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I50.20",
+              "display": "Heart failure with reduced ejection fraction (HFrEF)"
+            }
+          ],
+          "text": "Heart failure with reduced ejection fraction (HFrEF)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "onsetDateTime": "2023-05-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ffc6a4b1-8b47-4e84-b4c8-be5a53b4d559",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.5",
+              "display": "Ischemic cardiomyopathy"
+            }
+          ],
+          "text": "Ischemic cardiomyopathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "onsetDateTime": "2023-05-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6733bdcf-f1e7-4b93-a797-875086cd4c12",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I47.2",
+              "display": "Ventricular tachycardia"
+            }
+          ],
+          "text": "Ventricular tachycardia"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "onsetDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3d06c666-8555-4c4c-92f6-74b79aa13574",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes"
+            }
+          ],
+          "text": "Type 2 diabetes"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "onsetDateTime": "2010-07-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:74d30210-3254-4884-b8dd-6ccff8d87357",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.31",
+              "display": "Chronic kidney disease, stage 3a"
+            }
+          ],
+          "text": "Chronic kidney disease, stage 3a"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "onsetDateTime": "2024-02-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e17ac9b5-883f-4577-898f-e0395ffd94ad",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Sacubitril-Valsartan (Entresto)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "49/51mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure (reduced EF)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:73c5b55e-000e-47b0-8b50-90bb68473da8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Carvedilol"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "12.5mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure and arrhythmia"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bf1aa718-b632-43cb-84db-7b82d13c21cf",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Spironolactone"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a952efd9-d8f1-4385-b108-00a27b113eb7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Dapagliflozin (Farxiga)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure and diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f4b42a56-52c8-4aa2-894d-c931527e58a7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Furosemide"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Fluid management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e5344d8f-d2a4-418d-b376-90087b41fdc0",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amiodarone"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "200mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Ventricular tachycardia suppression"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:44a554cc-6066-4810-af02-20df6cb17173",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes (dose limited by CKD)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f7923524-e138-4137-b2c0-512f202fd7e3",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "ICD implantation (single chamber)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "performedDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:edc9c186-a91d-40c0-b2d5-fd97525aec93",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Device interrogation"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:59140fdc-18a4-4390-b599-bea64e9610a8",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Ejection Fraction"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "valueString": "25%",
+        "interpretation": [
+          {
+            "text": "Severely reduced"
+          }
+        ],
+        "effectiveDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c46d78d1-9bfc-4c94-a15e-803cb4f1dc4d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "BNP"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "valueString": "650 pg/mL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eb185d5f-9309-49a7-8a19-d66cd644cd64",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "valueString": "1.6 mg/dL",
+        "interpretation": [
+          {
+            "text": "CKD 3a baseline"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:571adc8b-021a-4dad-b342-ae77be8e118a",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "valueString": "4.5 mEq/L",
+        "interpretation": [
+          {
+            "text": "Normal (monitoring on spironolactone/entresto)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2cbc3c73-3882-47c6-8a56-5c49633fc674",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ICD check"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        },
+        "valueString": "Appropriate sensing, no therapy delivered",
+        "interpretation": [
+          {
+            "text": "Functioning normally"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8ec9fc2a-af6d-4aae-b502-e72962593a37",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Device clinic follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:987211cd-5712-4487-a2ea-130e3c46ae81",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Cardiology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:51bedcc0-103e-4a61-be70-efe5048c2115",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Cardiac rehabilitation"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aeecad0b-bb73-4059-ad4b-ad6997e3397b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (BMP) in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:39e868b5-054e-4624-9856-c67fad659b2b",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Cardiology follow-up",
+        "start": "2026-05-08T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ae2cae28-8a22-4c8d-abdf-2f53d0caf64c",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Device clinic",
+        "start": "2026-05-15T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8fbe597c-15dd-4269-bae7-9304265d8b4e",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Cardiac rehab intake",
+        "start": "2026-05-19T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:80433aba-1156-4df1-8c8f-afba0f848a10",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Brooks",
+            "given": [
+              "Angela"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3b61ee75-6b4c-49ed-a561-3806b8795cec",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "HF Self-Management",
+        "description": "Daily weights, 2L fluid restriction, low-sodium diet (<2g/day), ICD precautions (no MRI, avoid magnets, carry device card)",
+        "subject": {
+          "reference": "urn:uuid:0a83f283-a6fc-437b-a5c5-f44a3ee57892"
+        },
+        "encounter": {
+          "reference": "urn:uuid:64bbee49-c8aa-4098-99d0-dfdff72979c2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

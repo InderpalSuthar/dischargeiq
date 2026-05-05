@@ -1,0 +1,909 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-006"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Martinez",
+            "given": [
+              "Robert"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1962-09-18",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "1201 Industrial Blvd"
+            ],
+            "city": "Houston",
+            "state": "TX",
+            "postalCode": "77001",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-006"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute myocardial infarction (STEMI)"
+          }
+        ],
+        "period": {
+          "start": "2026-04-29",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f3c824d5-6ef7-4cc2-96be-41d1cc264e6f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I21.0",
+              "display": "ST-elevation myocardial infarction"
+            }
+          ],
+          "text": "ST-elevation myocardial infarction"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5ef5746d-5f1d-4703-a403-503e0f8a0f80",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Coronary artery disease"
+            }
+          ],
+          "text": "Coronary artery disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:56d2a53b-6dc6-4a9b-90ad-0d85794b4023",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "onsetDateTime": "2016-05-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:533999ea-cded-48cc-b04b-234ba9dc3ca5",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E66.9",
+              "display": "Obesity, BMI 34"
+            }
+          ],
+          "text": "Obesity, BMI 34"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "onsetDateTime": "2014-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8c678f5e-06c8-424e-bba4-1200cbb621b4",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F17.210",
+              "display": "Tobacco use disorder"
+            }
+          ],
+          "text": "Tobacco use disorder"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "onsetDateTime": "1980-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:da9af65a-57a3-4c64-9b2b-31111b75d734",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Aspirin"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "81mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-MI antiplatelet therapy"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: lifelong"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:257449a9-b8a9-42ac-98cc-75285a33bc18",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Clopidogrel (Plavix)"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "75mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Dual antiplatelet therapy post-stent"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 12 months minimum"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7be07556-cd1b-4a15-b11c-52fe6493fd98",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Atorvastatin"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "80mg once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-MI high-intensity statin"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: lifelong"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b70ff4d7-8620-4cb3-b3e7-84bf27e62186",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metoprolol succinate"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-MI cardiac protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5d2da9c9-a25a-4e8f-a7be-e3b2f4d8e21b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-MI cardiac remodeling prevention"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7482b077-dac1-44c6-99cc-18bd684a6dd3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Nitroglycerin sublingual"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.4mg as needed for chest pain",
+            "timing": {
+              "code": {
+                "text": "as needed for chest pain"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Angina rescue medication"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ec796e95-edb5-42a4-875e-6ba3c6d48e82",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:77e0e24b-1b29-431b-b93a-992ec345e7be",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Percutaneous coronary intervention with drug-eluting stent to LAD"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b37ed3c9-17ad-43f9-903f-27ee285ff7a6",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Cardiac catheterization"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f4950392-78b2-45e1-9e88-5368fc098623",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Echocardiogram"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ae9ffdbe-b7c8-4021-b09d-872c8e95f523",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Troponin I (peak)"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "valueString": "28.5 ng/mL",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:19b2ed64-b969-403a-b288-6993c002ec22",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Ejection Fraction"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "valueString": "45%",
+        "interpretation": [
+          {
+            "text": "Mildly reduced"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4bba3336-dda6-472f-854e-dbbaa47c48d4",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "LDL Cholesterol"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "valueString": "168 mg/dL",
+        "interpretation": [
+          {
+            "text": "High"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9b550e55-10da-4dc3-a26b-42042ff29c87",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "valueString": "8.1%",
+        "interpretation": [
+          {
+            "text": "Above target"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:33a2dd21-ee0a-431e-b457-14571edfa9ba",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        },
+        "valueString": "128/78 mmHg",
+        "interpretation": [
+          {
+            "text": "Controlled"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5d00e3ed-8b81-4a6e-b0c9-4b3c89878921",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Cardiac rehabilitation referral"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f73ad413-6cc4-4898-8e9e-9cbe7479e3f2",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Smoking cessation program"
+        },
+        "subject": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "encounter": {
+          "reference": "urn:uuid:de8b9bd7-0f18-4533-b4ca-1eff80e6db7e"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:107474db-b568-49b2-86df-75b66ae77780",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Cardiology follow-up 1 week",
+        "start": "2026-05-11T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1c18911f-e38f-4f0f-b461-bb05357b04f8",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Cardiac rehabilitation intake",
+        "start": "2026-06-04T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ad6fe04d-e3f7-4a29-8918-14f06e25af57",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:65a5d262-e464-485b-9970-a4d279f8e45c"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Martinez",
+            "given": [
+              "Linda"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

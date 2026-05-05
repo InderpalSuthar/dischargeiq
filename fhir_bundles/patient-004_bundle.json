@@ -1,0 +1,993 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-004"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Jackson",
+            "given": [
+              "William"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1948-01-30",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "23 River Road"
+            ],
+            "city": "Detroit",
+            "state": "MI",
+            "postalCode": "48201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-004"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "reasonCode": [
+          {
+            "text": "COPD exacerbation with pneumonia"
+          }
+        ],
+        "period": {
+          "start": "2026-04-20",
+          "end": "2026-05-01"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Skilled nursing facility"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9f0920ee-1979-4fac-8565-4772b1324dcd",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J44.1",
+              "display": "Chronic obstructive pulmonary disease"
+            }
+          ],
+          "text": "Chronic obstructive pulmonary disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "onsetDateTime": "2015-04-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b187999c-99fd-4d87-b9c7-2794176f31ea",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J18.9",
+              "display": "Community-acquired pneumonia"
+            }
+          ],
+          "text": "Community-acquired pneumonia"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "onsetDateTime": "2026-04-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0e2ec6c3-fc3e-4f67-8bb8-1c29f2624e57",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "onsetDateTime": "2010-06-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d0004825-89dd-4bbf-aa7b-cf6020d4b41d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J96.11",
+              "display": "Oxygen-dependent respiratory failure"
+            }
+          ],
+          "text": "Oxygen-dependent respiratory failure"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "onsetDateTime": "2024-08-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:af4122f1-571d-4843-ba22-e8b6a260acf5",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E46",
+              "display": "Malnutrition"
+            }
+          ],
+          "text": "Malnutrition"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "onsetDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9c015330-1e7a-4826-b8ce-d494314a0b83",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Azithromycin"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg day 1, then 250mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Pneumonia"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days total"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c46cc324-6f7f-4967-8499-a583d46ab336",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prednisone"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "COPD exacerbation - reduce inflammation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days taper"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9764fc8c-3688-4a68-953c-9ec1e52d8ed1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Albuterol inhaler"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "dosageInstruction": [
+          {
+            "text": "2 puffs every 4-6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 4-6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "COPD - bronchodilation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4ce42781-8bd7-44e0-9dbd-59c5996b66d3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Tiotropium (Spiriva)"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "dosageInstruction": [
+          {
+            "text": "18mcg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "COPD maintenance"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:364df393-44c1-426c-9166-22a40fa61bf6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3b2cada0-aa29-436e-882e-69da7de1452a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin glargine"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20 units once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes - blood sugar control"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:38c02d77-65f7-49aa-8ebc-25554835975f",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Supplemental oxygen"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "dosageInstruction": [
+          {
+            "text": "2L/min via nasal cannula continuous",
+            "timing": {
+              "code": {
+                "text": "continuous"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Respiratory failure"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6aca8396-ac05-4a8b-93c5-7397d4210313",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Codeine"
+        },
+        "patient": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Nausea and vomiting"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a7c60fda-0ae6-48fb-beee-74b6aec5a03a",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Latex"
+        },
+        "patient": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Contact dermatitis"
+              }
+            ],
+            "severity": "mild"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:08e5fe36-b182-4a85-a134-770b389f61e6",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Chest X-ray"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "performedDateTime": "2026-04-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8a154347-b33d-4096-9a2f-24e48092fcc4",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Sputum culture"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "performedDateTime": "2026-04-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:77a93415-55f9-479f-a040-ff87d8e39fab",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Pulmonary function test"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d78cbef1-4792-4777-bf80-2573e4013fdd",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Nutritional assessment"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "performedDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5b3a9468-4151-4262-a448-742599dd4c9b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "SpO2 on room air"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "valueString": "86%",
+        "interpretation": [
+          {
+            "text": "Critically low"
+          }
+        ],
+        "effectiveDateTime": "2026-04-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8816a47e-3773-42b7-b7b0-d2df554e2b4c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "SpO2 on 2L O2"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "valueString": "93%",
+        "interpretation": [
+          {
+            "text": "Acceptable"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0777e840-00c5-4ba9-8952-6e19d3aebade",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "FEV1"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "valueString": "32% predicted",
+        "interpretation": [
+          {
+            "text": "Severe obstruction"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:928786e2-b376-44f4-b159-8e0e5eb34412",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "valueString": "9.2%",
+        "interpretation": [
+          {
+            "text": "Poor control"
+          }
+        ],
+        "effectiveDateTime": "2026-04-21"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1dbc8d57-fd3f-4876-963f-59005e8c40c3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Albumin"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "valueString": "2.8 g/dL",
+        "interpretation": [
+          {
+            "text": "Low - malnutrition"
+          }
+        ],
+        "effectiveDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:14f232f2-f8b6-46a1-9fa3-0551b0cae5e4",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "BMI"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        },
+        "valueString": "18.2",
+        "interpretation": [
+          {
+            "text": "Underweight"
+          }
+        ],
+        "effectiveDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:361eae16-4c31-4084-8192-5efbc5fb4c45",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Pulmonology follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bb8f31cd-12ce-4865-9ee3-6a00ce243bc6",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home oxygen therapy"
+        },
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:91a7ade2-295d-4226-9a60-f10976cae590",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "COPD Management Plan",
+        "description": "Long-term management of severe COPD with oxygen therapy",
+        "subject": {
+          "reference": "urn:uuid:4c4357de-6440-4652-a0ae-475d81052b96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:bf786114-4d7b-4498-84b4-3927e7d56876"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

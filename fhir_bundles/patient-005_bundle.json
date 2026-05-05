@@ -1,0 +1,970 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-005"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Williams",
+            "given": [
+              "Dorothy"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1940-12-05",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "456 Elm Street"
+            ],
+            "city": "Atlanta",
+            "state": "GA",
+            "postalCode": "30301",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-005"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "reasonCode": [
+          {
+            "text": "Hip fracture from fall"
+          }
+        ],
+        "period": {
+          "start": "2026-04-27",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Skilled nursing facility"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:640cdaea-e24d-4aa7-b337-abed6f3f2f84",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "S72.002A",
+              "display": "Fracture of left femoral neck"
+            }
+          ],
+          "text": "Fracture of left femoral neck"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:74a27b06-2f76-40d4-a15b-5f9263a7426c",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M81.0",
+              "display": "Osteoporosis"
+            }
+          ],
+          "text": "Osteoporosis"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "onsetDateTime": "2020-03-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:262dbde6-eae6-49ed-a23c-5955efad7f69",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G30.9",
+              "display": "Alzheimer's disease, mild"
+            }
+          ],
+          "text": "Alzheimer's disease, mild"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "onsetDateTime": "2024-01-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:31b02f6e-82bb-40e8-84fc-cd259fe8d335",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "Essential hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "onsetDateTime": "2008-07-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0d67db47-d833-41f6-be38-019e76a35aff",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E03.9",
+              "display": "Hypothyroidism"
+            }
+          ],
+          "text": "Hypothyroidism"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "onsetDateTime": "2012-11-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6f442fd4-26d2-4b73-8ff7-b3692b2c70af",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Oxycodone"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg every 4-6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 4-6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 7 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e86d0c49-c48e-4960-9ed6-cd9f16d15fab",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg every 6 hours",
+            "timing": {
+              "code": {
+                "text": "every 6 hours"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Pain management - scheduled"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 2 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7ae858ee-3adb-405a-9798-79b5be269d13",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Enoxaparin (Lovenox)"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg subcutaneous once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "DVT prevention post-surgery"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 14 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8ae53b4e-8313-4898-9fe2-674faad4ab71",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Alendronate (Fosamax)"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "dosageInstruction": [
+          {
+            "text": "70mg once weekly",
+            "timing": {
+              "code": {
+                "text": "once weekly"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Osteoporosis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5f81a746-d696-4b0a-8ab1-c8b6731e8717",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Donepezil (Aricept)"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Alzheimer's disease"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:44372c90-d567-41d9-bd28-42f34f247edb",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Levothyroxine"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "dosageInstruction": [
+          {
+            "text": "75mcg once daily on empty stomach",
+            "timing": {
+              "code": {
+                "text": "once daily on empty stomach"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypothyroidism"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f279eddd-357b-4408-961f-d7dc39a73a43",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amlodipine"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3241599e-0e20-46f4-981c-444bd3156c25",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Calcium + Vitamin D"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "dosageInstruction": [
+          {
+            "text": "600mg/400IU twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Bone health"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0025da42-20c7-469d-b629-f40ff22bd059",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Aspirin"
+        },
+        "patient": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "GI bleeding"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:adc4147c-da98-4003-a4bb-31ed025f2097",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Left hip hemiarthroplasty"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5d2adf4b-3d36-49e5-adea-fff381c783a1",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Post-operative X-ray"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d98c5577-76de-4b18-836d-651f096360d8",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "valueString": "9.8 g/dL",
+        "interpretation": [
+          {
+            "text": "Low - post-surgical"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d8eeb869-c918-4a70-b8e9-334ae219967d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "TSH"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "valueString": "3.2 mIU/L",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2760ead9-f715-488d-aa86-75a3c5356357",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "DEXA T-score"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "valueString": "-3.2",
+        "interpretation": [
+          {
+            "text": "Osteoporosis"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:93373dfd-d92b-4dc2-b2a6-3335cbc1c533",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Vitamin D"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        },
+        "valueString": "18 ng/mL",
+        "interpretation": [
+          {
+            "text": "Insufficient"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:db93ddf3-b786-434f-83ac-dbfaae29b450",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Physical therapy evaluation"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2c770856-4f4c-49b0-97bf-a07d8c559842",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Occupational therapy evaluation"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:29c233b7-5c10-488a-8a8e-33a38a365b65",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Orthopedic follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "encounter": {
+          "reference": "urn:uuid:4fadc258-5007-4318-8ed3-c03b4c4fe331"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d2b181a7-7613-4369-9c7f-0e6cc938ffe9",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Orthopedic surgeon follow-up",
+        "start": "2026-05-17T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5d64cc71-7532-4c4d-b359-fa0ff1ce1f87",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "relationship": [
+          {
+            "text": "Daughter"
+          }
+        ],
+        "name": [
+          {
+            "family": "Williams-Moore",
+            "given": [
+              "Patricia"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ce900656-6cc8-44aa-8f77-e964126cb3ff",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:d2a78a81-59db-4a4e-b30e-3a442998f1f8"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "Williams",
+            "given": [
+              "Michael"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

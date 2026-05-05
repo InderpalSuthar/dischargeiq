@@ -1,0 +1,756 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-027"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "White",
+            "given": [
+              "Stephanie"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1980-10-22",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "445 Birch Lane"
+            ],
+            "city": "Minneapolis",
+            "state": "MN",
+            "postalCode": "55401",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-027"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "reasonCode": [
+          {
+            "text": "Status epilepticus"
+          }
+        ],
+        "period": {
+          "start": "2026-04-29",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9338aa5-43c6-4e18-aa4d-4f25a4e0062d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G40.209",
+              "display": "Epilepsy, focal with secondary generalization"
+            }
+          ],
+          "text": "Epilepsy, focal with secondary generalization"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "onsetDateTime": "2008-03-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:03860f3d-b5fa-459e-9f56-957e3014f48e",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G41.9",
+              "display": "Status epilepticus"
+            }
+          ],
+          "text": "Status epilepticus"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c8de2811-9609-4bb7-ae25-dc74c882b65f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G43.009",
+              "display": "Migraine without aura"
+            }
+          ],
+          "text": "Migraine without aura"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "onsetDateTime": "2005-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ec686d38-20c0-4d8e-94f2-764405e723b5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Levetiracetam (Keppra)"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1500mg (increased from 1000mg) twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Epilepsy - dose increased after breakthrough seizures"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eb7b2daa-bd6e-4cf5-b505-eb2e9456c5e1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lacosamide (Vimpat)"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "dosageInstruction": [
+          {
+            "text": "200mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Epilepsy - add-on therapy after status epilepticus"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing (newly added)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1035ab6a-61d1-4cb5-ae2b-a01960d9b45c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Topiramate"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Epilepsy and migraine prevention"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f38c8933-adf0-4824-b772-5379ecdbbbc5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lorazepam"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1mg as needed for seizure clusters (rescue)",
+            "timing": {
+              "code": {
+                "text": "as needed for seizure clusters (rescue)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Seizure rescue medication"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: PRN only"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d10fe1fe-70ce-487c-8d24-16c8c52a9e38",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Carbamazepine"
+        },
+        "patient": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Stevens-Johnson Syndrome"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bf84c245-9beb-4af0-a8ea-9bb0c8daed78",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Phenytoin"
+        },
+        "patient": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe rash"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3e935ca1-73e2-42f2-9e8a-bdc279bbd848",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Continuous EEG monitoring (72 hours)"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ca12b097-0e94-4223-994a-e7cdc6107ab1",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "MRI brain with epilepsy protocol"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3bb784f3-3aee-4199-a97c-57230bbf05ca",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "EEG findings"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "valueString": "Left temporal epileptiform discharges, no further seizures after day 1",
+        "interpretation": [
+          {
+            "text": "Consistent with known focal epilepsy"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aa7cfe09-883c-48bf-8f57-7ef696888626",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Levetiracetam level"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "valueString": "42 mcg/mL",
+        "interpretation": [
+          {
+            "text": "Therapeutic (new dose)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:256c4767-cff7-4c6c-941c-8c14a3711a7d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Lacosamide level"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "valueString": "8 mcg/mL",
+        "interpretation": [
+          {
+            "text": "Therapeutic"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:64956035-502f-426c-9b00-27b997347d6c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "MRI brain"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        },
+        "valueString": "Left mesial temporal sclerosis, unchanged",
+        "interpretation": [
+          {
+            "text": "Known finding"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:518fe15c-2aa0-43a7-8478-627fc4dbec97",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Neurology/Epilepsy follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9882f4ce-0544-41b6-8c20-17de3e461e66",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Drug level monitoring in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:26c122fa-b943-4cad-81c4-767c9de0d597",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "DMV notification (driving restriction)"
+        },
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:343a63f9-821e-40e1-a75c-c98f3318d14c",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Epilepsy specialist follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9f832a67-2901-4a11-815a-855f59ba9399",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "White",
+            "given": [
+              "Mark"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:93fe1dbb-84f8-48a3-9778-fe4dcba2e134",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Seizure Action Plan",
+        "description": "Seizure diary, medication adherence, driving restriction (6 months seizure-free required), rescue medication protocol for spouse",
+        "subject": {
+          "reference": "urn:uuid:2f9ac823-9fde-4eaf-bffa-8a3fc46c6856"
+        },
+        "encounter": {
+          "reference": "urn:uuid:18ae4e56-9eda-4fc7-baa7-53e152268315"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

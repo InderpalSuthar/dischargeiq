@@ -1,0 +1,981 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-029"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Hall",
+            "given": [
+              "Catherine"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1973-06-08",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "321 Peach Street"
+            ],
+            "city": "Savannah",
+            "state": "GA",
+            "postalCode": "31401",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-029"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "reasonCode": [
+          {
+            "text": "Hypertensive emergency with end-organ damage"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c0397514-2655-4f9b-9c3c-7c1bdc286264",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I16.1",
+              "display": "Hypertensive emergency"
+            }
+          ],
+          "text": "Hypertensive emergency"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8a9fb0f7-f79b-46fc-88f3-5e55ca8636a2",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N17.9",
+              "display": "Acute kidney injury (hypertensive)"
+            }
+          ],
+          "text": "Acute kidney injury (hypertensive)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d97337aa-11a9-4c42-ab0f-249ec21aedeb",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "H35.039",
+              "display": "Hypertensive retinopathy"
+            }
+          ],
+          "text": "Hypertensive retinopathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a92a9936-9c5d-4422-b16f-f4f8c399fb16",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Resistant hypertension"
+            }
+          ],
+          "text": "Resistant hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "onsetDateTime": "2019-11-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9f6ff4fa-b1ea-418d-9752-d7ae07d1abe9",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.31",
+              "display": "Chronic kidney disease, stage 3a"
+            }
+          ],
+          "text": "Chronic kidney disease, stage 3a"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "onsetDateTime": "2023-04-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f275b422-a14b-4f3c-8535-ed8e0a54d064",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E66.9",
+              "display": "Obesity"
+            }
+          ],
+          "text": "Obesity"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "onsetDateTime": "2015-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6e681690-5e5f-461d-87b5-d48c87e29611",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amlodipine"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a77b37e7-3339-4fae-90f5-88b83073c178",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Losartan"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension and renal protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5721b189-6a3c-47dd-b156-760f81093715",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Chlorthalidone"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3b987e98-7b1b-4ee0-bf65-db1cec1d6e48",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Spironolactone"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg once daily (newly added)",
+            "timing": {
+              "code": {
+                "text": "once daily (newly added)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Resistant hypertension - 4th agent added"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b6d6ff91-46c2-49b6-905e-855299c7155e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Hydralazine"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg three times daily",
+            "timing": {
+              "code": {
+                "text": "three times daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension - additional control"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e2acb33a-967a-40fc-89e8-c337d5d5eb0a",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Lisinopril"
+        },
+        "patient": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Angioedema"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8097ad78-9025-480e-b9aa-719d98c01787",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "IV nicardipine infusion"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bcdd01a6-45a2-4450-8d05-3e21ca60ad2a",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Renal artery doppler"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:48edeb4c-2129-45a3-9916-f91f7060ff57",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Fundoscopic exam"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:12f2044d-460a-4a8b-8805-c88246e17abc",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "valueString": "248/142 mmHg",
+        "interpretation": [
+          {
+            "text": "Hypertensive emergency"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:de98ae63-0a00-486f-bfd7-52cb08deff21",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "valueString": "148/92 mmHg",
+        "interpretation": [
+          {
+            "text": "Improved but not yet at goal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a153021f-624a-4284-bb3a-07c0b51b78eb",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "valueString": "2.8 mg/dL",
+        "interpretation": [
+          {
+            "text": "AKI on CKD"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9450d56-2049-48c0-ac40-21a8c593cdae",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "valueString": "1.8 mg/dL",
+        "interpretation": [
+          {
+            "text": "Improving (baseline 1.5)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:40405431-2b47-46d7-9f32-e8361ab3de7e",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "valueString": "4.5 mEq/L",
+        "interpretation": [
+          {
+            "text": "Normal (monitor with spironolactone)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e4dc86f8-f921-411c-b2d6-d16b25c41830",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Fundoscopy"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        },
+        "valueString": "Grade III hypertensive retinopathy",
+        "interpretation": [
+          {
+            "text": "End-organ damage"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1a8b2d68-d9dc-4ad2-97c0-9157888b97b4",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Nephrology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8f167244-0626-447b-9e96-a15f76c2ee45",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Ophthalmology follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e341aa4f-ad2a-45b5-bfd2-71a59f2ad462",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home blood pressure monitoring (log twice daily)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c5a84e78-b93b-46d0-affe-80bc47c02eb1",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (BMP) in 5 days (monitor potassium on spironolactone)"
+        },
+        "subject": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6bbe02a3-731f-4eac-802c-845a03bf44f8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b16bfaf5-b68e-4bb3-88ab-17a3abd0bacc",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Nephrology follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ab0cb953-bfd9-47c1-adde-5d05c3193aee",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Ophthalmology follow-up",
+        "start": "2026-05-17T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b8d5445f-ce77-4be5-9755-ede63eb661a0",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:0fc28830-294e-42b7-8826-76f6c6a6249d"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Hall",
+            "given": [
+              "James"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

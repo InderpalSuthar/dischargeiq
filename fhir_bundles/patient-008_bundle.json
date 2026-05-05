@@ -1,0 +1,695 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-008"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Anderson",
+            "given": [
+              "Charles"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1970-06-25",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "34 Main Street"
+            ],
+            "city": "Cleveland",
+            "state": "OH",
+            "postalCode": "44101",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-008"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute pancreatitis (alcohol-related)"
+          }
+        ],
+        "period": {
+          "start": "2026-04-26",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7bfa3f8d-d7a1-4b24-9757-c6cc7b261215",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K85.0",
+              "display": "Acute pancreatitis"
+            }
+          ],
+          "text": "Acute pancreatitis"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "onsetDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f0de0545-ae92-427d-a8fb-dbba81b175e6",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F10.20",
+              "display": "Alcohol use disorder, severe"
+            }
+          ],
+          "text": "Alcohol use disorder, severe"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "onsetDateTime": "2018-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b7697bab-969e-4415-92a5-ac7f278acda7",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K76.0",
+              "display": "Chronic liver disease"
+            }
+          ],
+          "text": "Chronic liver disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "onsetDateTime": "2023-07-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:81557c75-edf9-443b-af04-bc19e33b3679",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K21.0",
+              "display": "Gastroesophageal reflux disease"
+            }
+          ],
+          "text": "Gastroesophageal reflux disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "onsetDateTime": "2021-04-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7d260dce-6efe-48ce-b86c-f998aff23f53",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Pantoprazole"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily before breakfast",
+            "timing": {
+              "code": {
+                "text": "once daily before breakfast"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "GERD and gastric protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:01c09381-44a9-42af-a2ef-82e834903d99",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Pancreatic enzyme (Creon)"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25,000 units with each meal",
+            "timing": {
+              "code": {
+                "text": "with each meal"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Pancreatic insufficiency"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bd1c01e4-72ff-466c-9933-f7f2c4b2e9f1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Thiamine (Vitamin B1)"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Nutritional deficiency from alcohol use"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 30 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:24a4332f-a48a-4d91-b087-3c4b846b2b3b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Folic acid"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Nutritional deficiency"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 30 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1dce7d58-1888-4475-9bc5-43e9541b4faa",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Naltrexone"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Alcohol use disorder - craving reduction"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:39bed846-4a4a-4842-bfe9-32f190c878a0",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "CT scan of abdomen"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b9840a3a-bd84-48ed-97eb-d4cd9b93e2ea",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "ERCP"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:37ba2301-767b-43ad-9193-b62410f0b7f8",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Lipase"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "valueString": "1,850 U/L",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:16b388b0-ced5-40ed-9f20-2b0a73aa3b65",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ALT"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "valueString": "78 U/L",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a4c7b047-07ea-41c2-a0c5-6866f48dae94",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "AST"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "valueString": "95 U/L",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ff83274d-13c5-4da0-b6c4-a5f40364e70f",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Alcohol level"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "valueString": "0.18 g/dL",
+        "interpretation": [
+          {
+            "text": "Intoxicated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:85685528-97d4-47e9-8996-a149c3f1eca2",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Platelets"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        },
+        "valueString": "118,000/uL",
+        "interpretation": [
+          {
+            "text": "Low"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1aa41286-3294-4922-abb3-70044b0b70a4",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Addiction medicine follow-up"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:301809d0-9557-4ce3-a589-2d29946b20fd",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "GI follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:c5823ae4-58fe-40d3-aa3f-449deec04736"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a3837862-1b7b-4e54-bda4-ee10de6ca51e"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    }
+  ]
+}

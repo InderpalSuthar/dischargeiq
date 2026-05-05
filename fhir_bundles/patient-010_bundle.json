@@ -1,0 +1,980 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-010"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Brown",
+            "given": [
+              "Michael"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1952-08-20",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "78 Broad Street"
+            ],
+            "city": "Philadelphia",
+            "state": "PA",
+            "postalCode": "19101",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-010"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "reasonCode": [
+          {
+            "text": "Ischemic stroke (left MCA)"
+          }
+        ],
+        "period": {
+          "start": "2026-04-22",
+          "end": "2026-05-01"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Acute rehabilitation facility"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:38b1b664-351c-4b96-b521-e512ac658563",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I63.5",
+              "display": "Ischemic stroke, left middle cerebral artery"
+            }
+          ],
+          "text": "Ischemic stroke, left middle cerebral artery"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "onsetDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bf1c2450-724f-46c0-a2a2-5e8f88d2731a",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G81.91",
+              "display": "Right-sided hemiparesis"
+            }
+          ],
+          "text": "Right-sided hemiparesis"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "onsetDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:275eafa7-662f-4ab8-8e2f-b4891482f32a",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R47.01",
+              "display": "Expressive aphasia"
+            }
+          ],
+          "text": "Expressive aphasia"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "onsetDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:997ee386-69d1-4786-ab0c-7115471afcc2",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I48.91",
+              "display": "Atrial fibrillation"
+            }
+          ],
+          "text": "Atrial fibrillation"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "onsetDateTime": "2020-11-05"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:23eff913-8380-40e5-9b88-a3cceea65e21",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "Essential hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "onsetDateTime": "2005-03-18"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4ca39d4b-05fa-48e1-a1c0-9fbf213b826d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R13.10",
+              "display": "Dysphagia"
+            }
+          ],
+          "text": "Dysphagia"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "onsetDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ed2eaaeb-b0e8-4293-866e-c6b258c6cd02",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Apixaban (Eliquis)"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Stroke prevention in atrial fibrillation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: lifelong"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:123e54f4-641d-450c-a96d-28e06abad30a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Atorvastatin"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "dosageInstruction": [
+          {
+            "text": "80mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-stroke secondary prevention"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: lifelong"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea88862c-493d-4541-8d8c-3757433fd152",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amlodipine"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9d922571-e12e-428d-8d71-f604865fa96e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metoprolol succinate"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Atrial fibrillation rate control and hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6290e0b1-bff5-43b2-a8f4-63d0864ab685",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Lisinopril"
+        },
+        "patient": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Angioedema"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:30669143-2e59-4030-a186-90d9d14428bf",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "CT angiography of head and neck"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "performedDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:31ced223-0258-4159-8dc7-3486183d2747",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "MRI brain"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "performedDateTime": "2026-04-23"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dfbacb6b-8c8e-4d85-a59e-ed95ec3fdc5a",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "IV tPA administration"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "performedDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7360898f-1a76-4d5c-a178-c9544993c007",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Modified barium swallow study"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "performedDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3d1bb4ae-c231-46df-93cd-a894138c5fa8",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "NIH Stroke Scale (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "valueString": "14",
+        "interpretation": [
+          {
+            "text": "Moderate-severe stroke"
+          }
+        ],
+        "effectiveDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2a8a0540-2207-41dc-873f-e482e188325a",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "NIH Stroke Scale (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "valueString": "8",
+        "interpretation": [
+          {
+            "text": "Moderate, improving"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b32305ad-cc30-48c1-9f66-aadca18bbcc0",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "valueString": "142/86 mmHg",
+        "interpretation": [
+          {
+            "text": "Mildly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f3539244-6966-4687-815d-e63c37494310",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "INR"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "valueString": "1.0",
+        "interpretation": [
+          {
+            "text": "Normal (not on warfarin)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b498dd9f-7f40-4c66-9e43-ab72e3d3603d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "LDL"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        },
+        "valueString": "142 mg/dL",
+        "interpretation": [
+          {
+            "text": "High"
+          }
+        ],
+        "effectiveDateTime": "2026-04-23"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e651ebb7-8996-4b10-96a4-8b51bd6a38db",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Inpatient rehabilitation"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8d8199ef-b825-4a6b-8d6e-fdd9a3bb713e",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Speech therapy"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0efb318d-be5f-4c57-af52-68ec5762fe12",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Physical therapy"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f3ae9f8e-8831-4461-bf5f-99b2985b69b9",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Occupational therapy"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c77bd792-2d24-4039-a21d-e11c59ffc86b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Neurology follow-up in 4 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:81f2d25d-804c-491b-9028-eb5a2ecdd928",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Neurology follow-up",
+        "start": "2026-05-29T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fe91cd63-ee49-4da6-9fd4-096fcc1953dc",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Brown",
+            "given": [
+              "Karen"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3601ad85-fde2-402b-b7e4-b84def7311fc",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "Brown",
+            "given": [
+              "David"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3e9ea7f5-43d9-4f9c-8d37-5bc99af53845",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Stroke Rehabilitation Plan",
+        "description": "PT, OT, Speech therapy with goal of functional independence",
+        "subject": {
+          "reference": "urn:uuid:d1ae2b53-35ca-455a-912e-a83ee0d8fec5"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a5a26e7d-baab-4073-a64f-7d48be4aee13"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

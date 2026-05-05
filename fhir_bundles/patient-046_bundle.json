@@ -1,0 +1,1079 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-046"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Peterson",
+            "given": [
+              "Arthur"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1942-03-25",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "567 Quiet Oaks"
+            ],
+            "city": "Lexington",
+            "state": "KY",
+            "postalCode": "40501",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-046"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "reasonCode": [
+          {
+            "text": "Decompensated liver cirrhosis with hepatic encephalopathy"
+          }
+        ],
+        "period": {
+          "start": "2026-04-25",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with home health"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5e878a6f-4d73-49b3-849f-b335ab8ba4a7",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K72.90",
+              "display": "Hepatic encephalopathy, grade II"
+            }
+          ],
+          "text": "Hepatic encephalopathy, grade II"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "onsetDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c2c5fd4c-fb34-41fb-92fe-d31128f1e98b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K75.81",
+              "display": "Nonalcoholic steatohepatitis (NASH) cirrhosis"
+            }
+          ],
+          "text": "Nonalcoholic steatohepatitis (NASH) cirrhosis"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "onsetDateTime": "2021-09-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:916f7384-b008-44c9-8404-d9f969a06e4f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R18.8",
+              "display": "Ascites, moderate"
+            }
+          ],
+          "text": "Ascites, moderate"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "onsetDateTime": "2025-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1ac5da86-fff1-4cce-83f3-b719b35820e9",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes"
+            }
+          ],
+          "text": "Type 2 diabetes"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "onsetDateTime": "2005-06-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9a653e45-ea8e-47b2-9832-6e036dd1ef3b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K76.7",
+              "display": "Hepatorenal syndrome risk"
+            }
+          ],
+          "text": "Hepatorenal syndrome risk"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6eef01e2-d4d8-4ac2-99ff-fca24e785da0",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lactulose"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "dosageInstruction": [
+          {
+            "text": "30mL 3-4 times daily (titrate to 2-3 soft BMs/day)",
+            "timing": {
+              "code": {
+                "text": "3-4 times daily (titrate to 2-3 soft BMs/day)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hepatic encephalopathy - ammonia clearance"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:47a90375-c298-417e-ab80-1a137f740071",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Rifaximin"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "dosageInstruction": [
+          {
+            "text": "550mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hepatic encephalopathy prevention"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0e7cc7a3-84e7-4c7e-af7c-1534528d9776",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Spironolactone"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Ascites"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d69beab7-7229-4f35-882c-6e785a14ed60",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Furosemide"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Ascites"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3dc6d698-cc1c-4a09-acee-cf1670945d4e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Nadolol"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Portal hypertension / variceal prophylaxis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fbe5a81a-5f5a-4eeb-a3ca-b44d6f1d9904",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin glargine"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "dosageInstruction": [
+          {
+            "text": "15 units at bedtime",
+            "timing": {
+              "code": {
+                "text": "at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes (metformin stopped due to liver disease)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6403d16e-5849-4baa-a655-417d04e209c4",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Metformin"
+        },
+        "patient": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Contraindicated in liver disease - lactic acidosis risk"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:12eafb32-1095-4ed8-be8a-9caf45388006",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Diagnostic paracentesis"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "performedDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8dc367a5-8521-4a9c-a184-558fee8cbb15",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "MRI abdomen"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "performedDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c8b2c85d-9b31-4520-98bc-0a2368ed0e1c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Ammonia"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "valueString": "98 umol/L",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:11539c81-b1a9-47db-b878-f0a00118661b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Ammonia (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "valueString": "42 umol/L",
+        "interpretation": [
+          {
+            "text": "Improved"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c7da06c8-042b-4232-ad5d-2f8557a64800",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "MELD-Na score"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "valueString": "22",
+        "interpretation": [
+          {
+            "text": "Moderate-severe liver disease"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:133e0f24-d3de-4813-b978-4d615a75728c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Albumin"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "valueString": "2.2 g/dL",
+        "interpretation": [
+          {
+            "text": "Severely low"
+          }
+        ],
+        "effectiveDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:980c9088-05ad-465e-b83b-0a31f2f0f90a",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "INR"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "valueString": "1.9",
+        "interpretation": [
+          {
+            "text": "Elevated (synthetic dysfunction)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:92b14199-c86b-4e0e-919c-0eb933b7afd6",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Sodium"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "valueString": "128 mEq/L",
+        "interpretation": [
+          {
+            "text": "Low (dilutional)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:74bfa56d-eed3-4aa1-bd42-bf8c47514e2b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "valueString": "1.4 mg/dL",
+        "interpretation": [
+          {
+            "text": "Mildly elevated (hepatorenal risk)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:02dbc47a-4e0c-4913-80c6-b5d8c9cad878",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Ascitic fluid analysis"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        },
+        "valueString": "PMN 45/mm3, albumin gradient >1.1",
+        "interpretation": [
+          {
+            "text": "Portal HTN ascites, no SBP"
+          }
+        ],
+        "effectiveDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ffc2856b-50ab-4a85-abe4-3d6cebcb3ddd",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Hepatology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50de8e76-da4e-45c8-b779-c8fd6ed2b150",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Liver transplant evaluation (expedite)"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8e9810ac-7b13-4ab4-84f9-18b8d157a9d7",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home health nursing (medication management, orientation checks)"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ad738bfc-41a6-4719-aedd-b2ebb434afe2",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (BMP, CBC, LFTs, ammonia) in 5 days"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e6866cb5-3cf9-435f-b4d7-77d8e93b4c38",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Low-sodium diet (<2g/day) and fluid restriction (1.5L/day)"
+        },
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7cba8ad7-a107-4824-825e-63d201638935",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Hepatology follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b5e5870d-66c9-449b-a6f2-648750fc9bbc",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Transplant evaluation",
+        "start": "2026-05-20T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eba53245-c994-4b86-b8d7-9a3727e6a53c",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Peterson",
+            "given": [
+              "Martha"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:39365e48-aee3-46da-9bb1-86248379bab8",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "Peterson",
+            "given": [
+              "James"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d6f568c9-fc35-495d-8911-10a5bfe87b82",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Encephalopathy Prevention",
+        "description": "Lactulose adherence (goal 2-3 BMs/day), protein intake 1.2-1.5g/kg, avoid constipation, family to monitor for confusion/drowsiness, NO sedatives/benzodiazepines, avoid NSAIDs",
+        "subject": {
+          "reference": "urn:uuid:cce6c3da-ee7d-4a80-a994-e67ed531bb80"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d0ce08ef-625d-4af8-9402-9d91dd4923d5"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

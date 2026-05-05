@@ -1,0 +1,1081 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-042"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Campbell",
+            "given": [
+              "Ronald"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1944-06-30",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "234 Oak Hill Drive"
+            ],
+            "city": "Louisville",
+            "state": "KY",
+            "postalCode": "40201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-042"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "reasonCode": [
+          {
+            "text": "CABG x3 (coronary artery bypass graft surgery)"
+          }
+        ],
+        "period": {
+          "start": "2026-04-26",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4e13aeae-0a78-4b56-9aec-c2f58750f284",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Three-vessel coronary artery disease"
+            }
+          ],
+          "text": "Three-vessel coronary artery disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "onsetDateTime": "2026-03-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1386d35f-5669-4c16-9c08-01575a5d72ed",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z95.1",
+              "display": "Post-CABG status"
+            }
+          ],
+          "text": "Post-CABG status"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2c70b4e9-8394-4aac-8ccb-3c50438f4319",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "T81.31",
+              "display": "Sternal wound"
+            }
+          ],
+          "text": "Sternal wound"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e8eb4137-c2e6-457b-937f-a5a349510e7c",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E78.5",
+              "display": "Hyperlipidemia"
+            }
+          ],
+          "text": "Hyperlipidemia"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "onsetDateTime": "2005-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:85522612-dabb-4f49-a1b8-bd60adf760ed",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes"
+            }
+          ],
+          "text": "Type 2 diabetes"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "onsetDateTime": "2012-08-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c5eab736-81cd-4807-8538-d67aa1ba387c",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z87.891",
+              "display": "Former smoker (quit 2020)"
+            }
+          ],
+          "text": "Former smoker (quit 2020)"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:31c5824e-c1bc-4fbd-a63e-9a3809323741",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Aspirin"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "dosageInstruction": [
+          {
+            "text": "81mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-CABG graft protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: lifelong"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7163f03b-85b2-4e4f-9bab-6f98729d9b4c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Atorvastatin"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "dosageInstruction": [
+          {
+            "text": "80mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-CABG high-intensity statin"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: lifelong"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:26990b99-4d73-484c-939c-08eb1d709579",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metoprolol succinate"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-CABG cardiac protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f58304b2-b8e7-437c-80cb-c56ab5ad7427",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Cardiac remodeling prevention"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cfe43a81-7e80-4482-bc9f-9a8bf4e47e37",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Oxycodone"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg every 6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Sternal pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 2 weeks then taper"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:133968f7-a4f8-4544-9d20-99eab3e6d471",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Docusate"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Prevent constipation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: while on opioid"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:72e58e45-cbcc-4595-afca-cbebf919d6e5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4e8d9b34-9c46-48f8-89a7-1bbdbdf4cf8d",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Iron sulfate"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "dosageInstruction": [
+          {
+            "text": "325mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical anemia"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 6 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:60ce0008-fd4e-40a7-8f38-216fc83574f3",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "CABG x3 (LIMA-LAD, SVG-RCA, SVG-OM1)"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "performedDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ee06bb79-7117-4dea-a49d-74375255ef53",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Chest tube removal"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:48655db8-3ace-491b-8c37-bd8d7b8eb49e",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "valueString": "9.8 g/dL",
+        "interpretation": [
+          {
+            "text": "Low post-surgery"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:937c6504-afea-4a5d-aaa3-5064a04a1c54",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood glucose"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "valueString": "175 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated (surgical stress)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8801f24b-ebaa-46b6-82da-9b0a0e96e720",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Chest X-ray"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "valueString": "Small bilateral pleural effusions, expected post-CABG",
+        "interpretation": [
+          {
+            "text": "Expected finding"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:774b7528-fce9-4e15-bca5-ed2f386d8575",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Sternal wound"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "valueString": "Clean, dry, intact, no erythema",
+        "interpretation": [
+          {
+            "text": "Healing well"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9339fc08-839a-4f24-8afd-0ce99ce67484",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Weight"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        },
+        "valueString": "5 lbs above pre-op (fluid retention)",
+        "interpretation": [
+          {
+            "text": "Expected, will resolve"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f5357379-089a-4adb-96df-44647ac1a118",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Cardiac surgery follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eb0a27a5-16c0-4e74-adaa-7291324a2ba4",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Cardiac rehabilitation (start in 4-6 weeks)"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:96fa91c5-a64e-4c3d-bf4e-eb38350cbb75",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Cardiology follow-up in 4 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:829623b9-fc30-46d5-a631-842ae4a1ecaf",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (CBC, BMP) in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d8345deb-8188-4972-b447-f54f186c7ec8",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Cardiac surgery wound check",
+        "start": "2026-05-16T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4d669ddc-6aa5-4731-a656-f17d8bc72f56",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Cardiology follow-up",
+        "start": "2026-05-30T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:de1f4cd3-d10c-43d4-bffc-cb6f9931101b",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Cardiac rehab intake",
+        "start": "2026-06-09T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5bab17ef-ffc7-45c6-b3a5-f75788e187ba",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Campbell",
+            "given": [
+              "Janet"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c44d4572-1f82-4b09-8d2c-f072c607e8c8",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "relationship": [
+          {
+            "text": "Daughter"
+          }
+        ],
+        "name": [
+          {
+            "family": "Campbell",
+            "given": [
+              "Lisa"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5f2de914-c565-4b77-a2d8-7129457d1f81",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Post-CABG Recovery",
+        "description": "Sternal precautions (no lifting >10lbs, no pushing/pulling, no driving for 6 weeks), daily wound inspection, incentive spirometry 10x/hour while awake, walking program (increase daily), pillow splinting for cough",
+        "subject": {
+          "reference": "urn:uuid:51d55b67-f98b-47fb-a027-15a5ffdad828"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d33948a1-d8dc-4b1f-a807-94c081d66365"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

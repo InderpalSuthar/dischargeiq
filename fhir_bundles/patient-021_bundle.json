@@ -1,0 +1,597 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-021"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Taylor",
+            "given": [
+              "Nancy"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1988-05-25",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "230 College Avenue"
+            ],
+            "city": "Denver",
+            "state": "CO",
+            "postalCode": "80201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-021"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "reasonCode": [
+          {
+            "text": "Appendicitis - laparoscopic appendectomy"
+          }
+        ],
+        "period": {
+          "start": "2026-05-01",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4e885e1f-13fc-47cc-84b0-d780c24478a8",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K35.80",
+              "display": "Acute appendicitis"
+            }
+          ],
+          "text": "Acute appendicitis"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "onsetDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9651ec99-6ec1-4d24-82e7-5b4e19bd9fc2",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J45.40",
+              "display": "Asthma, moderate persistent"
+            }
+          ],
+          "text": "Asthma, moderate persistent"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "onsetDateTime": "2000-09-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a7d6414f-f15d-42f9-b402-55df01636b26",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "dosageInstruction": [
+          {
+            "text": "600mg every 6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ad9722fd-1b1e-4995-8582-b663bc396038",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg every 6 hours (alternating with ibuprofen)",
+            "timing": {
+              "code": {
+                "text": "every 6 hours (alternating with ibuprofen)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:504ec687-c6cf-4785-864c-d23d83793135",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metronidazole"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg three times daily",
+            "timing": {
+              "code": {
+                "text": "three times daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical infection prevention (perforated appendix)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3f0df588-d4c2-418f-b351-0dd451f215f3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Fluticasone/Salmeterol (Advair)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "dosageInstruction": [
+          {
+            "text": "250/50 one puff twice daily",
+            "timing": {
+              "code": {
+                "text": "one puff twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Asthma maintenance"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:47fa0696-b51d-4602-81c9-dd660d10ea11",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Albuterol inhaler"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "dosageInstruction": [
+          {
+            "text": "2 puffs as needed",
+            "timing": {
+              "code": {
+                "text": "as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Asthma rescue"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:723194b5-995b-498d-bf71-5d5912bbbb47",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Codeine"
+        },
+        "patient": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe nausea/vomiting"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:df9bec5f-d295-44b4-b0f0-6011fa5d61ef",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Laparoscopic appendectomy"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8d03c37a-1997-4882-bd46-81be4ce1ab56",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "CT abdomen/pelvis"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c8ba679b-1605-458e-9426-e4bfdfdba640",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "WBC"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "valueString": "14,800/uL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b5476dd8-382c-47f6-b5c8-819a6c843846",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "WBC (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "valueString": "9,200/uL",
+        "interpretation": [
+          {
+            "text": "Normalizing"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea965413-fa4d-4dda-b8c9-ba42b914804b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Temperature"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        },
+        "valueString": "98.6 F",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6bef05b1-da88-4f6f-95db-aabbed33eac1",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "General surgery follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+        },
+        "encounter": {
+          "reference": "urn:uuid:6160cdf2-d997-4bd7-bd60-3527525fb6e3"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:86a14dbd-223d-4a9c-8195-fe08ec3a1686",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Surgery follow-up",
+        "start": "2026-05-18T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8c6858d4-6703-40fe-bf7b-3fb1f7b464ed"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    }
+  ]
+}

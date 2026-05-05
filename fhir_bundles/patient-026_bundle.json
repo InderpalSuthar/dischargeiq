@@ -1,0 +1,828 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-026"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Green",
+            "given": [
+              "Harold"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1938-07-04",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "12 Quiet Cove"
+            ],
+            "city": "Sarasota",
+            "state": "FL",
+            "postalCode": "34230",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-026"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "reasonCode": [
+          {
+            "text": "Urosepsis from obstructing ureteral stone"
+          }
+        ],
+        "period": {
+          "start": "2026-04-24",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:08864638-628e-4478-9cca-fce0b39d3127",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "A41.9",
+              "display": "Urosepsis"
+            }
+          ],
+          "text": "Urosepsis"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "onsetDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0ac742a7-8997-42f9-adfd-50dbf2574541",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N20.1",
+              "display": "Obstructing left ureteral calculus"
+            }
+          ],
+          "text": "Obstructing left ureteral calculus"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "onsetDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:66fa5d6a-bb55-4b69-b41f-2419e1a94dbc",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N40.0",
+              "display": "Benign prostatic hyperplasia"
+            }
+          ],
+          "text": "Benign prostatic hyperplasia"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "onsetDateTime": "2015-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bbc3496d-a085-44e4-993e-18dbdc259d60",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.2",
+              "display": "Chronic kidney disease, stage 2"
+            }
+          ],
+          "text": "Chronic kidney disease, stage 2"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "onsetDateTime": "2022-06-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ca50bb74-b83c-4b0f-9f92-35f384945f0b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "onsetDateTime": "2010-01-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:49eb4ff9-c634-4156-a118-f64d744d1f9b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ciprofloxacin"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Urosepsis - complete full course"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 10 days total (6 remaining)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c65ab45e-57c9-47a5-b6b9-7ce32dcfcf0f",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Tamsulosin"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.4mg once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Stone passage and BPH"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 4 weeks (facilitate stone passage)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6614d958-0158-4014-adcb-5ce3a4a68e6c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e56cebf1-2e9f-4bc5-ad58-1342c733f5af",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Finasteride"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "BPH"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d73196d9-128c-4cd1-acaf-69a148ee45a8",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Nitrofurantoin"
+        },
+        "patient": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Pulmonary toxicity"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1853055c-0dea-46fd-8fde-09a4e76a7e0e",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "CT abdomen/pelvis without contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "performedDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d4089c2f-0019-4129-9b47-a2a297e1fd2b",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Ureteral stent placement"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "performedDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:092de112-f8bd-44a7-a5bf-6e0b9c960901",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Blood cultures"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "performedDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2868a07a-ee2c-4750-9593-038c4d5ca028",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "WBC (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "valueString": "24,500/uL",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bb4b9525-bd7e-482a-91a0-76e958a3ec03",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Lactate"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "valueString": "4.2 mmol/L",
+        "interpretation": [
+          {
+            "text": "Elevated - sepsis"
+          }
+        ],
+        "effectiveDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9a882ed8-0a41-480f-8a0b-5ddc767a6f05",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "valueString": "2.8 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated (baseline 1.4)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3111d4f3-4d16-4718-a0c9-b724ca2cbdf3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "valueString": "1.5 mg/dL",
+        "interpretation": [
+          {
+            "text": "Near baseline"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:56d958fb-f281-4d31-8b9e-bb3f31ab9d09",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Stone size on CT"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        },
+        "valueString": "8mm left UVJ",
+        "interpretation": [
+          {
+            "text": "Too large for spontaneous passage likely"
+          }
+        ],
+        "effectiveDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f2102a6e-eed1-44e6-82b9-5a85606eaafe",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Urology follow-up in 2 weeks (stent removal + lithotripsy planning)"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:17fd49a5-6c43-4cb8-961d-6e35018294da",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (BMP) in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:55e578ac-e092-4b61-8db7-facf492f18a8",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Strain urine for stone"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:868804b0-bb9d-4930-8a3b-afba4868484d"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b45faf29-cde2-419d-9ce7-28e397bf3005",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Urology - stent removal and stone management",
+        "start": "2026-05-16T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:65ec2c34-bd6f-4a43-8867-24747cb38f1f",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:fa8f126b-61c2-45af-81eb-2ebb13c7758b"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Green",
+            "given": [
+              "Betty"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

@@ -1,0 +1,868 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-034"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Edwards",
+            "given": [
+              "Timothy"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1961-05-03",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "78 Harbor View"
+            ],
+            "city": "Charleston",
+            "state": "SC",
+            "postalCode": "29401",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-034"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute gout flare with septic joint rule-out"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:edd5069f-c1a4-47c6-9124-3ab1c9839022",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M10.061",
+              "display": "Acute gouty arthritis, right knee"
+            }
+          ],
+          "text": "Acute gouty arthritis, right knee"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:afdcbd07-5afb-4a6e-b6b9-0a1e4bb30e88",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M1A.00",
+              "display": "Chronic tophaceous gout"
+            }
+          ],
+          "text": "Chronic tophaceous gout"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "onsetDateTime": "2015-08-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:875b3feb-6299-4130-80d6-322261248614",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.32",
+              "display": "Chronic kidney disease, stage 3b"
+            }
+          ],
+          "text": "Chronic kidney disease, stage 3b"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "onsetDateTime": "2021-06-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:99a1211e-22f0-4988-9d78-d2ea2139929e",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "onsetDateTime": "2005-03-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b654ace2-6f11-4c56-a149-0b73a41cf392",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I50.9",
+              "display": "Congestive heart failure"
+            }
+          ],
+          "text": "Congestive heart failure"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "onsetDateTime": "2022-09-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:91269042-7356-4aed-93d2-ca19727efe84",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Colchicine"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.6mg once daily (renal dose)",
+            "timing": {
+              "code": {
+                "text": "once daily (renal dose)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Gout flare and prophylaxis (dose adjusted for CKD)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: until flare resolves then ongoing prophylaxis"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1848fccd-a8e0-41dc-ad58-c6ad4e794c55",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prednisone"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "dosageInstruction": [
+          {
+            "text": "30mg tapering (decrease 5mg every 3 days) once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Gout flare (NSAIDs contraindicated due to CKD and CHF)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: taper over 15 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:148d7910-1f29-4682-90d1-9eb47f4c1109",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Allopurinol"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg (to be started 2 weeks after flare resolves) once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Urate lowering therapy - DO NOT START DURING FLARE"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: lifelong"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c7865da5-1124-4381-937f-7496b6827f3f",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Losartan"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension (also has mild uricosuric effect)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7a0b19c3-7b43-44c1-b6c6-4884bd7f7135",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Carvedilol"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "dosageInstruction": [
+          {
+            "text": "6.25mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc993390-8efb-4f37-b9cf-e668381cb3bc",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Furosemide"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure (contributes to gout - discuss with rheumatology)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:680884c3-db96-4b1d-82e7-5cb1a30772c1",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "NSAIDs"
+        },
+        "patient": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Worsening kidney function and fluid retention"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0d0c62f7-2f41-44a9-8d87-3f4baa46e603",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Right knee arthrocentesis"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2fe6d7b8-064a-4b6f-8b32-e309e3eba950",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Synovial fluid analysis"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dc828a3b-45eb-47f0-b799-bb0fea796102",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Synovial fluid crystals"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "valueString": "Negatively birefringent (monosodium urate)",
+        "interpretation": [
+          {
+            "text": "Confirms gout"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c336e2cd-ef1d-42b3-a902-9b12268138b8",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Synovial fluid culture"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "valueString": "No growth (final)",
+        "interpretation": [
+          {
+            "text": "Septic joint ruled out"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6f04f107-5e95-4249-87a8-fee31ad4fe9f",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Uric acid"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "valueString": "10.8 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1132431a-127e-4031-b3b2-115a123d360c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "valueString": "2.2 mg/dL",
+        "interpretation": [
+          {
+            "text": "At baseline (CKD 3b)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc405b04-0132-4e2d-aab7-965aa549fc11",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "CRP"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        },
+        "valueString": "48 mg/L",
+        "interpretation": [
+          {
+            "text": "Elevated - acute inflammation"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ad60a843-b033-4095-9396-ff1eaca27ff2",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Rheumatology follow-up in 2 weeks (start allopurinol)"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d3fec28d-2dd2-452d-b248-0d3e5126fd7b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (uric acid, BMP) in 2 weeks before starting allopurinol"
+        },
+        "subject": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ea290c11-2f75-4d01-86e2-f9f582bbcba9"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3c604f54-44cd-40e7-8280-e3e61707d6e3",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Rheumatology follow-up",
+        "start": "2026-05-18T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4556c987-34c0-4e6c-a5a9-77fff7d3b34f",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:499631f4-e5b1-43e7-b2e9-7b263d466b7b"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Edwards",
+            "given": [
+              "Carol"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1033 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-033"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Young",
+            "given": [
+              "Amanda"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1992-08-14",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "445 College Park"
+            ],
+            "city": "Austin",
+            "state": "TX",
+            "postalCode": "78701",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-033"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "reasonCode": [
+          {
+            "text": "Severe asthma exacerbation"
+          }
+        ],
+        "period": {
+          "start": "2026-05-01",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3d0ee0f8-1d00-41b3-93d5-679d4031700f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J45.51",
+              "display": "Severe persistent asthma with acute exacerbation"
+            }
+          ],
+          "text": "Severe persistent asthma with acute exacerbation"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "onsetDateTime": "2010-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:786ffdcd-d7ed-40ae-8430-0205a4e8c78d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J30.9",
+              "display": "Allergic rhinitis"
+            }
+          ],
+          "text": "Allergic rhinitis"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "onsetDateTime": "2005-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2967750a-8d65-4063-90ea-dad81549f116",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "L30.9",
+              "display": "Eczema"
+            }
+          ],
+          "text": "Eczema"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "onsetDateTime": "2000-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cd23a8ca-b464-48a5-8e7d-f4c927e386e8",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F41.1",
+              "display": "Anxiety disorder"
+            }
+          ],
+          "text": "Anxiety disorder"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "onsetDateTime": "2020-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:55b272f5-d99a-42ac-908f-11461756c1a5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prednisone"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Asthma exacerbation - systemic steroid burst"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days (burst)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8881b702-f253-409a-b07c-1dd2d4c28ac8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Fluticasone/Salmeterol (Advair) 500/50"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1 puff twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Asthma controller (stepped up from 250/50)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ca0704ac-8c2b-4aa9-b0ca-afc5966d671a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Montelukast (Singulair)"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Asthma and allergic rhinitis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:03927d7f-0768-4b40-a356-cb40cc4a37d0",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Albuterol nebulizer"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "dosageInstruction": [
+          {
+            "text": "2.5mg every 4 hours as needed (step down to inhaler as improving)",
+            "timing": {
+              "code": {
+                "text": "every 4 hours as needed (step down to inhaler as improving)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Asthma rescue"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week then PRN"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8dadd755-463e-4e4b-9414-3c3fbb8de2f1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Tiotropium (Spiriva Respimat)"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "dosageInstruction": [
+          {
+            "text": "2 puffs once daily (newly added)",
+            "timing": {
+              "code": {
+                "text": "once daily (newly added)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Add-on controller for severe asthma"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7c4a7d7b-afd0-481e-8598-850b782c8ab8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Cetirizine"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Allergic rhinitis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f63ffe21-5a7a-45f4-9cda-c6ab41b1cc16",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Escitalopram"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Anxiety"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4993cff3-4c18-4143-a7c7-39f5ade08008",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Aspirin"
+        },
+        "patient": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Bronchospasm (AERD)"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:85914678-731e-491c-b5f1-918aa794174b",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "NSAIDs"
+        },
+        "patient": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Bronchospasm"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f6a2a055-6f48-444e-976d-40c383528f34",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Cats"
+        },
+        "patient": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe asthma trigger"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:037cad3b-b9eb-408a-95bd-ce6f26224f46",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Chest X-ray"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f863a048-d8df-4ba8-85a7-d003579bcf19",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Arterial blood gas"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:008659dd-a0d2-492e-beaa-bac7f5bab6c1",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Peak flow monitoring"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "performedDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:28d6adf5-f0ae-47c8-8082-4704d622985b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Peak flow (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "valueString": "180 L/min (40% predicted)",
+        "interpretation": [
+          {
+            "text": "Severe obstruction"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6e122f5a-f97f-454e-9fab-a9b23e67572c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Peak flow (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "valueString": "350 L/min (78% predicted)",
+        "interpretation": [
+          {
+            "text": "Improved, not yet baseline"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:240130c7-3c6d-4389-b71c-f1ff12e87378",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "SpO2 (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "valueString": "89%",
+        "interpretation": [
+          {
+            "text": "Hypoxic"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d6cc4bf9-da06-49a5-b403-22cb5e691cb4",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "SpO2 (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "valueString": "97%",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:988a131c-b25b-449f-9f61-cbf9e4f575f5",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "pH"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        },
+        "valueString": "7.38",
+        "interpretation": [
+          {
+            "text": "Normal (no CO2 retention)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d139fefd-d21b-4d71-8dc3-89d844622d4b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Pulmonology/Allergy follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eca68cfd-3c94-4b3c-9322-5c93cc09a3d7",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Asthma action plan update"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:56a66bb9-f59c-4d5b-bc54-da585b1baaa8",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home peak flow meter"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f0b8946e-fbc5-4c57-8539-5b29a17f0fbd",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Consider biologic therapy (omalizumab evaluation)"
+        },
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2da89d8b-8097-4941-a6b0-74d55366e288",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Pulmonology/Allergy follow-up",
+        "start": "2026-05-11T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cd497167-789f-4dde-ab06-9e099269789f",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "relationship": [
+          {
+            "text": "Mother"
+          }
+        ],
+        "name": [
+          {
+            "family": "Young",
+            "given": [
+              "Rachel"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a7bfbf42-d4cc-4c31-bc32-d9c1e28fbc33",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Asthma Action Plan",
+        "description": "Green zone (>80% PF): maintenance meds. Yellow zone (50-80%): add albuterol Q4H, call doctor if no improvement in 24h. Red zone (<50%): albuterol Q20min x3, call 911 if no improvement.",
+        "subject": {
+          "reference": "urn:uuid:84eadf07-c1a0-476a-806d-d4e9b8637f1a"
+        },
+        "encounter": {
+          "reference": "urn:uuid:2d73c440-2cac-418e-8d3e-dae688ca6e24"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

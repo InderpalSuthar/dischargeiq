@@ -1,0 +1,935 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-039"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Lewis",
+            "given": [
+              "Jennifer"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1983-12-20",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "45 Sunset Strip"
+            ],
+            "city": "Las Vegas",
+            "state": "NV",
+            "postalCode": "89101",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-039"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "reasonCode": [
+          {
+            "text": "Bipolar I disorder - manic episode with psychotic features"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with partial hospitalization program"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2b77cf04-10b1-4a04-a70d-0ffdd410704d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F31.2",
+              "display": "Bipolar I disorder, current episode manic with psychotic features"
+            }
+          ],
+          "text": "Bipolar I disorder, current episode manic with psychotic features"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "onsetDateTime": "2009-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:90649817-2728-4591-8a92-7558ff782309",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F41.1",
+              "display": "Generalized anxiety disorder"
+            }
+          ],
+          "text": "Generalized anxiety disorder"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "onsetDateTime": "2007-06-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2fe865b2-b511-4d35-9e6f-0af6752970a1",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E03.9",
+              "display": "Hypothyroidism (lithium-induced)"
+            }
+          ],
+          "text": "Hypothyroidism (lithium-induced)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "onsetDateTime": "2018-01-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:99af82f4-35c3-4d87-b77f-54e1616d37ca",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E66.9",
+              "display": "Obesity"
+            }
+          ],
+          "text": "Obesity"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "onsetDateTime": "2016-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9d8343dc-916a-46df-85eb-3811f4e76004",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lithium"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "900mg at bedtime",
+            "timing": {
+              "code": {
+                "text": "at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Bipolar disorder mood stabilizer"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d9531722-3187-47d8-a75f-8081d7f5073a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Olanzapine (Zyprexa)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg at bedtime (newly added for acute mania)",
+            "timing": {
+              "code": {
+                "text": "at bedtime (newly added for acute mania)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Acute mania with psychotic features"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: taper in 4-6 weeks per psychiatrist"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fba8ad1c-d524-40ee-8460-e8ae06bd696c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Clonazepam"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.5mg twice daily as needed for agitation",
+            "timing": {
+              "code": {
+                "text": "twice daily as needed for agitation"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Acute agitation during manic episode"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 2 weeks then reassess"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ed635a21-4ce2-4d35-b0fa-622b3047b1eb",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Levothyroxine"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "75mcg once daily on empty stomach",
+            "timing": {
+              "code": {
+                "text": "once daily on empty stomach"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Lithium-induced hypothyroidism"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7a8c4e03-b685-45fc-864d-e45fe5feed44",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Buspirone"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "15mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Generalized anxiety"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea52962a-d4e9-4ed1-9b93-0ec72b6755e2",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Valproic acid"
+        },
+        "patient": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe hepatotoxicity"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5b439c8b-5dfe-4d44-b550-90da51846615",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Carbamazepine"
+        },
+        "patient": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Agranulocytosis"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9878a5ae-a5dc-4bd2-850b-a4e63e5bbf1c",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Psychiatric evaluation"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3c644b84-21c1-4f77-91a3-da8e77a20cb6",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Lithium level monitoring"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dcfab802-8f04-4940-821d-30cab7799581",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Lithium level"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "valueString": "0.9 mEq/L",
+        "interpretation": [
+          {
+            "text": "Therapeutic (0.6-1.2)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3fce03d5-2c44-4a75-adfd-f7c4f501790d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "TSH"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "valueString": "5.8 mIU/L",
+        "interpretation": [
+          {
+            "text": "Slightly elevated - may need levothyroxine increase"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7e6310d8-bc56-4ba0-87a9-e67d0df7f3c6",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "valueString": "0.9 mg/dL",
+        "interpretation": [
+          {
+            "text": "Normal (monitoring for lithium nephrotoxicity)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:94732e17-862b-4a05-b51c-3ae162306d74",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Young Mania Rating Scale (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "valueString": "38",
+        "interpretation": [
+          {
+            "text": "Severe mania"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7b044f95-fde2-42c1-9550-8e959b79b7cd",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Young Mania Rating Scale (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        },
+        "valueString": "14",
+        "interpretation": [
+          {
+            "text": "Mild, significantly improved"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc1179a3-b3c6-4231-b453-69deeedb5fc7",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Partial hospitalization program (PHP) 5 days/week"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3420c003-5ac9-4cbe-9dfb-5b482bb7849a",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Psychiatry follow-up in 3 days"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:013e1d1c-80db-46e2-a2ad-24886f9d60e1",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Lithium level in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d640ad54-15e4-4d23-8ea0-bebdc239f0ed",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "TSH recheck in 6 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ad5405ec-5441-45c7-897d-91507c696d54",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "PHP first day",
+        "start": "2026-05-05T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2664bbf7-4252-40b6-a885-43ed0a2558fd",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Psychiatry follow-up",
+        "start": "2026-05-06T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3d24a5d0-1c2b-438a-b2aa-7c58d8690fce",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "relationship": [
+          {
+            "text": "Sister"
+          }
+        ],
+        "name": [
+          {
+            "family": "Lewis",
+            "given": [
+              "Monica"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c99e712b-feaf-44f4-b098-3a07a19278f1",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "relationship": [
+          {
+            "text": "Father"
+          }
+        ],
+        "name": [
+          {
+            "family": "Lewis",
+            "given": [
+              "Robert"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8e798193-8d8b-4723-afad-cfa6a1006b6b",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Bipolar Disorder Stability Plan",
+        "description": "PHP attendance, medication adherence (especially lithium timing), sleep hygiene (8hr minimum), avoid alcohol/caffeine, avoid financial decisions during recovery, emergency contact plan for early warning signs",
+        "subject": {
+          "reference": "urn:uuid:5af1d5eb-c712-4d79-bc20-f290c478b137"
+        },
+        "encounter": {
+          "reference": "urn:uuid:05d1a0db-93ab-4411-aeb6-10bfc915cd0a"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

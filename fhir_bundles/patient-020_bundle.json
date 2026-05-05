@@ -1,0 +1,994 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-020"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Wilson",
+            "given": [
+              "Frank"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1950-06-14",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "445 Veterans Blvd"
+            ],
+            "city": "San Antonio",
+            "state": "TX",
+            "postalCode": "78201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-020"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "reasonCode": [
+          {
+            "text": "Exacerbation of PTSD with suicidal ideation, stabilized"
+          }
+        ],
+        "period": {
+          "start": "2026-04-25",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with intensive outpatient program"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:839f2696-6a6c-4284-96d6-e033cd88bf7a",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F43.12",
+              "display": "Post-traumatic stress disorder, chronic"
+            }
+          ],
+          "text": "Post-traumatic stress disorder, chronic"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "onsetDateTime": "1972-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:26859456-9e42-4a25-bb0f-03cc64ed1191",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F33.2",
+              "display": "Major depressive disorder, recurrent, severe"
+            }
+          ],
+          "text": "Major depressive disorder, recurrent, severe"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "onsetDateTime": "2015-05-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e84418e8-2cfb-4c05-9f43-69fade14b242",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F10.21",
+              "display": "Alcohol use disorder, in early remission"
+            }
+          ],
+          "text": "Alcohol use disorder, in early remission"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "onsetDateTime": "2024-06-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7d6624b4-406b-4cc3-8eae-95c7aa1df6d7",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "Essential hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "onsetDateTime": "2005-09-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d9eb8e1f-649d-4ef1-9546-a5d64e5e13cc",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M54.5",
+              "display": "Chronic low back pain"
+            }
+          ],
+          "text": "Chronic low back pain"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "onsetDateTime": "1980-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1419065c-58c6-4f15-952a-b7c78a1d0f30",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G47.00",
+              "display": "Insomnia"
+            }
+          ],
+          "text": "Insomnia"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "onsetDateTime": "1972-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1c1b4b80-3694-4da1-ae08-35d9008d18b4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Sertraline (Zoloft)"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "200mg (increased from 150mg) once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "PTSD and depression (dose increased this admission)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:373ac31d-4c18-4b2a-a71e-18c77f6bf2e7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prazosin"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg (increased from 3mg) at bedtime",
+            "timing": {
+              "code": {
+                "text": "at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "PTSD nightmares (dose increased this admission)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e77be75b-6f42-43ea-baf6-60f60ed575fb",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Trazodone"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg at bedtime",
+            "timing": {
+              "code": {
+                "text": "at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Insomnia"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d7acfc9e-c184-4fd8-899c-9dafda6ec074",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:14f660b6-dda5-44c0-ba30-ae7fd0025c35",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg every 6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Back pain (avoiding opioids)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:548a69b4-d656-46e5-8d78-f0ec4cfb9b5f",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Naltrexone"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Alcohol use disorder maintenance"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e943bb24-cdc8-4dae-8728-5804c2a64481",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Psychiatric evaluation"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "performedDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2c07cbbe-7fb8-4b85-b84a-4b67d48caa90",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Safety planning"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:abbfa3e0-f6f4-48be-948f-24c32529c8ee",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Group therapy sessions"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "performedDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:34f64000-e601-4290-a2cc-6c97433da4c1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "PHQ-9 (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "valueString": "24",
+        "interpretation": [
+          {
+            "text": "Severe depression"
+          }
+        ],
+        "effectiveDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:676e0fd4-8c84-4c8f-8eb6-f538f8e28e73",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "PHQ-9 (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "valueString": "14",
+        "interpretation": [
+          {
+            "text": "Moderate depression, improving"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:42ee0798-6af3-4a2f-86b5-a01f49d869fe",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "PCL-5 (PTSD)"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "valueString": "62",
+        "interpretation": [
+          {
+            "text": "Severe PTSD symptoms"
+          }
+        ],
+        "effectiveDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:848c1534-7ebd-420a-9121-510056638fdf",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Columbia Suicide Severity Rating"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "valueString": "Ideation without plan at discharge",
+        "interpretation": [
+          {
+            "text": "Improved from ideation with plan on admission"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:00c8d1eb-a42b-487f-8d6d-bbec034bda0b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        },
+        "valueString": "138/82 mmHg",
+        "interpretation": [
+          {
+            "text": "Mildly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d01636aa-55fb-4672-9f41-b9c2b1ddd4db",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Intensive outpatient program (IOP) 3 days/week"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:00c86a5d-9a6f-4070-b5b9-72f01feac635",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Individual therapy weekly"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:32c5218a-50df-4dac-8000-fdc081e691be",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Psychiatry follow-up in 3 days"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:61b2af68-4e95-4be1-9d2b-7cbe490b687d",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Crisis line number provided (Veterans Crisis Line: 988 press 1)"
+        },
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0357db38-46b7-45fd-9535-4e14006ec311",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Psychiatry follow-up",
+        "start": "2026-05-05T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3a4c5c69-c755-4f66-8289-659114155e59",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "IOP first session",
+        "start": "2026-05-05T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:19398d82-780d-47dc-9edb-cfb1418d9798",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Individual therapist",
+        "start": "2026-05-08T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6ed7bd3c-c92b-4c78-84c1-66fd591269b6",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "relationship": [
+          {
+            "text": "Brother"
+          }
+        ],
+        "name": [
+          {
+            "family": "Wilson",
+            "given": [
+              "Robert"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3c7a1c1b-9db9-4812-83f5-eca86008590d",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Safety Plan",
+        "description": "Warning signs, coping strategies, people to contact, emergency contacts. Veterans Crisis Line: 988 press 1.",
+        "subject": {
+          "reference": "urn:uuid:b187c075-97e6-4685-80fc-5e567a3a76f6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:28c3f5ee-df6c-4fc7-8abe-ee1865b033e8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

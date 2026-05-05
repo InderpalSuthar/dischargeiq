@@ -1,0 +1,1100 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-047"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Santos",
+            "given": [
+              "Maria"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1964-08-17",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "1890 Flores Avenue"
+            ],
+            "city": "El Paso",
+            "state": "TX",
+            "postalCode": "79901",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "es",
+                  "display": "Spanish"
+                }
+              ],
+              "text": "Spanish"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-047"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "reasonCode": [
+          {
+            "text": "Rheumatoid arthritis flare with joint effusions and medication toxicity"
+          }
+        ],
+        "period": {
+          "start": "2026-04-27",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6c25250a-15f6-4ecb-a080-1b1f833f6271",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M05.79",
+              "display": "Rheumatoid arthritis, severe, seropositive"
+            }
+          ],
+          "text": "Rheumatoid arthritis, severe, seropositive"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "onsetDateTime": "2010-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fbdefd0d-d979-4ee9-9a30-bc06b7ab5db1",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "T45.1X5A",
+              "display": "Methotrexate toxicity (pancytopenia)"
+            }
+          ],
+          "text": "Methotrexate toxicity (pancytopenia)"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:443125d3-4ae3-4444-9a7d-44e0dab65893",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M25.46",
+              "display": "Bilateral knee effusions"
+            }
+          ],
+          "text": "Bilateral knee effusions"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "onsetDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:76e427c2-c0e2-4c96-8269-d97c4f7b381c",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M81.8",
+              "display": "Osteoporosis (steroid-induced)"
+            }
+          ],
+          "text": "Osteoporosis (steroid-induced)"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "onsetDateTime": "2022-01-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7a014602-c7b8-4eb6-81e8-9509372e2ce6",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J84.10",
+              "display": "Interstitial lung disease (RA-related)"
+            }
+          ],
+          "text": "Interstitial lung disease (RA-related)"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "onsetDateTime": "2024-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:47a4478e-1b7d-4e8d-b7c9-3df379ca5d88",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Methotrexate"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "dosageInstruction": [
+          {
+            "text": "DISCONTINUED (was 20mg weekly) STOPPED",
+            "timing": {
+              "code": {
+                "text": "STOPPED"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Toxicity - caused pancytopenia this admission"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: Do not restart without rheumatology approval"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b33b49cc-f513-4d82-bcee-52b00deaa01e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prednisone"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "dosageInstruction": [
+          {
+            "text": "15mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "RA flare control (taper as tolerated)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: bridge therapy until new biologic starts"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:32dbc573-cffd-4ad7-a000-1127b17924e0",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Folic acid"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Folate repletion post-MTX toxicity"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:89ce19e3-e853-4cf7-8016-e8f31a350295",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Alendronate"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "dosageInstruction": [
+          {
+            "text": "70mg once weekly",
+            "timing": {
+              "code": {
+                "text": "once weekly"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Steroid-induced osteoporosis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6df76790-dc05-4c13-b4a9-c8db1d7a51ce",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Calcium + Vitamin D"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1200mg/1000IU daily",
+            "timing": {
+              "code": {
+                "text": "daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Bone protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c7674d04-edf0-43a3-bb4d-0b8760c5e0bf",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Omeprazole"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Gastric protection with steroids"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: while on prednisone"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f2b8b16e-5b16-43e0-be27-6bfa5b92c283",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Sulfasalazine"
+        },
+        "patient": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe hepatotoxicity"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6e2f30e6-64f3-49d2-b453-f8ea1d771c90",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Leflunomide"
+        },
+        "patient": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe diarrhea and dehydration"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8eb092b9-7fe6-4ec9-bc38-06c39e87d89e",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Bilateral knee arthrocentesis"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5bb586e3-7aa8-4876-99c4-51c2a93c4307",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Bone marrow biopsy"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:baca6b07-13c2-456e-9ffc-6ee43ec86989",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "WBC"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "valueString": "1,800/uL",
+        "interpretation": [
+          {
+            "text": "Dangerously low (MTX toxicity)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:56477f07-22bb-4403-8fd6-1d97b32498da",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "WBC (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "valueString": "4,200/uL",
+        "interpretation": [
+          {
+            "text": "Recovering"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f86091dc-cb7b-4709-95d2-ac1083274e9a",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "valueString": "8.5 g/dL",
+        "interpretation": [
+          {
+            "text": "Low (pancytopenia)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:99547203-48b6-4d30-8a89-67a8848c6593",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Platelets"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "valueString": "72,000/uL",
+        "interpretation": [
+          {
+            "text": "Low"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5daeff5c-20c8-4190-9fae-0386bfe8bb29",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Platelets (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "valueString": "145,000/uL",
+        "interpretation": [
+          {
+            "text": "Recovering"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9da6bd8-ec63-4a27-91d7-fcf6adac3d84",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "CRP"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "valueString": "65 mg/L",
+        "interpretation": [
+          {
+            "text": "Elevated (RA flare)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f6301dea-322e-4cf8-a1dd-e1e57b271fe4",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "RF"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "valueString": "128 IU/mL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:32e7c4a4-714f-4750-a15e-594ac09dcd02",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Bone marrow"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        },
+        "valueString": "Hypocellular, consistent with drug toxicity, no malignancy",
+        "interpretation": [
+          {
+            "text": "Confirms MTX toxicity"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9771f874-1f9d-4ee9-9df5-fbf5f189e045",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Rheumatology follow-up in 1 week (urgent - new DMARD decision)"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:06152fcb-d3ef-44db-87b2-753d06420738",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "CBC twice weekly until counts normalize"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cf4b79f9-05e8-413d-a95d-380d1f2021d1",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Pulmonology follow-up for ILD monitoring"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:08099414-f0cd-4e77-8ba6-13f68699dfc8",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Avoid crowds and sick contacts while immunocompromised"
+        },
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9ac34fe8-e412-43b7-9102-3356f6cdc731",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Rheumatology urgent follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2d3f0445-a6d7-451a-82cb-1287f15afb31",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Pulmonology ILD check",
+        "start": "2026-05-24T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cb9a8d5d-ec33-4e66-91b2-646a4ed86e85",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Santos",
+            "given": [
+              "Roberto"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f336f466-5a4f-46b1-b0f5-07bfbbf33922",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "relationship": [
+          {
+            "text": "Daughter"
+          }
+        ],
+        "name": [
+          {
+            "family": "Santos",
+            "given": [
+              "Isabel"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b6fdd678-b1e6-4144-9b50-8f8a1f8d4c1f",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Immunocompromised Precautions",
+        "description": "Avoid crowds, report any fever >100.4F immediately (go to ER), no live vaccines, hand hygiene, report any bleeding or bruising. MTX is permanently discontinued.",
+        "subject": {
+          "reference": "urn:uuid:74e3da62-684a-4a62-861e-0e882c541d14"
+        },
+        "encounter": {
+          "reference": "urn:uuid:d8aeed80-dfd2-4264-acf6-8f0c6a172921"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

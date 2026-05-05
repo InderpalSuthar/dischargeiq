@@ -1,0 +1,966 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-035"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Turner",
+            "given": [
+              "Michelle"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1976-02-28",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "233 Riverside Drive"
+            ],
+            "city": "Portland",
+            "state": "OR",
+            "postalCode": "97201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-035"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "reasonCode": [
+          {
+            "text": "Multiple sclerosis relapse - optic neuritis and leg weakness"
+          }
+        ],
+        "period": {
+          "start": "2026-04-30",
+          "end": "2026-05-05"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2dfaadf5-9f2c-4bce-9152-2d18465e5082",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G35",
+              "display": "Multiple sclerosis, relapsing-remitting"
+            }
+          ],
+          "text": "Multiple sclerosis, relapsing-remitting"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "onsetDateTime": "2012-06-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1d50069d-174c-48d4-afca-10c48bff8177",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "H46.12",
+              "display": "Acute optic neuritis, left eye"
+            }
+          ],
+          "text": "Acute optic neuritis, left eye"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d8af6f9b-8d0d-4af7-a8af-28063bd1b51e",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G81.14",
+              "display": "Left leg weakness (new)"
+            }
+          ],
+          "text": "Left leg weakness (new)"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4aa22da9-0f68-45c0-8c30-90f82c995e6f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N31.9",
+              "display": "Neurogenic bladder"
+            }
+          ],
+          "text": "Neurogenic bladder"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "onsetDateTime": "2022-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9947a837-0ba4-419b-8b86-52fd148d69cc",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R53.83",
+              "display": "Fatigue (MS-related)"
+            }
+          ],
+          "text": "Fatigue (MS-related)"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "onsetDateTime": "2015-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9134d23-9621-4158-b67a-53d990e9b47c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Methylprednisolone IV (completed)"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg daily for 5 days",
+            "timing": {
+              "code": {
+                "text": "daily for 5 days"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "MS relapse - high-dose pulse steroids"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: completed in hospital"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:27859563-52e8-4af3-9279-4d5bb3148f98",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prednisone oral taper"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "dosageInstruction": [
+          {
+            "text": "60mg decreasing by 10mg every 3 days once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Transition from IV steroids"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 18 day taper"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bce16690-b51b-4c19-aa33-57f05c9dad91",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ocrevus (ocrelizumab)"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "dosageInstruction": [
+          {
+            "text": "Next infusion due 5/28 every 6 months",
+            "timing": {
+              "code": {
+                "text": "every 6 months"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "MS disease-modifying therapy"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9243ad4c-e1a9-4163-9ba5-2f6180bdd264",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Modafinil"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "dosageInstruction": [
+          {
+            "text": "200mg once daily in morning",
+            "timing": {
+              "code": {
+                "text": "once daily in morning"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "MS fatigue"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c9c5621c-dc34-441f-952a-58268fbe8c45",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Oxybutynin"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Neurogenic bladder/urgency"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4b4f6f4a-3b40-408d-9c36-bebc9e3664ab",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Vitamin D3"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5000 IU once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "MS-associated vitamin D optimization"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:af0c51c4-3b51-4420-b5a7-80a2dfe9995b",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Interferon beta"
+        },
+        "patient": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe flu-like syndrome and depression"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:35c49915-cfb3-44a5-a64e-c5ae28aad308",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "MRI brain and spine with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:da023bb6-5904-4184-929f-76286b453585",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "IV methylprednisolone infusion x5 days"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b9460fc9-b9a8-42f1-bd5d-5170da89a880",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Visual evoked potentials"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "performedDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1ddf97d8-946b-4cc9-af04-ceb767240ae8",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "MRI findings"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "valueString": "2 new enhancing lesions (periventricular and left optic nerve), increased T2 lesion load",
+        "interpretation": [
+          {
+            "text": "Active relapse confirmed"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:236bcda3-4a6a-44f6-a4fd-f83d71c9fdac",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Visual acuity (left eye)"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "valueString": "20/100 (was 20/20)",
+        "interpretation": [
+          {
+            "text": "Reduced, starting to improve"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8010fb00-fae7-4076-8254-1baa2c689893",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "EDSS score"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "valueString": "3.5 (was 2.0)",
+        "interpretation": [
+          {
+            "text": "Worsened with relapse"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f8670d1b-9b93-45db-a13e-2046fc392c60",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Vitamin D level"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        },
+        "valueString": "28 ng/mL",
+        "interpretation": [
+          {
+            "text": "Suboptimal for MS (target >40)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b8c5796a-4bd7-4043-b967-cc4e8eb02b38",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "MS specialist/Neurology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e80f10dc-8c14-463b-bf10-68c4437e16a6",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Ophthalmology follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:002873f9-a8a7-470a-85af-07b7ece17287",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Physical therapy for leg weakness"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cc567e97-26fd-4006-a7a1-c28b5bd7e256",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Discuss DMT switch at next neurology visit (breakthrough on Ocrevus)"
+        },
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7eda5059-71f4-40ff-9611-648886a60837",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "MS Neurology follow-up",
+        "start": "2026-05-12T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e4ed1282-f079-4b7c-bddd-b37ab1bf6fcd",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Ophthalmology",
+        "start": "2026-05-19T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ec791b38-583a-40ea-9c33-d072b1877d31",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Ocrevus infusion (if proceeding)",
+        "start": "2026-05-28T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:472c4dfa-f255-42c9-9209-871b11d50476",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Turner",
+            "given": [
+              "Brian"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4c474bb2-65d9-4a09-8cf5-d1967b568066",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "MS Relapse Recovery",
+        "description": "Steroid taper, PT for mobility, ophthalmology monitoring, reassess DMT at next visit",
+        "subject": {
+          "reference": "urn:uuid:4ecdbeaf-cead-4c4c-8c45-445a805e5fa9"
+        },
+        "encounter": {
+          "reference": "urn:uuid:30b2b1bb-4c18-44ca-8cb7-e10ab54059ed"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

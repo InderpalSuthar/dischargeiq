@@ -1,0 +1,1326 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-049"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Walker",
+            "given": [
+              "Shirley"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1946-12-10",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "23 Magnolia Street"
+            ],
+            "city": "Jackson",
+            "state": "MS",
+            "postalCode": "39201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-049"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "reasonCode": [
+          {
+            "text": "Diabetic foot ulcer with osteomyelitis"
+          }
+        ],
+        "period": {
+          "start": "2026-04-24",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with home health"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:56e9d2d7-f0f8-4970-a8b2-ae90c7ea2259",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.621",
+              "display": "Diabetic foot ulcer, right great toe"
+            }
+          ],
+          "text": "Diabetic foot ulcer, right great toe"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "onsetDateTime": "2026-03-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8e6fb6bf-4b68-4b0f-84d0-f21ea258c084",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M86.171",
+              "display": "Osteomyelitis, right first metatarsal"
+            }
+          ],
+          "text": "Osteomyelitis, right first metatarsal"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "onsetDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fcd28809-25ea-49bb-95fe-f819883b3437",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.69",
+              "display": "Type 2 diabetes with multiple complications"
+            }
+          ],
+          "text": "Type 2 diabetes with multiple complications"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "onsetDateTime": "1998-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0005c1f6-bf37-4864-b0c7-231d989a8ae1",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I73.9",
+              "display": "Peripheral arterial disease"
+            }
+          ],
+          "text": "Peripheral arterial disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "onsetDateTime": "2019-08-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0534edb6-eb2d-4792-a305-1ecb0559bcfa",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.42",
+              "display": "Diabetic neuropathy"
+            }
+          ],
+          "text": "Diabetic neuropathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "onsetDateTime": "2012-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:668adf58-4e78-4c0d-8cfd-e777ce1f067f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.32",
+              "display": "Chronic kidney disease, stage 3b"
+            }
+          ],
+          "text": "Chronic kidney disease, stage 3b"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "onsetDateTime": "2020-11-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9976895c-4949-4171-ae75-ef5b85504a94",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "onsetDateTime": "2000-04-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b1656fa5-be8b-4126-b0b4-a031792c33e8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ertapenem"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1g IV once daily via PICC line",
+            "timing": {
+              "code": {
+                "text": "once daily via PICC line"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Osteomyelitis - IV antibiotic course"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 6 weeks total (4 weeks remaining)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:60795beb-8232-4cf6-b74a-fe8318639a09",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin glargine"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40 units at bedtime",
+            "timing": {
+              "code": {
+                "text": "at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9584f59e-88ba-4f4e-ae73-3f07336d4dcc",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin lispro"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "per sliding scale before meals",
+            "timing": {
+              "code": {
+                "text": "before meals"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes mealtime coverage"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d49043f1-2dff-40d2-a3b0-43cc61eb47b3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension and renal protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:94b308da-6b3e-47c3-8e3e-741184f5c0aa",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amlodipine"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:34813116-7ced-45c7-903e-81607233adb6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Aspirin"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "81mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "PAD cardiovascular protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dc996534-381c-4762-90ec-58119536c3a5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Gabapentin"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "300mg twice daily (renal adjusted)",
+            "timing": {
+              "code": {
+                "text": "twice daily (renal adjusted)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Neuropathic pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a56ffb2f-0821-4368-af8d-4da400dfd7e6",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Vancomycin"
+        },
+        "patient": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Red man syndrome"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f2256961-9c2c-481c-844d-159a3ba000b2",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Fluoroquinolones"
+        },
+        "patient": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Tendon rupture (prior event)"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:82e1e25c-9877-4807-82ce-ca8fd9f3de05",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "MRI right foot"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "performedDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fbccf9aa-2d1f-4afc-91fc-1a87a7626840",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Bone biopsy and culture"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "performedDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9a43b7d-45c2-4196-9e3d-ce7fd243d0b1",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Surgical debridement of ulcer"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "performedDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:826cf309-6709-4f17-af80-d019ea67efea",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "PICC line placement"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:46fe2dc2-9d1f-42de-aede-272e0eca0676",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Vascular assessment (ABI)"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "performedDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:32a93bd9-a1a8-4d93-a628-c98981ac6903",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Bone culture"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "valueString": "MSSA (Methicillin-sensitive Staph aureus)",
+        "interpretation": [
+          {
+            "text": "Susceptible to ertapenem"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea64b800-93e6-47a1-9f10-18828ce6adfc",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ESR"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "valueString": "85 mm/hr",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:35e0354a-417b-4c43-a752-ae2a274bc789",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "CRP"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "valueString": "42 mg/L",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-24"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4d9a495b-89fa-4a91-b246-bfe4bba55256",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "valueString": "10.2%",
+        "interpretation": [
+          {
+            "text": "Very poor control"
+          }
+        ],
+        "effectiveDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f2145cbd-5a95-4124-9783-7bcb051b9076",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ABI (right)"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "valueString": "0.55",
+        "interpretation": [
+          {
+            "text": "Moderate PAD - impaired wound healing"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8caace15-bcea-41e9-b930-1e1e5f9b8650",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "valueString": "1.9 mg/dL",
+        "interpretation": [
+          {
+            "text": "CKD 3b baseline"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8266bd4d-c844-4744-b3e1-a3e859773161",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Wound measurement"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        },
+        "valueString": "2.5cm x 1.8cm x 0.5cm depth, granulating base",
+        "interpretation": [
+          {
+            "text": "Improving after debridement"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d671718c-af69-4801-b722-624549051671",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home health nursing for PICC care and IV antibiotics"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:414f1dac-adf0-4556-8b76-ee1097f8dbcc",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Wound care specialist follow-up weekly"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:61898c45-d0e9-4ebf-9e24-5add25c5b3f2",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Infectious disease follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9712edbc-57ea-4829-8e61-f85167d4f50b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Vascular surgery consultation"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d21050af-78fe-4bfa-8e80-e61d39756366",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Offloading boot for right foot"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c43e9475-95af-4296-9d3b-b08debe44196",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (CBC, CRP, BMP) weekly while on IV antibiotics"
+        },
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b7897b4d-bf05-4109-abb0-ea972f751b2d",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Wound care follow-up",
+        "start": "2026-05-09T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3b556764-e836-4e05-958e-a6f59d1affa8",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Infectious disease follow-up",
+        "start": "2026-05-16T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8618eaf0-86c7-4c63-bb6c-55f270a9486e",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Vascular surgery consultation",
+        "start": "2026-05-23T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:19ee9551-1588-4299-8732-19438b66a6ee",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "relationship": [
+          {
+            "text": "Daughter"
+          }
+        ],
+        "name": [
+          {
+            "family": "Walker",
+            "given": [
+              "Denise"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:166b46b1-f20a-4794-b17c-174459ab75a7",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "Walker",
+            "given": [
+              "Roy"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:15578959-21b5-4306-86c8-4f37626384b9",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Diabetic Foot Ulcer Management",
+        "description": "Daily wound inspection, offloading boot at all times when weight-bearing, PICC care and IV antibiotic schedule, blood glucose monitoring QID, report fever/worsening redness/drainage immediately",
+        "subject": {
+          "reference": "urn:uuid:fd6c746b-5d88-4862-9f00-e37870a60b89"
+        },
+        "encounter": {
+          "reference": "urn:uuid:849319a0-6b3c-47b2-8b93-f02116ab70f0"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

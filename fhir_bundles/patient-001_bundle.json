@@ -1,0 +1,721 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-001"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Thompson",
+            "given": [
+              "Margaret"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1958-03-15",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "142 Oak Street"
+            ],
+            "city": "Boston",
+            "state": "MA",
+            "postalCode": "02115",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-001"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "reasonCode": [
+          {
+            "text": "Heart failure exacerbation"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:67fde449-860a-44b2-a6eb-a1412fdbffc9",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I50.9",
+              "display": "Congestive heart failure"
+            }
+          ],
+          "text": "Congestive heart failure"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "onsetDateTime": "2023-06-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7d697244-6e4b-4385-9b8c-80ea4c4191d2",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "onsetDateTime": "2019-01-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d52a0a46-3f15-4fd8-bd4a-ea11d8febec8",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "Essential hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "onsetDateTime": "2015-08-05"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:14dbbc46-ed0b-4cad-a665-6bbba96c1f02",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.3",
+              "display": "Chronic kidney disease, stage 3"
+            }
+          ],
+          "text": "Chronic kidney disease, stage 3"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "onsetDateTime": "2022-11-12"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8dfc1463-7585-4940-a40d-cb106ff5f8f4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Furosemide"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure - fluid management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:972c6759-d2d7-40fd-b185-ece85cbaa751",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure and hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ec63e740-55de-45d9-a15b-94f5ccc5e9e9",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metoprolol succinate"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure - rate control"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1c54c0c8-2389-47df-9538-b593152cdc2b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Type 2 diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:82bff93d-0365-48c5-abe5-f837d8200700",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Spironolactone"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cfbeb2e2-9705-4010-98c5-aae7d19cd1ed",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Penicillin"
+        },
+        "patient": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Rash"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a18a6923-0f85-484e-aeea-3218e8a092c5",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Echocardiogram"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3bdf6416-8f0c-469c-84a1-e4ec06548c4f",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Chest X-ray"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0e744766-bd79-4042-ac50-ff164fba7227",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "BNP"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "valueString": "850 pg/mL",
+        "interpretation": [
+          {
+            "text": "High"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5ccdedc5-c7e4-458b-927a-4853039d52dd",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "valueString": "1.8 mg/dL",
+        "interpretation": [
+          {
+            "text": "High"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b85ad4c9-5383-48bd-902b-63f2231ef8ae",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "valueString": "4.2 mEq/L",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:984cd88b-d569-4c9e-b195-5c3a94feb8aa",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "valueString": "7.8%",
+        "interpretation": [
+          {
+            "text": "Above target"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:905ff53f-acdb-4397-87ac-48b87aa81b6b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Ejection Fraction"
+        },
+        "subject": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:82978e89-7933-4060-9a7c-1a393ed7a5e0"
+        },
+        "valueString": "35%",
+        "interpretation": [
+          {
+            "text": "Reduced"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ef7971fe-3fe6-4923-9f08-4aa2c9a07854",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:34a3dc73-6d5c-4a7a-9bca-1ff21534bb3b"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Thompson",
+            "given": [
+              "Robert"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

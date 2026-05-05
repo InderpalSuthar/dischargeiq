@@ -1,0 +1,790 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-009"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Nguyen",
+            "given": [
+              "Patricia"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1985-02-14",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "2100 Cherry Lane"
+            ],
+            "city": "Seattle",
+            "state": "WA",
+            "postalCode": "98101",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "vi",
+                  "display": "Vietnamese"
+                }
+              ],
+              "text": "Vietnamese"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-009"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "reasonCode": [
+          {
+            "text": "Preeclampsia with severe features - emergency C-section"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:17f723a9-9749-41bd-9efb-d164ce87bd58",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "O14.1",
+              "display": "Preeclampsia with severe features"
+            }
+          ],
+          "text": "Preeclampsia with severe features"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:82069a1d-281c-495e-9feb-7811f1fb19a5",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "O24.4",
+              "display": "Gestational diabetes"
+            }
+          ],
+          "text": "Gestational diabetes"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "onsetDateTime": "2026-02-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:55933a00-12c0-4983-a0cd-7e9c005dc53a",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z39.0",
+              "display": "Postpartum state"
+            }
+          ],
+          "text": "Postpartum state"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e6106bd5-f03c-4a56-8a27-031125c09b30",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "O90.0",
+              "display": "Cesarean wound"
+            }
+          ],
+          "text": "Cesarean wound"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ac15140b-eab5-44bf-aa75-6ca14a4afbf8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Nifedipine ER"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "dosageInstruction": [
+          {
+            "text": "30mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Blood pressure control post-preeclampsia"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: Until blood pressure normalizes (usually 6-12 weeks)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c274f652-be43-487a-82a7-9fe9d1055325",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "dosageInstruction": [
+          {
+            "text": "600mg every 6 hours",
+            "timing": {
+              "code": {
+                "text": "every 6 hours"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 7 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5fd91d68-b55d-4d59-82bf-3b398409774d",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Iron supplement"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "dosageInstruction": [
+          {
+            "text": "325mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-partum anemia"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 6 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3bf30722-87c9-4ff7-be87-fb9b1d5b618e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Stool softener (Docusate)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Prevent constipation post-surgery/opioid use"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 2 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8cd5aeaa-c257-4661-bac8-cce00606328a",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Morphine"
+        },
+        "patient": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe itching and hives"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:25e6a861-35ec-40de-83bd-f62b2251a1e3",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Emergency cesarean section"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d9dc053c-7d19-4af9-8d36-950683a535dc",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Magnesium sulfate infusion (seizure prevention)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8dd4b68f-f34b-4b99-846d-b6dbdda9de54",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure (peak)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "valueString": "178/112 mmHg",
+        "interpretation": [
+          {
+            "text": "Severely elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d7717b80-6d44-4ce6-9342-87fcfc967ac2",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "valueString": "138/88 mmHg",
+        "interpretation": [
+          {
+            "text": "Mildly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ee17e04e-b2b4-420f-b356-3f178738b810",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Protein/creatinine ratio"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "valueString": "0.8",
+        "interpretation": [
+          {
+            "text": "Significant proteinuria"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:06f0ccc5-9c1e-4ecb-bf3d-cc91bfa73dd2",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "valueString": "9.2 g/dL",
+        "interpretation": [
+          {
+            "text": "Low - post-surgical"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:69576018-1d24-4178-875e-539ccc905803",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Platelets"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        },
+        "valueString": "142,000/uL",
+        "interpretation": [
+          {
+            "text": "Low-normal, improving"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ec7b6e5b-3d66-4a6c-8158-5a93b716d5ca",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "OB follow-up in 1 week for blood pressure check"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7c8da9ca-65fd-4c4d-8515-2fdbfb8c492a",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Blood pressure monitoring at home twice daily"
+        },
+        "subject": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "encounter": {
+          "reference": "urn:uuid:a4417767-0047-4b2d-8c91-758b4217fc45"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2de41370-43f8-4cb0-8bef-d1e36ec62d99",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "OB postpartum follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5b979589-a18e-4abd-bd01-53c75df48fe9",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "6-week postpartum visit",
+        "start": "2026-05-31T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7c66faab-682b-41d5-bf7d-2869064f37a4",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Nguyen",
+            "given": [
+              "Tran"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cb38ec4a-99f7-4fad-ae93-331f804bca98",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:6d377647-011b-4083-bed7-05634f4bb468"
+        },
+        "relationship": [
+          {
+            "text": "Mother"
+          }
+        ],
+        "name": [
+          {
+            "family": "Nguyen",
+            "given": [
+              "Mai"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

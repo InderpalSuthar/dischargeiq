@@ -1,0 +1,921 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-041"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Ramirez",
+            "given": [
+              "Carol"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1986-07-11",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "1200 Desert Rose Lane"
+            ],
+            "city": "Tucson",
+            "state": "AZ",
+            "postalCode": "85701",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-041"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "reasonCode": [
+          {
+            "text": "Anaphylaxis from medication reaction"
+          }
+        ],
+        "period": {
+          "start": "2026-04-30",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b902a981-3453-4980-959d-802de19f0e65",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "T36.0X5A",
+              "display": "Anaphylaxis due to penicillin"
+            }
+          ],
+          "text": "Anaphylaxis due to penicillin"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "onsetDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:039acda1-8021-45fd-ab10-1c80d9b99c05",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J02.0",
+              "display": "Strep pharyngitis (original infection)"
+            }
+          ],
+          "text": "Strep pharyngitis (original infection)"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d33b75f7-4004-4617-83c4-7728bbb367e1",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J45.30",
+              "display": "Asthma, mild persistent"
+            }
+          ],
+          "text": "Asthma, mild persistent"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "onsetDateTime": "2010-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4fd03662-0c98-4e7d-b629-f235364c940f",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Azithromycin"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg day 1, 250mg days 2-5 once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Strep pharyngitis (penicillin alternative)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc4127b3-2ef1-45db-a0fc-90387e34e22d",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "EpiPen (epinephrine auto-injector)"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.3mg carry at all times, use for anaphylaxis",
+            "timing": {
+              "code": {
+                "text": "carry at all times, use for anaphylaxis"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Emergency anaphylaxis treatment (NEW prescription)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: lifelong"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ef2c03b9-0fdf-4531-b68e-4ddb93042826",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prednisone"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Prevent biphasic anaphylactic reaction"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 3 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:16c2a4dd-af4e-458e-9b60-037b4c237b78",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Cetirizine"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Residual allergic symptoms"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e6c04388-9ce4-41e1-a211-ce00a83fbe79",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Famotidine"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "H2-blocker for allergic reaction support"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:635b43d6-da72-4136-b114-c41a3e0f1080",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Montelukast"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Asthma"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e967d106-9685-463b-a31d-e6f1b266b415",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Albuterol inhaler"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "2 puffs as needed",
+            "timing": {
+              "code": {
+                "text": "as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Asthma rescue"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:97c95a24-7b7c-4110-9190-e911a8b67aba",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Penicillin"
+        },
+        "patient": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Anaphylaxis (confirmed this admission - throat swelling, hypotension, urticaria)"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e93e1ba2-c53a-402f-be1a-bd7638736ff0",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Amoxicillin"
+        },
+        "patient": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Cross-reactive with penicillin - AVOID all penicillins and cephalosporins"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dc43cef1-c378-4d76-8daa-f3e476b966d6",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Epinephrine administration x2"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d304571e-d142-4f0b-a84d-5f9158c932b8",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "IV fluid resuscitation"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d79beef5-333f-46e8-88a9-a783f291aef3",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "ICU monitoring (24 hours)"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:87b61eea-adc0-4a28-be5c-406c86f0dc79",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure (nadir)"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "valueString": "72/40 mmHg",
+        "interpretation": [
+          {
+            "text": "Anaphylactic shock"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a180e3ee-d661-4c19-aee3-2458cae7b9e4",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Tryptase level"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "valueString": "45 ng/mL",
+        "interpretation": [
+          {
+            "text": "Elevated - confirms anaphylaxis"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c6c684d9-2ca2-42eb-b17d-4bd61072dce7",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "valueString": "118/72 mmHg",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5de193a2-7e48-4f32-b408-e51f20f52ab7",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "SpO2"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        },
+        "valueString": "99%",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e2e55f5a-d85e-4592-aab8-3579d4e878ff",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Allergy/Immunology follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:546d9b63-aad5-4618-b6fd-aa5f2e41b398",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Medical alert bracelet recommendation"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6b76151d-c194-44c8-9f49-6aef8a26a6f7",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "EpiPen training (patient and family)"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9cf6ccb2-200c-436d-8572-e808a0f51f2a",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Update allergy records in ALL health systems"
+        },
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a66d605b-4292-4775-95ce-7551b92f92b3",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Allergy/Immunology",
+        "start": "2026-05-14T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7b664fed-4698-4521-8913-479f9037b990",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Ramirez",
+            "given": [
+              "Diego"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:929ee9a2-e7dc-4722-86e2-92cf57275568",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Anaphylaxis Action Plan",
+        "description": "Carry EpiPen at ALL times. Use immediately if: throat tightening, difficulty breathing, widespread hives, dizziness. Call 911 after using EpiPen. AVOID all penicillins, amoxicillin, ampicillin, and cephalosporins. Wear medical alert bracelet.",
+        "subject": {
+          "reference": "urn:uuid:3efafb00-1894-4995-b418-5e7210c36c8d"
+        },
+        "encounter": {
+          "reference": "urn:uuid:c368b421-2d3a-480c-b1a6-73c9d1a536ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

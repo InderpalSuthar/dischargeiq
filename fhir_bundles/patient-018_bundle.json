@@ -1,0 +1,660 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-018"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Patel",
+            "given": [
+              "David"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1982-01-09",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "567 Commerce Street"
+            ],
+            "city": "Dallas",
+            "state": "TX",
+            "postalCode": "75201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-018"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "reasonCode": [
+          {
+            "text": "Pulmonary embolism"
+          }
+        ],
+        "period": {
+          "start": "2026-04-30",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a7b52932-91f0-4415-b5e9-76148b5c1b5a",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I26.99",
+              "display": "Acute pulmonary embolism, bilateral"
+            }
+          ],
+          "text": "Acute pulmonary embolism, bilateral"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "onsetDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:64082be5-3741-455b-896e-43236416255a",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I82.43",
+              "display": "Deep vein thrombosis, right popliteal"
+            }
+          ],
+          "text": "Deep vein thrombosis, right popliteal"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:de01bc0d-23ed-4f1c-b8b9-49cf64619087",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "D68.51",
+              "display": "Factor V Leiden heterozygous"
+            }
+          ],
+          "text": "Factor V Leiden heterozygous"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "onsetDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d2bb069e-a05c-4804-b31b-530d3ffbcb6c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Rivaroxaban (Xarelto)"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "15mg twice daily with food",
+            "timing": {
+              "code": {
+                "text": "twice daily with food"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "PE/DVT treatment anticoagulation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 21 days, then 20mg once daily"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:28f1ea97-39f2-4e28-bb1b-4b47593504eb",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg every 6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Pleuritic chest pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f0e66b9d-f769-4455-beca-b11e1677ea89",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "CT pulmonary angiography"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9347f2aa-16bb-4b40-a97d-bb82cf3950f0",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Bilateral lower extremity doppler ultrasound"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:361c2da5-e5e2-4570-afc3-5b205edcf2f4",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Echocardiogram (RV strain evaluation)"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f1cc6037-dd16-4734-a31d-64e80df4d8a1",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Thrombophilia workup"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:80b2035c-17d9-4e89-8b0c-7de8b91349cc",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "D-dimer"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "valueString": "8,500 ng/mL",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c403e805-0a7e-4e56-bf38-a7cf6eb15f1a",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Troponin"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "valueString": "0.08 ng/mL",
+        "interpretation": [
+          {
+            "text": "Mildly elevated - RV strain"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d0423829-83c0-45ff-939b-7cfc87ca10af",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "SpO2"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "valueString": "94% on room air",
+        "interpretation": [
+          {
+            "text": "Mildly low, improving"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f4b00d53-d060-4210-86f6-b25f125728ce",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "RV/LV ratio"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "valueString": "1.1",
+        "interpretation": [
+          {
+            "text": "Borderline RV dilation"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2eefea37-13d6-4185-b4e8-0493df5e2e67",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        },
+        "valueString": "82 bpm",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:767bac38-37d3-4993-9021-5e5a49ecd2c1",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Hematology follow-up for thrombophilia"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1044da88-82a7-4913-a7ba-b70605425ee3",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "PCP follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d14d8394-2df0-471c-a417-e73505191795",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Repeat CT-PA in 3 months"
+        },
+        "subject": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "encounter": {
+          "reference": "urn:uuid:13296ea2-97d5-4e90-87a1-663ee13f6da8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7551d4cd-912a-4c4e-b8ad-dad9efda60d6",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "PCP follow-up",
+        "start": "2026-05-11T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a7bb86e7-cf9d-4cb4-acc5-9fa0224f3b1e",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Hematology - thrombophilia counseling",
+        "start": "2026-05-25T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9f7764bc-4a48-426b-8f4f-972f3eb31ed5",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:fa31b48b-3da3-4e98-8c07-5be5c33f9ded"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Patel",
+            "given": [
+              "Priya"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

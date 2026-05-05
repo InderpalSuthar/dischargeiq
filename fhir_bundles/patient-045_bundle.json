@@ -1,0 +1,811 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-045"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Nelson",
+            "given": [
+              "Kimberly"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1987-09-03",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "112 Brookfield Lane"
+            ],
+            "city": "Raleigh",
+            "state": "NC",
+            "postalCode": "27601",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-045"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "reasonCode": [
+          {
+            "text": "Postpartum hemorrhage after vaginal delivery"
+          }
+        ],
+        "period": {
+          "start": "2026-04-29",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ef7c5b5d-1c9d-4111-b174-5d06be682e05",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "O72.1",
+              "display": "Postpartum hemorrhage"
+            }
+          ],
+          "text": "Postpartum hemorrhage"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9ac217ad-0471-4ffd-9d8a-d678e5070fc6",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "D62",
+              "display": "Severe anemia (acute blood loss)"
+            }
+          ],
+          "text": "Severe anemia (acute blood loss)"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4dcb1dc7-4c10-4659-be74-4d7a50153676",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z39.0",
+              "display": "Postpartum state"
+            }
+          ],
+          "text": "Postpartum state"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0366a473-aa99-4630-9cbd-4348dd6f2267",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "O72.1",
+              "display": "Uterine atony"
+            }
+          ],
+          "text": "Uterine atony"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "onsetDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1aa7ea13-1a53-4f1c-a2e3-19a44363c61c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Iron sulfate"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "325mg three times daily with vitamin C",
+            "timing": {
+              "code": {
+                "text": "three times daily with vitamin C"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Severe anemia from hemorrhage"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 3 months"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:40ee9f26-1491-4d38-bc32-f66c46fc15af",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "600mg every 6 hours",
+            "timing": {
+              "code": {
+                "text": "every 6 hours"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Postpartum pain and uterine cramping"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:214de529-28fb-4837-9487-f84b91c5c6c5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prenatal vitamin"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1 tablet once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Nutritional support for breastfeeding"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: while breastfeeding"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:898886d7-07bf-43a5-a84b-44446dbdbd3b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Stool softener"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Prevent straining with iron supplementation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 2 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:83bd5f42-b1fd-4d39-88c2-2b1346290243",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Vaginal delivery"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4521dc7d-0923-4744-988f-55982ed5aa3d",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Uterine massage and uterotonics"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ba61f99b-f040-4fe1-9593-4f5a685ff126",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Blood transfusion (2 units pRBC)"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eb9b2ba4-48a6-4b37-ac14-604f0bf19c08",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Bakri balloon placement (removed day 2)"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b6cf2195-60b7-4030-8813-e774c1bedfdb",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Estimated blood loss"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "valueString": "1,800 mL",
+        "interpretation": [
+          {
+            "text": "Major hemorrhage"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1dc8948c-f21c-4d62-ace8-e4116caa76c7",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin (nadir)"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "valueString": "6.5 g/dL",
+        "interpretation": [
+          {
+            "text": "Severely low"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4fd25cdf-671e-44cd-86a2-e80a3b7236c3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "valueString": "8.8 g/dL",
+        "interpretation": [
+          {
+            "text": "Improved, still low"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d014297c-a9f1-4363-8095-dbd39a774e62",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood pressure"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "valueString": "110/68 mmHg",
+        "interpretation": [
+          {
+            "text": "Stable"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b9b9c803-ac57-4e07-b4e1-95d7b800e845",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Uterine involution"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        },
+        "valueString": "Firm, fundus at umbilicus",
+        "interpretation": [
+          {
+            "text": "Appropriate"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50a035f0-b415-43d7-b414-123cd715fb94",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "OB follow-up in 1 week (earlier than standard due to hemorrhage)"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:77a19b25-4a73-4824-a9ab-79a3292627e7",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "CBC in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:645e9d4e-489b-4cc1-b0fd-c1670b9c4cc9",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Lactation support (may be affected by anemia)"
+        },
+        "subject": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:5cf10a3d-ce53-467f-9d4a-8b12bd8cf0a4"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ad33f97e-3481-4101-bcc6-8a2999bbf8cd",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "OB post-hemorrhage follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9df83c96-88ba-4255-9876-bf6ea3ab30c9",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "6-week postpartum visit",
+        "start": "2026-06-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7f47c7f2-de12-4bdb-8d0c-d786615028fc",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Nelson",
+            "given": [
+              "Tyler"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:26765b33-cdf3-4daa-983a-e23bb9fe12a7",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:919f33a8-bd54-4588-8b2a-8f576f5bdcf6"
+        },
+        "relationship": [
+          {
+            "text": "Mother"
+          }
+        ],
+        "name": [
+          {
+            "family": "Miller",
+            "given": [
+              "Susan"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

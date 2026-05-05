@@ -1,0 +1,1261 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-030"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Cooper",
+            "given": [
+              "Daniel"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1959-12-15",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "1100 Industrial Way"
+            ],
+            "city": "Gary",
+            "state": "IN",
+            "postalCode": "46401",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-030"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "reasonCode": [
+          {
+            "text": "End-stage renal disease - dialysis catheter placement and initiation"
+          }
+        ],
+        "period": {
+          "start": "2026-04-25",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with dialysis schedule"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f768dd28-d1b8-448c-aadd-34e590536491",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N18.6",
+              "display": "End-stage renal disease"
+            }
+          ],
+          "text": "End-stage renal disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "onsetDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3aa74004-f19a-4cf7-aeca-33d0e7f50bea",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.21",
+              "display": "Type 2 diabetes with nephropathy"
+            }
+          ],
+          "text": "Type 2 diabetes with nephropathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "onsetDateTime": "2005-08-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2ecf236d-d15a-4ba6-bcf3-0f76dbf8cabf",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "onsetDateTime": "2000-03-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea3ad013-8026-4338-b942-c60091528fcb",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I50.9",
+              "display": "Congestive heart failure"
+            }
+          ],
+          "text": "Congestive heart failure"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "onsetDateTime": "2022-11-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e24bcd95-4788-4a28-a6d0-b9e21800ecac",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G63",
+              "display": "Peripheral neuropathy"
+            }
+          ],
+          "text": "Peripheral neuropathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "onsetDateTime": "2018-05-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0d8fb777-24a7-47a4-a366-9ace66d3bea6",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "D63.1",
+              "display": "Anemia of CKD"
+            }
+          ],
+          "text": "Anemia of CKD"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "onsetDateTime": "2023-01-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dec275ad-a4d6-4944-8c08-fc31ab15706f",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin glargine"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "dosageInstruction": [
+          {
+            "text": "18 units (reduced for dialysis) once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes - dose reduced for dialysis clearance changes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cae1d050-8a2f-4cf7-a57b-54977b9d034a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin lispro"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "dosageInstruction": [
+          {
+            "text": "per carb counting (reduced ratios) before meals",
+            "timing": {
+              "code": {
+                "text": "before meals"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes - mealtime"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c57ebe82-8677-4793-9164-dd2d0324fe04",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Carvedilol"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Heart failure and hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aa92576c-1a0c-4845-af37-61a46dc836e7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Sevelamer"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1600mg with each meal",
+            "timing": {
+              "code": {
+                "text": "with each meal"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Phosphorus binding for ESRD"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4fd45eae-fb86-4b4f-b384-af233fbaea2b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Epoetin alfa"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "dosageInstruction": [
+          {
+            "text": "6000 units at each dialysis session (3x/week)",
+            "timing": {
+              "code": {
+                "text": "at each dialysis session (3x/week)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Anemia of ESRD"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:564e3072-c0ab-4aaa-af17-1ea167ec940a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Calcitriol"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.5mcg after each dialysis",
+            "timing": {
+              "code": {
+                "text": "after each dialysis"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Vitamin D and calcium metabolism"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:639d117e-8fa4-465d-8fe1-e97a7537cca8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Gabapentin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg (renal dose) once daily after dialysis only",
+            "timing": {
+              "code": {
+                "text": "once daily after dialysis only"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Neuropathy (dose adjusted for dialysis)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8cbc94b6-2e14-4cb5-9784-2b46ce389a4b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Heparin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "dosageInstruction": [
+          {
+            "text": "per dialysis protocol during dialysis sessions",
+            "timing": {
+              "code": {
+                "text": "during dialysis sessions"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Prevent dialysis circuit clotting"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1a2438d5-8213-4c68-b4f3-271b040f6313",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "ACE inhibitors"
+        },
+        "patient": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Angioedema"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3f5b454e-2ae6-46d0-b6d1-41b14afaf97c",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Contrast dye"
+        },
+        "patient": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Anaphylactoid reaction"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2704ba27-022a-4c7d-8226-7d0696fc7072",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Tunneled dialysis catheter placement (right IJ)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "performedDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9cec87be-3899-4402-bde5-ffe44ecff134",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "First hemodialysis session"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1e8179cd-9885-4b2c-98e2-ee4fb1d45100",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Dialysis training sessions (3)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8d24f5ad-e305-4eba-be53-d16fb71ae6e9",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "valueString": "9.8 mg/dL",
+        "interpretation": [
+          {
+            "text": "ESRD"
+          }
+        ],
+        "effectiveDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2c0297ad-4f73-4e12-ae83-3ea7c8ba7aba",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "GFR"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "valueString": "8 mL/min",
+        "interpretation": [
+          {
+            "text": "End-stage"
+          }
+        ],
+        "effectiveDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ceb4c3c7-c71d-46a2-9df8-a9326e2b5dd1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Potassium (pre-dialysis)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "valueString": "5.9 mEq/L",
+        "interpretation": [
+          {
+            "text": "Elevated - addressed at dialysis"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:31c42d79-b49b-4d15-bd64-dfb345eff84d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Potassium (post-dialysis)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "valueString": "4.1 mEq/L",
+        "interpretation": [
+          {
+            "text": "Normalized"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c14389d4-4f89-40cd-96b4-169c562cc59d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "valueString": "8.5 g/dL",
+        "interpretation": [
+          {
+            "text": "Anemia of ESRD"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:da7a2390-0906-4d83-8c85-970858e40e83",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Phosphorus"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "valueString": "6.2 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b6e28fbd-0930-41d9-be74-c82d7a4a8493",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Dry weight"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        },
+        "valueString": "82 kg",
+        "interpretation": [
+          {
+            "text": "Target weight for fluid removal at dialysis"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2e8b694d-6ecc-442c-bc9a-2275378efb57",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Hemodialysis MWF schedule at DaVita Center"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:76793503-4781-4048-8e22-3f6168815a93",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Nephrology follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cdbe1a04-b711-49f8-9b0e-b53cae92ccc1",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "AV fistula surgery scheduling (permanent access)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4f25c234-e193-495f-82ae-3fd624af0d59",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Renal dietitian follow-up"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0d0ec135-e97e-4ced-8a9c-e852925b1f97",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Transplant evaluation referral"
+        },
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:382655ec-98d1-4949-a117-cbef1c19b192",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "First outpatient dialysis (Monday)",
+        "start": "2026-05-05T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2b7b4fec-f16b-4408-a1ae-bc63f5456952",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Nephrology follow-up",
+        "start": "2026-05-16T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:69546842-7e39-4b06-9c3f-07daf902136b",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Vascular surgery (AV fistula)",
+        "start": "2026-05-30T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:26ac1418-1821-401d-aee1-2831ed38994a",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Cooper",
+            "given": [
+              "Sharon"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f61c1476-b0e0-4b13-8713-2ba9ba889721",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "Cooper Jr.",
+            "given": [
+              "Daniel"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:91077884-2f73-4a7b-ba51-41f0140cca93",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "New Dialysis Patient Education",
+        "description": "Catheter care, fluid restriction (1.5L/day), low-potassium diet, phosphorus restriction, dialysis schedule adherence, weight monitoring between sessions",
+        "subject": {
+          "reference": "urn:uuid:8154b08f-3da2-44df-9102-1cc7d3c8d728"
+        },
+        "encounter": {
+          "reference": "urn:uuid:028a42c4-4268-4152-ab74-cc8a0145f192"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

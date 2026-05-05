@@ -1,0 +1,789 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-043"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Bennett",
+            "given": [
+              "Laura"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1979-11-15",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "890 Riverside"
+            ],
+            "city": "Memphis",
+            "state": "TN",
+            "postalCode": "38101",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-043"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute pancreatitis (gallstone)"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e8551c49-3d08-4f9c-8473-64d6004ab69c",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K85.1",
+              "display": "Acute gallstone pancreatitis"
+            }
+          ],
+          "text": "Acute gallstone pancreatitis"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4d302b3c-7dc3-4378-b82a-356e45994c45",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K80.20",
+              "display": "Cholelithiasis"
+            }
+          ],
+          "text": "Cholelithiasis"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a6929581-58f9-4adc-8aba-0bab52067d6b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E78.5",
+              "display": "Hyperlipidemia"
+            }
+          ],
+          "text": "Hyperlipidemia"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "onsetDateTime": "2020-04-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c6e82286-8808-4279-809b-2e8e6c4669ca",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg every 6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Pain management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2c8e6bb2-5626-4d63-9d47-7ed9cace8385",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ondansetron"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "4mg every 8 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 8 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Nausea"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 3 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b3c375dd-1741-48fa-a460-91174ab24350",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ursodiol"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "300mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Gallstone dissolution and prevent recurrent pancreatitis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: until cholecystectomy"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:485542cc-0765-4da6-8e1d-345db89c9557",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Rosuvastatin"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hyperlipidemia (triglycerides elevated)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50401fd2-d066-49a9-99b9-202d2ff81e5a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Pancrelipase (Creon)"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25,000 units with meals if fatty foods",
+            "timing": {
+              "code": {
+                "text": "with meals if fatty foods"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Digestive support during recovery"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: until cholecystectomy"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6ca1ab81-62a9-4a83-9af3-3911a68abb3e",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "CT abdomen"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3a44fc81-4414-4a55-b285-0996f1dad12f",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "MRCP"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7805606f-6d66-4950-beb8-1bda27ec27e7",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "IV fluid resuscitation"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:da06bce2-9231-4ba5-9e92-3e4c3c76f4b4",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Lipase (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "valueString": "2,400 U/L",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fe0536f1-ffa2-4f2d-a70c-e8a5571593f9",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Lipase (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "valueString": "180 U/L",
+        "interpretation": [
+          {
+            "text": "Normalizing"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:05e5c2d1-2bd2-4b7e-8f7c-7c10d4bbfebf",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ALT"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "valueString": "245 U/L",
+        "interpretation": [
+          {
+            "text": "Elevated (gallstone passage)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:452702a4-4a34-4ad0-8c0d-cdce2bafda56",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Total bilirubin"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "valueString": "3.2 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6394cf70-8cf6-4095-923c-4f2f137d3eb9",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Triglycerides"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "valueString": "320 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b257e6a5-879b-48da-b38c-c9884b5a2fd8",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "CT finding"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        },
+        "valueString": "Peripancreatic fat stranding, no necrosis",
+        "interpretation": [
+          {
+            "text": "Mild-moderate pancreatitis"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fc5c0162-9ab5-4791-8e42-5e2e0aeb000b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "General surgery consultation for cholecystectomy (within 2-4 weeks)"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2b76eb10-ce00-4a3b-b063-326e318cba68",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "GI follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1e908289-4ec2-4cf1-b42b-4a9fe22d671b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Low-fat diet counseling"
+        },
+        "subject": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "encounter": {
+          "reference": "urn:uuid:8bf2890c-a7ad-493f-ba3a-b48b93513fd4"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:88f074df-ff6c-4dc7-948f-40fb35ca6c3c",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "GI follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b9a5b686-9bb7-444c-967d-8c06c58bff0c",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Surgery consultation for cholecystectomy",
+        "start": "2026-05-20T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:62ebc58d-fdfa-4050-abde-c7ac988dd8cc",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:28c402bd-4243-4228-820e-dfcbf26700dc"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Bennett",
+            "given": [
+              "Michael"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

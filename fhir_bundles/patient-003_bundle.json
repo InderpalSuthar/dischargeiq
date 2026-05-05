@@ -1,0 +1,459 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-003"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Chen",
+            "given": [
+              "Sarah"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1990-11-08",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "567 Maple Drive"
+            ],
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94102",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-003"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "reasonCode": [
+          {
+            "text": "Pyelonephritis (kidney infection)"
+          }
+        ],
+        "period": {
+          "start": "2026-04-30",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:339aa8fa-eefe-4fed-9cea-0218d182ad26",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N10",
+              "display": "Acute pyelonephritis"
+            }
+          ],
+          "text": "Acute pyelonephritis"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "onsetDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:83c3e7cd-d569-46ee-943a-78831cfcf169",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N39.0",
+              "display": "Recurrent urinary tract infections"
+            }
+          ],
+          "text": "Recurrent urinary tract infections"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "onsetDateTime": "2025-08-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6a322294-eabf-47ff-a80d-e5193115e140",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ciprofloxacin"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "dosageInstruction": [
+          {
+            "text": "500mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Pyelonephritis - complete bacterial eradication"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 7 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f3039c90-b7c6-42e2-96b2-9181e48e9c46",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "dosageInstruction": [
+          {
+            "text": "400mg every 6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Pain and fever management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6c84d268-f119-4767-b6c2-048213c1413c",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "CT scan of abdomen and pelvis"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:09574779-d8ca-4874-99bf-d4968d73c41e",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Urine culture"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ba00d5d3-0d29-4a87-9609-5584e75d2b8d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "WBC"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "valueString": "15,200/uL",
+        "interpretation": [
+          {
+            "text": "High"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50e8eefe-b516-479b-8064-3b6206804a61",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Temperature"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "valueString": "101.8 F",
+        "interpretation": [
+          {
+            "text": "Fever"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0448420a-c0a5-4f4a-8756-daffcab5a1ff",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "valueString": "1.1 mg/dL",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:57a9f07c-d533-4f59-988e-abf3c7a71024",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Urinalysis"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        },
+        "valueString": "Positive for bacteria, WBC",
+        "interpretation": [
+          {
+            "text": "Infection confirmed"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:949f4c55-e4ed-48e4-97c2-72497801a3cb",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Follow-up urine culture in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cd860113-aa55-4972-ba8b-534914c971da"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5c90b2c7-62ae-4a3a-bf96-e5f4b9cfec11",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "PCP follow-up",
+        "start": "2026-05-18T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:651b062d-c64f-487f-8883-2007c8714697"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    }
+  ]
+}

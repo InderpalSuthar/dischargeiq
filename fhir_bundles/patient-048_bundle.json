@@ -1,0 +1,653 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-048"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Howard",
+            "given": [
+              "Jason"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1991-01-28",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "345 Tech Park Drive"
+            ],
+            "city": "Raleigh",
+            "state": "NC",
+            "postalCode": "27601",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-048"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "reasonCode": [
+          {
+            "text": "Spontaneous pneumothorax"
+          }
+        ],
+        "period": {
+          "start": "2026-04-30",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:80a0c541-b7d9-459e-ad4c-a996f597d460",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J93.11",
+              "display": "Spontaneous pneumothorax, left"
+            }
+          ],
+          "text": "Spontaneous pneumothorax, left"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "onsetDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:229ec920-4ea5-4922-97ee-ed198aa46a0d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R63.4",
+              "display": "Tall, thin body habitus (risk factor)"
+            }
+          ],
+          "text": "Tall, thin body habitus (risk factor)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "onsetDateTime": "1991-01-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f1064733-80d1-4d27-b9b6-b199e5c2950b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F17.290",
+              "display": "Tobacco use (vaping)"
+            }
+          ],
+          "text": "Tobacco use (vaping)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "onsetDateTime": "2015-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4698fa04-285a-48e1-9387-55cab82af278",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg every 6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Chest pain from pneumothorax and tube site"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:42fe00a0-e434-4981-a60d-5182e2f40fb6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "dosageInstruction": [
+          {
+            "text": "400mg every 8 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 8 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Anti-inflammatory for pleuritic pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4130d50e-ae0b-46ac-baf2-8ebf71faef9f",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Docusate sodium"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Prevent straining (Valsalva risk)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:34981695-a192-47d8-8378-f36d588dfd49",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Chest X-ray (confirmed left pneumothorax 40%)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c6e07ce2-48b8-4aba-b990-fe620a0b51f3",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Left chest tube insertion (pigtail)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e49be987-2cb7-44ed-89fd-814ab33d5e9d",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Chest tube removal"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "performedDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6927ae5f-ecc6-489a-b712-752eadc401c1",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Post-removal chest X-ray"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "performedDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3107646e-7fb0-4644-922f-f2bbc4a03bd3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "SpO2 (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "valueString": "91%",
+        "interpretation": [
+          {
+            "text": "Low (pneumothorax)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:41603f1a-a71b-452b-a797-0db9d58ff541",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "SpO2 (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "valueString": "99%",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c89211a5-ab5d-40d9-b561-e20b4cae79cb",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Post-removal CXR"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "valueString": "Fully expanded lung, no residual pneumothorax",
+        "interpretation": [
+          {
+            "text": "Resolved"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:010d16a1-e193-46a7-a175-d03b07299b0b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "BMI"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        },
+        "valueString": "18.5",
+        "interpretation": [
+          {
+            "text": "Thin (risk factor for recurrence)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:27103db4-ad8f-4097-b17c-6c344b6fe554",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Pulmonology follow-up in 2 weeks with repeat CXR"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2926afba-e53e-4627-92af-a93ea8311d8c",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Smoking/vaping cessation counseling"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b28210e5-8fb8-47c0-9319-e6ef4fa32d09",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "CT chest in 4-6 weeks (evaluate for blebs)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "encounter": {
+          "reference": "urn:uuid:ccf95c72-f28b-49a5-80d3-316dd42b6a66"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:97986613-ec84-42f5-9122-8176d3f51741",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Pulmonology follow-up with CXR",
+        "start": "2026-05-18T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e82727ea-c3f7-490e-9be6-627bb19a270a",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:5886e0f0-8403-4410-9226-f03beb52b201"
+        },
+        "relationship": [
+          {
+            "text": "Father"
+          }
+        ],
+        "name": [
+          {
+            "family": "Howard",
+            "given": [
+              "Kevin"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

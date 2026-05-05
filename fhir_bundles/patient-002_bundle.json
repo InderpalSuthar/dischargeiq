@@ -1,0 +1,653 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-002"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Rodriguez",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1955-07-22",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "89 Pine Avenue"
+            ],
+            "city": "Chicago",
+            "state": "IL",
+            "postalCode": "60614",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "es",
+                  "display": "Spanish"
+                }
+              ],
+              "text": "Spanish"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-002"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "reasonCode": [
+          {
+            "text": "Atrial fibrillation with rapid ventricular response"
+          }
+        ],
+        "period": {
+          "start": "2026-04-25",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with home health"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dda81372-678c-4195-b0e7-146ce856c17f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I48.91",
+              "display": "Atrial fibrillation"
+            }
+          ],
+          "text": "Atrial fibrillation"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "onsetDateTime": "2026-04-25"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e1475735-d40f-46fa-b37b-03af15098519",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I82.40",
+              "display": "Deep vein thrombosis, left leg"
+            }
+          ],
+          "text": "Deep vein thrombosis, left leg"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "onsetDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a4e61516-865d-4a54-b03f-2d0ef4500e69",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "Essential hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "onsetDateTime": "2018-03-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ae199dfb-7fcc-4cd2-8c24-cccd05178c74",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E78.5",
+              "display": "Hyperlipidemia"
+            }
+          ],
+          "text": "Hyperlipidemia"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "onsetDateTime": "2017-09-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b460fc18-d41f-4476-93b3-a1b574484ff9",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Warfarin"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "DVT and atrial fibrillation - blood clot prevention"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 6 months minimum"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c2e3aec1-c291-43c4-bdfe-41f517d23564",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metoprolol tartrate"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Atrial fibrillation - rate control"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:58193ed3-6c84-4ef5-9557-56f1388425f1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Atorvastatin"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hyperlipidemia"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9b95112f-96b4-4f76-b5af-01cb75a223cf",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6481e21a-54b9-4bd5-bfaa-696d74f9eefd",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Sulfa drugs"
+        },
+        "patient": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Anaphylaxis"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9d0a6b4c-8551-46eb-8d01-e7d309cd70e6",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Transesophageal echocardiogram"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6c562984-215a-4d1d-b3d2-7b3961ce0bac",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Doppler ultrasound of left leg"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:28508ef2-2f68-455a-b8b7-55d4252201f5",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "INR"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "valueString": "2.1",
+        "interpretation": [
+          {
+            "text": "Therapeutic"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1c63cffe-9e6f-48b5-96ce-b9852f367f1a",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "PT"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "valueString": "24.5 seconds",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:86c9d48e-f1db-4647-a273-1fc8a617d3ee",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "valueString": "78 bpm",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:23cf2889-61c7-4e31-8bb4-f94b802bcf40",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Total cholesterol"
+        },
+        "subject": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "encounter": {
+          "reference": "urn:uuid:fc6e6f73-4955-4964-9710-1b1f4b72247a"
+        },
+        "valueString": "245 mg/dL",
+        "interpretation": [
+          {
+            "text": "High"
+          }
+        ],
+        "effectiveDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:908c061c-780f-498f-a10e-d5bbf41c9bea",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:9fa2895d-b330-45a6-baa8-48abcb6770e3"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Rodriguez",
+            "given": [
+              "Maria"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

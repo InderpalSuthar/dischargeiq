@@ -1,0 +1,896 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-011"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Watson",
+            "given": [
+              "Emily"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1968-10-03",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "445 Willow Creek"
+            ],
+            "city": "Nashville",
+            "state": "TN",
+            "postalCode": "37201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-011"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "reasonCode": [
+          {
+            "text": "Sepsis secondary to cellulitis"
+          }
+        ],
+        "period": {
+          "start": "2026-04-30",
+          "end": "2026-05-05"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with home health"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c84f10dd-4f71-4b2c-ae2b-6d0695fe2af7",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "A41.9",
+              "display": "Sepsis"
+            }
+          ],
+          "text": "Sepsis"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "onsetDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:402bcb13-f98f-4bcc-86d4-c05826031575",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "L03.115",
+              "display": "Cellulitis of right lower leg"
+            }
+          ],
+          "text": "Cellulitis of right lower leg"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b3e70959-9428-44ff-8524-40179216d896",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.42",
+              "display": "Type 2 diabetes mellitus with peripheral neuropathy"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus with peripheral neuropathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "onsetDateTime": "2014-05-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d391196c-aaf3-44b9-a2a7-587145774216",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I73.9",
+              "display": "Peripheral arterial disease"
+            }
+          ],
+          "text": "Peripheral arterial disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "onsetDateTime": "2022-08-12"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5670b1a1-2c68-48c7-94a3-ef107f5bf631",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E66.9",
+              "display": "Obesity, BMI 38"
+            }
+          ],
+          "text": "Obesity, BMI 38"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "onsetDateTime": "2010-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eeecfc82-8962-4919-91d0-5ed33a5c071c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amoxicillin-Clavulanate (Augmentin)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "dosageInstruction": [
+          {
+            "text": "875mg/125mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Cellulitis - complete course critical"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 14 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4302c07b-9737-4b22-a144-3e9ffaad3601",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metformin"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:504d380b-83d3-4116-8581-73fd230ab1d8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin glargine"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "dosageInstruction": [
+          {
+            "text": "30 units once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes - basal insulin"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c2318913-3a99-4946-95f6-fe498ae0cdec",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Gabapentin"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "dosageInstruction": [
+          {
+            "text": "300mg three times daily",
+            "timing": {
+              "code": {
+                "text": "three times daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetic neuropathy pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d4315510-e874-4f96-bd2d-9496f709c70e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Cilostazol"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Peripheral arterial disease"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:af3c157e-badc-46d3-a448-d639c124a444",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Cephalosporins"
+        },
+        "patient": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Hives"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f846ca06-0318-4506-9a83-38d9aab57f14",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Blood cultures x2"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6a7d64f7-69bd-4ecc-aab2-2c61fe57607e",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Wound culture"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:87b04ba3-45e0-4df9-ac4e-66c03b250771",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Lower extremity doppler"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f94800d2-3428-446f-a01b-503d75256851",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "WBC (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "valueString": "22,400/uL",
+        "interpretation": [
+          {
+            "text": "Markedly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:01743074-cbbd-4b26-8f03-271ae2c64f3d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Lactate (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "valueString": "3.8 mmol/L",
+        "interpretation": [
+          {
+            "text": "Elevated - sepsis"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5f4541fc-906c-4716-91ba-912fb35a686f",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "WBC (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "valueString": "11,200/uL",
+        "interpretation": [
+          {
+            "text": "Improving"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:684c4d7f-296f-44f8-a5d8-9a3c9d3acd04",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "valueString": "9.5%",
+        "interpretation": [
+          {
+            "text": "Poor control"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:50956f3a-d046-478f-a5dd-7a3a01e129aa",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood glucose"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "valueString": "210 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:45a7f60e-0aae-43b4-9329-f3b6338aa220",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ABI (right leg)"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        },
+        "valueString": "0.65",
+        "interpretation": [
+          {
+            "text": "Moderate PAD"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:62be7172-dba8-40a2-a41b-905f03b78bb2",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home health nursing for wound care and IV antibiotic assessment"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1fbd5441-85f6-466c-a169-e0d1e9baf949",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Vascular surgery consultation"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:290fe74b-d1cb-4396-9173-fd09730c398b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Diabetes education"
+        },
+        "subject": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "encounter": {
+          "reference": "urn:uuid:9055734a-f124-4b06-bf9b-72a3b7469efc"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4032f4db-adf6-40dd-8ad1-48aef6e91ee6",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "PCP follow-up for wound check",
+        "start": "2026-05-12T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3e50757c-d935-4b06-97d0-26b197587f8f",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:5982c560-a3c7-4328-b871-6555bb508a96"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Watson",
+            "given": [
+              "Thomas"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

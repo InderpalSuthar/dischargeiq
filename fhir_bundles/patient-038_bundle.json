@@ -1,0 +1,819 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-038"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Robinson",
+            "given": [
+              "Paul"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1949-10-05",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "234 Bayou Road"
+            ],
+            "city": "Baton Rouge",
+            "state": "LA",
+            "postalCode": "70801",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-038"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "reasonCode": [
+          {
+            "text": "Prostate cancer - robotic radical prostatectomy"
+          }
+        ],
+        "period": {
+          "start": "2026-04-27",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:029e8969-1a72-4bff-b5f6-edc697e890d2",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "C61",
+              "display": "Prostate adenocarcinoma, Gleason 4+3=7"
+            }
+          ],
+          "text": "Prostate adenocarcinoma, Gleason 4+3=7"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "onsetDateTime": "2026-02-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f3a00ab6-6c23-40fb-81f7-35a908fb5421",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N39.3",
+              "display": "Urinary incontinence (post-prostatectomy)"
+            }
+          ],
+          "text": "Urinary incontinence (post-prostatectomy)"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:71a0bc25-b559-4034-acdb-47fa7b500ba8",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "onsetDateTime": "2010-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:188cc9f1-c72d-41da-9bb8-e383d45ef21f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "N40.0",
+              "display": "Benign prostatic hyperplasia"
+            }
+          ],
+          "text": "Benign prostatic hyperplasia"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "onsetDateTime": "2015-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ccfd4f6c-6823-4bc2-b363-314e41b57df3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Acetaminophen"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg every 6 hours",
+            "timing": {
+              "code": {
+                "text": "every 6 hours"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3ce47da0-fd98-4437-940f-e76a8a40a442",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Ibuprofen"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "dosageInstruction": [
+          {
+            "text": "400mg every 8 hours with food",
+            "timing": {
+              "code": {
+                "text": "every 8 hours with food"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical inflammation"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 1 week"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4222a61d-640b-4d55-987b-14a256bde7d4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Tamsulosin"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "dosageInstruction": [
+          {
+            "text": "0.4mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Bladder neck relaxation during catheter use"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: until catheter removal"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e5ad7e87-0a36-4e54-b327-e673cdb9bce6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Oxybutynin"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "dosageInstruction": [
+          {
+            "text": "5mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Catheter-related bladder spasms"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: as needed for bladder spasms"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1d155530-a132-4cf0-8a5f-ef292977323f",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc2193d9-76ba-458a-a103-a4adb54e9b91",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Enoxaparin"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "DVT prevention post-surgery"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 10 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6b9b9020-8503-47f1-a10c-ab994cb1298a",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Robotic-assisted radical prostatectomy with bilateral nerve sparing"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bdd73e01-f146-453e-bf40-e6e86fa59512",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Pelvic lymph node dissection"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8a827023-ec80-462b-84fb-1fb6768bb7c3",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Foley catheter placement"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:129ea586-aef3-44ad-bd42-14d3bb3524ed",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Pre-op PSA"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "valueString": "8.5 ng/mL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-04-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c206e84d-a034-414e-b513-a75a27ca3125",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin (post-op)"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "valueString": "11.8 g/dL",
+        "interpretation": [
+          {
+            "text": "Mildly low post-surgery"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:42d4e6ad-a5a3-4b27-91bc-28af7d03ce8a",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Surgical margins"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "valueString": "Negative (pending final pathology)",
+        "interpretation": [
+          {
+            "text": "Favorable preliminary"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a374b33b-5de6-48cc-95a1-c20fc07a18e4",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Estimated blood loss"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        },
+        "valueString": "150 mL",
+        "interpretation": [
+          {
+            "text": "Minimal"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a274c9b3-04f2-45f0-8fd2-68713ca34447",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Urology follow-up in 10-14 days (catheter removal)"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:353d5727-f2c2-427f-b62d-15724c2bd8cb",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "PSA check in 6 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6e34b1cc-24a8-408e-86a0-3476d2e9b28a",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Pelvic floor physical therapy referral"
+        },
+        "subject": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "encounter": {
+          "reference": "urn:uuid:66ef1739-8e34-404a-a84d-512b76ca0821"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b44c1b26-fb99-4422-8b09-e2fb56b262fe",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Urology - catheter removal",
+        "start": "2026-05-12T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:46f55f79-0a3a-451b-86a4-d8864c7aeb3f",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Urology - post-op PSA results",
+        "start": "2026-06-09T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2831d581-8ef4-4246-bf34-b8867e540e40",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:2da9524b-7ad9-41c1-953b-3160cb013a0e"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Robinson",
+            "given": [
+              "Diane"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

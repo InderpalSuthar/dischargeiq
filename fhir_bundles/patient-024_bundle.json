@@ -1,0 +1,953 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-024"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Adams",
+            "given": [
+              "Kenneth"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1943-11-30",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "56 Retirement Drive"
+            ],
+            "city": "Scottsdale",
+            "state": "AZ",
+            "postalCode": "85250",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-024"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "reasonCode": [
+          {
+            "text": "Parkinson's disease complications - aspiration pneumonia and falls"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-05"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with home health"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7292d985-b392-41fe-9e12-e08312b46336",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G20",
+              "display": "Parkinson's disease"
+            }
+          ],
+          "text": "Parkinson's disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "onsetDateTime": "2018-02-14"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2289b408-3516-445a-976c-ae8bc9d2299d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J69.0",
+              "display": "Aspiration pneumonia"
+            }
+          ],
+          "text": "Aspiration pneumonia"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4ae97493-e928-45eb-9556-5a46893dd7be",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R13.10",
+              "display": "Dysphagia"
+            }
+          ],
+          "text": "Dysphagia"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "onsetDateTime": "2025-08-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1db6fa98-b525-4b90-b8ab-4874d0d457cf",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I95.1",
+              "display": "Orthostatic hypotension"
+            }
+          ],
+          "text": "Orthostatic hypotension"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "onsetDateTime": "2024-05-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ec205338-fc78-47a1-b85a-803e5861c9fe",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R29.6",
+              "display": "Recurrent falls"
+            }
+          ],
+          "text": "Recurrent falls"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "onsetDateTime": "2025-06-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2fe2972f-e659-4a64-b704-1b0f7c99e61e",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R32",
+              "display": "Urinary incontinence"
+            }
+          ],
+          "text": "Urinary incontinence"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "onsetDateTime": "2025-10-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c2fd2c53-0116-4478-88de-aabdce4f8d62",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Carbidopa-Levodopa (Sinemet)"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25/100mg four times daily (6am, 10am, 2pm, 6pm)",
+            "timing": {
+              "code": {
+                "text": "four times daily (6am, 10am, 2pm, 6pm)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Parkinson's disease - timing is critical"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d1582eb4-bd1f-4aab-b403-5dfdc7388f97",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Amoxicillin-Clavulanate"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "875mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Aspiration pneumonia"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 7 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9de1571-e20e-48ba-a414-a9ce571e8d40",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Midodrine"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg three times daily (not after 6pm)",
+            "timing": {
+              "code": {
+                "text": "three times daily (not after 6pm)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Orthostatic hypotension - prevent falls"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8ee3eff8-0320-4aba-82c6-2657f5672724",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Mirabegron"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "25mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Urinary incontinence"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ef07bd04-41d1-4e53-b56a-9c178efa4c0b",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Haloperidol"
+        },
+        "patient": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe rigidity (contraindicated in Parkinson's)"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3efa34bf-cecf-47b9-9cdb-e1286f8c8406",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Metoclopramide"
+        },
+        "patient": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Worsening Parkinson's symptoms"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:efa25c56-6370-4fd7-b47d-210770568e2b",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Modified barium swallow study"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d92f572f-3ff2-4163-b828-0a5273321a60",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Speech therapy swallow evaluation"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0ddb5fc8-2958-4b94-bca5-5c601b9b96be",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Physical therapy gait assessment"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:db0f93a4-3cc6-46b3-b455-7b6390599635",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Orthostatic BP (lying)"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "valueString": "140/80 mmHg",
+        "interpretation": [
+          {
+            "text": "Normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:46b30bef-a457-4fd3-bd0a-b8d71a82f14d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Orthostatic BP (standing)"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "valueString": "105/60 mmHg",
+        "interpretation": [
+          {
+            "text": "Significant drop"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6333549c-fcd3-4f5a-b291-a360d69e1fea",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Swallow study result"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "valueString": "Thin liquid aspiration, safe on nectar-thick liquids and soft solids",
+        "interpretation": [
+          {
+            "text": "Diet modification required"
+          }
+        ],
+        "effectiveDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5c0fef70-ecb8-4237-803f-12c52be8ae11",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Timed Up and Go"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        },
+        "valueString": "28 seconds",
+        "interpretation": [
+          {
+            "text": "High fall risk"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b801f412-b142-44da-8fe8-251fd3baa5e1",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home health PT 3x/week"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:87977e8e-9fab-4086-86c5-dfb1d751e29a",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Home health speech therapy 2x/week"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b46bf560-d2e0-4f4e-9b7a-74812eccdf35",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Neurology follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2171e140-275a-480b-8401-65743d37e029",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Fall prevention home assessment"
+        },
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8ff52d6e-8846-4ef3-abd9-4de81547eae1",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Neurology follow-up",
+        "start": "2026-05-19T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dcb3b1ac-5d81-4462-a1fe-445ec4bb1a45",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Adams",
+            "given": [
+              "Martha"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c610ab61-1970-4f6e-bf36-9bb8a1dad3db",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "Adams",
+            "given": [
+              "Steven"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea7a79d2-f881-4f1f-9622-386943fff622",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Fall Prevention and Swallowing Safety",
+        "description": "Nectar-thick liquids, chin tuck swallowing technique, walking aid use, no rushing movements, medication timing adherence",
+        "subject": {
+          "reference": "urn:uuid:edd5853c-2590-4730-bead-c8fe821a82ff"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a3b63c0-14c2-4428-b8a4-058166c2bed2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

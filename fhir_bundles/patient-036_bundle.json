@@ -1,0 +1,1081 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-036"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Phillips",
+            "given": [
+              "Gregory"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1966-09-20",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "100 Veterans Memorial Hwy"
+            ],
+            "city": "Fayetteville",
+            "state": "NC",
+            "postalCode": "28301",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-036"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "reasonCode": [
+          {
+            "text": "Bilateral below-knee amputation (diabetic)"
+          }
+        ],
+        "period": {
+          "start": "2026-04-26",
+          "end": "2026-05-02"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Acute rehabilitation"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:29c8fa2a-e397-48f1-b47b-20a00a6efef0",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I70.262",
+              "display": "Peripheral arterial disease with gangrene"
+            }
+          ],
+          "text": "Peripheral arterial disease with gangrene"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "onsetDateTime": "2025-10-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ab9703e3-e127-45d9-9cbc-ba655a1701ae",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z89.511",
+              "display": "Status post right below-knee amputation (2025)"
+            }
+          ],
+          "text": "Status post right below-knee amputation (2025)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "onsetDateTime": "2025-11-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b45daf5e-6dbd-48c1-8949-0713f4564168",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z89.512",
+              "display": "Left below-knee amputation (this admission)"
+            }
+          ],
+          "text": "Left below-knee amputation (this admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "onsetDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cbcd5e93-2ceb-4674-ab6a-2de629b1786b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.69",
+              "display": "Type 2 diabetes with complications"
+            }
+          ],
+          "text": "Type 2 diabetes with complications"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "onsetDateTime": "2000-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ce62c9d8-9fc2-4a15-b0cd-2663566b160b",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G54.6",
+              "display": "Phantom limb pain"
+            }
+          ],
+          "text": "Phantom limb pain"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "onsetDateTime": "2025-12-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2a9ab355-b25b-4fca-92b8-9778991ad355",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F32.1",
+              "display": "Depression"
+            }
+          ],
+          "text": "Depression"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "onsetDateTime": "2025-11-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d57e95c8-cea4-4b17-bdb3-8db6d98650a3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Oxycodone"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg every 4-6 hours as needed",
+            "timing": {
+              "code": {
+                "text": "every 4-6 hours as needed"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Post-surgical and phantom limb pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: taper over 2 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2bc4920a-5e76-4af9-a40e-e523dd05b931",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Gabapentin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "600mg three times daily",
+            "timing": {
+              "code": {
+                "text": "three times daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Phantom limb pain and neuropathy"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b1b6d327-ccc6-40be-9235-54873c17b0a6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Duloxetine (Cymbalta)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "60mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Depression and neuropathic pain"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5d7cb632-d3ea-4a5e-917e-1265ab529f6e",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin glargine"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "35 units once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:16413ed1-75fb-4ab5-9a61-fb178ccd3bac",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin lispro"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "per sliding scale before meals",
+            "timing": {
+              "code": {
+                "text": "before meals"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Diabetes - mealtime"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dd03039f-ca16-4f2f-8c01-e2901b943c60",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Aspirin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "81mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "PAD - cardiovascular protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3d454ca2-46cc-45f1-b273-1404ac054474",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Atorvastatin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "80mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "PAD and cardiovascular risk"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b06f3070-129e-47d1-998e-6e47d52bcbf7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Enoxaparin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "DVT prevention post-surgery"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 14 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:89bfd592-b0dd-4f24-966b-3d4e835b5d11",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Left below-knee amputation"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "performedDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9d1877fd-06e7-4159-8700-3279fcb6a8fc",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Wound VAC placement"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "performedDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b1e50db0-8b68-4454-b67b-ea90c5a34993",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "valueString": "8.9%",
+        "interpretation": [
+          {
+            "text": "Poor control"
+          }
+        ],
+        "effectiveDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3bd20169-01d2-4daa-9266-dbaef7a71d90",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ABI (right stump)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "valueString": "0.5",
+        "interpretation": [
+          {
+            "text": "Severe PAD"
+          }
+        ],
+        "effectiveDateTime": "2026-04-26"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9692a7f-9def-42ed-b939-5f2d9d8a7a07",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "valueString": "10.5 g/dL",
+        "interpretation": [
+          {
+            "text": "Low - post-surgical"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a072ab3b-e07e-4406-929c-4a54091165df",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Albumin"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "valueString": "3.2 g/dL",
+        "interpretation": [
+          {
+            "text": "Low - impaired wound healing risk"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f9071808-c0dd-4880-83e4-a235e5591e18",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Wound assessment"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        },
+        "valueString": "Clean margins, no signs of infection, VAC in place",
+        "interpretation": [
+          {
+            "text": "Healing appropriately"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8c873aa5-08f6-40e4-ab6c-dac21956c9c3",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Inpatient rehabilitation (bilateral BKA mobility training)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b12354d0-03ca-43aa-9404-b411b69ae912",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Prosthetics evaluation in 6-8 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a72a85f3-a0d6-4562-b312-c78d75d45c74",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Vascular surgery follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:394d6c85-4f15-40d4-a46c-bf4970c1c343",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Wound care specialist follow-up"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dc5f883c-412e-445e-9201-dea9632d3e48",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Psychology/Adjustment counseling"
+        },
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dc64ed11-8131-4c58-8b60-1428a413af27",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Vascular surgery wound check",
+        "start": "2026-05-16T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:98745254-5baf-400f-b621-4760af31343b",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Prosthetics evaluation",
+        "start": "2026-06-15T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d81dee48-1c2c-47b6-a54b-5712d5264d4d",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Phillips",
+            "given": [
+              "Cheryl"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f3c31840-1c0c-45c8-9417-134a4737f8f9",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "Phillips",
+            "given": [
+              "Marcus"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:586b97a1-1231-4f8d-a38f-95c586cb9cf1",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Bilateral BKA Rehabilitation Plan",
+        "description": "Wound healing, phantom pain management, wheelchair mobility training, prosthetic candidacy evaluation, psychological support, diabetes optimization",
+        "subject": {
+          "reference": "urn:uuid:8fa7ad70-f87e-445c-baf3-d745788b144b"
+        },
+        "encounter": {
+          "reference": "urn:uuid:b8ad7700-80ea-440e-8682-6f9fe40bf8d8"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

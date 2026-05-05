@@ -1,0 +1,996 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-014"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Wright",
+            "given": [
+              "Thomas"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1960-03-28",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "234 Lake Shore Drive"
+            ],
+            "city": "Milwaukee",
+            "state": "WI",
+            "postalCode": "53201",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-014"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "reasonCode": [
+          {
+            "text": "Liver cirrhosis with variceal bleeding"
+          }
+        ],
+        "period": {
+          "start": "2026-04-27",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d4a4bed4-ae55-4c61-a12a-d72e8e61adfe",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K70.30",
+              "display": "Alcoholic liver cirrhosis"
+            }
+          ],
+          "text": "Alcoholic liver cirrhosis"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "onsetDateTime": "2022-04-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2dea079f-6b9c-40a4-89e1-c84034e4a500",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I85.01",
+              "display": "Esophageal varices with bleeding"
+            }
+          ],
+          "text": "Esophageal varices with bleeding"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dec695cf-efcb-4566-8bba-c55512045cda",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K72.90",
+              "display": "Hepatic encephalopathy"
+            }
+          ],
+          "text": "Hepatic encephalopathy"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "onsetDateTime": "2025-11-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:16b20a80-90f1-4ba9-a68c-4bb59e0c3a1c",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R18.8",
+              "display": "Ascites"
+            }
+          ],
+          "text": "Ascites"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "onsetDateTime": "2025-06-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9e1429da-856a-4f5b-986e-448884cba6ee",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "D69.6",
+              "display": "Thrombocytopenia"
+            }
+          ],
+          "text": "Thrombocytopenia"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "onsetDateTime": "2023-08-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f88020a0-e4c3-4189-afec-6c1030b5c636",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Propranolol"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Prevent variceal rebleeding"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ce0d4ee2-e22c-45e6-993e-f43185b71fb0",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lactulose"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "30mL 2-3 times daily (titrate to 2-3 BMs/day)",
+            "timing": {
+              "code": {
+                "text": "2-3 times daily (titrate to 2-3 BMs/day)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hepatic encephalopathy prevention"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c61ac4b3-9949-4e4e-b078-d497b56624e6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Rifaximin"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "550mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Hepatic encephalopathy prevention"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:68cc5202-9d2c-4536-af6e-e0510cf0bb81",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Spironolactone"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Ascites management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:19c5c423-32f4-4d96-b7e7-c7a6068beda7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Furosemide"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Ascites management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:365fec4e-8a16-42c3-8245-13f862483227",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Pantoprazole"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Gastric protection post-variceal bleed"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7d3383e7-1283-4786-aa35-c1e5f8929279",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Upper GI endoscopy with variceal banding"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "performedDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:848eb208-e9a2-46b2-a2d7-92c780b2008c",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Paracentesis (3.5L removed)"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:77361bb5-6f9a-4256-acb4-13bd79c64e00",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "valueString": "7.1 g/dL",
+        "interpretation": [
+          {
+            "text": "Severely low - acute blood loss"
+          }
+        ],
+        "effectiveDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f7fa27b2-5a27-47e6-8939-a9fdb189d3df",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "valueString": "9.8 g/dL",
+        "interpretation": [
+          {
+            "text": "Improved post-transfusion"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:58e46fdb-3ea3-42d1-a56d-6f1e9df4f52c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "INR"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "valueString": "1.8",
+        "interpretation": [
+          {
+            "text": "Elevated (liver disease)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0393360f-13cf-4c45-bd34-74bfe4ee448e",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Albumin"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "valueString": "2.4 g/dL",
+        "interpretation": [
+          {
+            "text": "Low - liver dysfunction"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ffbd4e85-f10e-43f6-8542-97dad0458e95",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Bilirubin"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "valueString": "3.8 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:77c7bda1-af53-4246-b54b-ef197feb479e",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "MELD score"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "valueString": "18",
+        "interpretation": [
+          {
+            "text": "Moderate liver disease"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:302eb6a0-c26c-4520-a588-68024a167a04",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Platelets"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "valueString": "68,000/uL",
+        "interpretation": [
+          {
+            "text": "Low - portal hypertension"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ebf55bc6-6f01-4fe8-95f8-4b3ee219c4b0",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Ammonia"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        },
+        "valueString": "55 umol/L",
+        "interpretation": [
+          {
+            "text": "Mildly elevated"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a7a5be2f-7ce3-4762-9c59-4b9257b811e8",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Hepatology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:435cf285-0b2a-4ea9-b3be-2b44e4a56463",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Repeat endoscopy in 2 weeks for re-banding"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:db90f995-22cb-4623-b3a6-65a7a564855e",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Liver transplant evaluation referral"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8b5f1520-8c66-400a-8806-31aa85b14323",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (CBC, CMP, INR) in 3 days"
+        },
+        "subject": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:3a666d3f-0052-4fa7-bc5c-f719582e00ce"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c8013d1f-2182-4c97-9690-f9e806bdb3d5",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Hepatology follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5f61b3c6-c624-446d-80a8-fecc167dc0bc",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Repeat EGD for variceal banding",
+        "start": "2026-05-17T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f9d70256-960a-4d2a-9aa1-85aa9a183f3c",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "relationship": [
+          {
+            "text": "Ex-spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Wright",
+            "given": [
+              "Susan"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d6492d4b-c094-4e62-bae1-499354e339b2",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:55e4c2c2-a31f-4852-a312-1c0551f74ae0"
+        },
+        "relationship": [
+          {
+            "text": "Son"
+          }
+        ],
+        "name": [
+          {
+            "family": "Wright",
+            "given": [
+              "Jason"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    }
+  ]
+}

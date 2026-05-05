@@ -1,0 +1,825 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-015"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Gonzalez",
+            "given": [
+              "Maria"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1972-12-01",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "3456 Rosa Parks Way"
+            ],
+            "city": "Los Angeles",
+            "state": "CA",
+            "postalCode": "90001",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "es",
+                  "display": "Spanish"
+                }
+              ],
+              "text": "Spanish"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-015"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "reasonCode": [
+          {
+            "text": "Lupus nephritis flare"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-03"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:af015bad-298f-46d2-a2c7-0d44f5ec5cfc",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M32.14",
+              "display": "Systemic lupus erythematosus with nephritis"
+            }
+          ],
+          "text": "Systemic lupus erythematosus with nephritis"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "onsetDateTime": "2016-07-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4657b5ad-1f9b-46f6-9a95-886d8a3c925f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M32.14",
+              "display": "Lupus nephritis, class IV"
+            }
+          ],
+          "text": "Lupus nephritis, class IV"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "onsetDateTime": "2020-03-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e9c6bc03-baaf-4d15-bf5a-4563b9de5b0e",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I15.1",
+              "display": "Hypertension secondary to renal disease"
+            }
+          ],
+          "text": "Hypertension secondary to renal disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "onsetDateTime": "2020-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b84913e1-a84f-4b00-8f06-217b2abe3c2d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "D63.8",
+              "display": "Anemia of chronic disease"
+            }
+          ],
+          "text": "Anemia of chronic disease"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "onsetDateTime": "2019-11-20"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:982d2a60-17cc-4df4-a2d6-a603f358ed24",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Mycophenolate mofetil (CellCept)"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1000mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Lupus nephritis immunosuppression"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7a2a4ae8-50e2-4e65-95d2-e9e97db4ca97",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Prednisone"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "40mg tapering (decrease by 5mg weekly) once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Lupus flare - acute immunosuppression"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: taper over 8 weeks"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2899e6eb-4ba8-4eb3-b09a-75850163fdca",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Hydroxychloroquine (Plaquenil)"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "200mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "SLE maintenance therapy"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cc8b6451-39b3-4726-b1e6-09190c8f15b9",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Lisinopril"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Renal protection and hypertension"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:64f86f77-4228-4462-a378-2fa12fb2ce6b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Trimethoprim-sulfamethoxazole"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "dosageInstruction": [
+          {
+            "text": "1 single-strength tablet daily Monday/Wednesday/Friday",
+            "timing": {
+              "code": {
+                "text": "daily Monday/Wednesday/Friday"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "PCP pneumonia prophylaxis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: while on immunosuppression"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:69e663b1-2503-4a08-97f2-27212878a6a6",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Azathioprine"
+        },
+        "patient": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe pancytopenia"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2e0e4ba0-d1b6-4748-82ce-f9430a0791d0",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Kidney biopsy"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:704ba691-bda7-49db-b2a8-241f4ed5f69c",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "valueString": "2.1 mg/dL",
+        "interpretation": [
+          {
+            "text": "Elevated (baseline 1.2)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:38994d78-6cec-4d47-be8b-506f5c9dbdc3",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Protein/creatinine ratio"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "valueString": "3.5",
+        "interpretation": [
+          {
+            "text": "Nephrotic range proteinuria"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:32b68384-6bcb-43dd-9bbc-a0c5143a68dd",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "C3 complement"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "valueString": "45 mg/dL",
+        "interpretation": [
+          {
+            "text": "Low - active lupus"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a366fe1a-ac3d-4b87-99ad-4f0f651c8eae",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Anti-dsDNA antibody"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "valueString": "1:320",
+        "interpretation": [
+          {
+            "text": "Elevated - active disease"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fca44373-5c2f-45fd-ada7-6a3def37ab3b",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Hemoglobin"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        },
+        "valueString": "9.8 g/dL",
+        "interpretation": [
+          {
+            "text": "Low"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4a0b2c54-2111-4a71-9146-f98f89119943",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Rheumatology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d9cc39b5-235d-4540-816c-c52374241c38",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Nephrology follow-up in 2 weeks"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:91ae8496-3061-4356-9af6-a13ce43cb5fe",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (CMP, CBC, urinalysis) in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:06be9394-d943-43ec-a497-149649275d2b",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Rheumatology follow-up",
+        "start": "2026-05-10T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f635f4f0-d6df-4150-bae4-4d74d3596c60",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Nephrology follow-up",
+        "start": "2026-05-17T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:34aba302-d6a8-4bbe-a8fe-a7f802569f2d",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "relationship": [
+          {
+            "text": "Spouse"
+          }
+        ],
+        "name": [
+          {
+            "family": "Gonzalez",
+            "given": [
+              "Carlos"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aef601f1-333c-446f-91c6-3b52291dccb3",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Lupus Nephritis Management",
+        "description": "Immunosuppression protocol, renal monitoring, steroid taper schedule",
+        "subject": {
+          "reference": "urn:uuid:9a3e6be9-2ee9-4273-bfc0-ccaa899d1cd0"
+        },
+        "encounter": {
+          "reference": "urn:uuid:089be4ee-91dc-4243-80e4-da0029881de2"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

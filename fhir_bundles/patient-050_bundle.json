@@ -1,0 +1,1101 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-050"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Reed",
+            "given": [
+              "Christopher"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1967-05-09",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "678 River Walk"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64101",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-050"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute liver failure from acetaminophen overdose (intentional)"
+          }
+        ],
+        "period": {
+          "start": "2026-04-28",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home with intensive outpatient program"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d39a1636-b464-4685-8f62-5dbf3cf886e8",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K71.1",
+              "display": "Acute liver failure, drug-induced"
+            }
+          ],
+          "text": "Acute liver failure, drug-induced"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d962d69e-8697-40d7-b4da-96a9f4c491ac",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "resolved"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "T39.1X2A",
+              "display": "Intentional acetaminophen overdose"
+            }
+          ],
+          "text": "Intentional acetaminophen overdose"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "onsetDateTime": "2026-04-27"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3e377a5c-684f-4796-8285-efa6a271ac3f",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F33.2",
+              "display": "Major depressive disorder, severe, with suicidal ideation"
+            }
+          ],
+          "text": "Major depressive disorder, severe, with suicidal ideation"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "onsetDateTime": "2023-09-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:021c2bc9-aa54-4a07-bfc9-859b1811880d",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F10.20",
+              "display": "Alcohol use disorder"
+            }
+          ],
+          "text": "Alcohol use disorder"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "onsetDateTime": "2020-01-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2544dbce-5ce3-435b-be9a-d67219300263",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "D68.4",
+              "display": "Coagulopathy (liver failure)"
+            }
+          ],
+          "text": "Coagulopathy (liver failure)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "onsetDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d85b97f6-ca49-4cf6-b224-fbd44bfbbba8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "N-acetylcysteine (NAC) oral"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "dosageInstruction": [
+          {
+            "text": "600mg twice daily",
+            "timing": {
+              "code": {
+                "text": "twice daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Continued liver protection post-acetaminophen toxicity"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 5 more days (hepatoprotection)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:58f7a993-4479-41e0-989b-10b9fc9c3a90",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Sertraline"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Major depressive disorder"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing (restarted)"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c55be8b8-7f4a-4eb3-a5b6-641d1c77f34c",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Naltrexone"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "dosageInstruction": [
+          {
+            "text": "50mg once daily (start after liver enzymes normalize)",
+            "timing": {
+              "code": {
+                "text": "once daily (start after liver enzymes normalize)"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Alcohol use disorder - currently HOLD until ALT < 3x ULN"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:df352897-591d-4ca0-b092-7e4dfa590aee",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Omeprazole"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Gastric protection"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9b0d2fdf-f418-4197-a7bb-042a5d59e0d3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Vitamin K"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Coagulopathy from liver failure"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: until INR normalizes"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7f36dfd1-6395-4e5b-9f44-afa8f934801c",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "IV N-acetylcysteine protocol (completed)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "performedDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0ace35bf-162a-4092-9441-ca3d621997ad",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Psychiatric evaluation"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:07737b3d-4558-4fc2-baa7-d5292cbe38d6",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Safety planning"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "performedDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f48d1a0c-5bbd-4b05-85d9-f49a50726e75",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Liver ultrasound with doppler"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "performedDateTime": "2026-04-29"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d38f2829-b3bb-4d2b-870a-12215e3692a9",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Acetaminophen level (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "valueString": "180 mcg/mL",
+        "interpretation": [
+          {
+            "text": "Toxic (above Rumack-Matthew line)"
+          }
+        ],
+        "effectiveDateTime": "2026-04-28"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:09e6bc4a-983e-438e-a604-05487eb79861",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ALT (peak)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "valueString": "8,500 U/L",
+        "interpretation": [
+          {
+            "text": "Massive hepatocellular injury"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0f561124-4ad4-4abf-84c6-74d65fd12efe",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "ALT (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "valueString": "580 U/L",
+        "interpretation": [
+          {
+            "text": "Improving significantly"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eb4f8d84-2481-47ae-a5ad-77e002b02751",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "INR (peak)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "valueString": "4.2",
+        "interpretation": [
+          {
+            "text": "Severe coagulopathy"
+          }
+        ],
+        "effectiveDateTime": "2026-04-30"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b462922b-b05f-424f-873f-2073b6b29f09",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "INR (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "valueString": "1.8",
+        "interpretation": [
+          {
+            "text": "Improving"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:745ce50b-0705-4cf7-a1f5-ecf8d0e89435",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Creatinine"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "valueString": "1.3 mg/dL",
+        "interpretation": [
+          {
+            "text": "Normal (no hepatorenal syndrome)"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5ab3153b-b486-4ee5-9702-e8615a852a7a",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "PHQ-9"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "valueString": "18",
+        "interpretation": [
+          {
+            "text": "Moderate-severe depression"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:03799028-4a5f-4c0d-b179-7bc6bec16298",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Columbia Suicide Severity"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        },
+        "valueString": "No current ideation, future-oriented",
+        "interpretation": [
+          {
+            "text": "Low acute risk at discharge"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7007a406-2fb1-488e-8576-20f3d125333e",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Intensive outpatient program (psychiatry) 3 days/week"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5ab101b4-fb68-47de-816a-87c687232bc0",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Psychiatry follow-up in 2 days"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6156cde4-49a3-4a89-93e1-6ed01c77e1cb",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Hepatology follow-up in 1 week"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:200d4be8-9a4e-43dc-b4f2-1875b32fc534",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Labs (LFTs, INR) every 3 days until normalized"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2d9de751-c2c0-4319-998e-6ae61b1dfd2f",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Remove all acetaminophen products from home"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:49e087f0-35ff-4e63-ad9a-8fee0bebf710",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Lethal means counseling completed with patient and brother"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eb26164a-45af-4439-9ba5-34212fdd22a9",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Crisis line: 988 Suicide & Crisis Lifeline"
+        },
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e543209f-4bfd-4eb0-a798-aca883b4fac8",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Psychiatry follow-up",
+        "start": "2026-05-06T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c3115a80-8b35-4add-974a-3563b1bb2acb",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "IOP first session",
+        "start": "2026-05-06T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:512982aa-7b9e-4af0-942b-4e6bc2f95fe5",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Hepatology follow-up",
+        "start": "2026-05-11T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:934612b1-b879-4056-b6cf-198d89455113",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "relationship": [
+          {
+            "text": "Brother"
+          }
+        ],
+        "name": [
+          {
+            "family": "Reed",
+            "given": [
+              "Mark"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bb0d34ab-f6b5-4dfc-b58b-5461faae1d59",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "patient": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "relationship": [
+          {
+            "text": "Mother"
+          }
+        ],
+        "name": [
+          {
+            "family": "Reed",
+            "given": [
+              "Sandra"
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "RelatedPerson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f0cb3b99-b167-425d-b227-bba3287d5247",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Safety Plan",
+        "description": "Warning signs: isolation, increased drinking, giving away possessions. Coping: call brother, go to gym, contact therapist. Emergency: 988, or ER. All medications locked by brother (designated safety monitor). NO acetaminophen products in home. Follow-up within 48 hours of discharge.",
+        "subject": {
+          "reference": "urn:uuid:8b4b7ca9-4784-4587-8137-9abb51f43fe6"
+        },
+        "encounter": {
+          "reference": "urn:uuid:597503ed-7a2f-46a7-8cba-1713d614b902"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}

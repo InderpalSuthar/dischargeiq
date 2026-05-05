@@ -1,0 +1,847 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/patient-id",
+            "value": "patient-007"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Foster",
+            "given": [
+              "Linda"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1975-04-12",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "890 Sunset Blvd"
+            ],
+            "city": "Phoenix",
+            "state": "AZ",
+            "postalCode": "85001",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "system": "http://dischargeiq.example.org/encounter-id",
+            "value": "enc-007"
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "reasonCode": [
+          {
+            "text": "Diabetic ketoacidosis (DKA)"
+          }
+        ],
+        "period": {
+          "start": "2026-05-01",
+          "end": "2026-05-04"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "text": "Home"
+          }
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2f4e88f9-7e15-4149-a7b4-18362cb2faa4",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E13.10",
+              "display": "Diabetic ketoacidosis"
+            }
+          ],
+          "text": "Diabetic ketoacidosis"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "onsetDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a22be3f8-60e9-4496-b289-2236edde0980",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E10.9",
+              "display": "Type 1 diabetes mellitus"
+            }
+          ],
+          "text": "Type 1 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "onsetDateTime": "1990-06-15"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:547f585c-a8eb-4839-be86-516c1c268be8",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "F32.1",
+              "display": "Major depressive disorder"
+            }
+          ],
+          "text": "Major depressive disorder"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "onsetDateTime": "2025-03-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:af572fe8-f102-4aa1-a761-a9dcd79a52f0",
+      "resource": {
+        "resourceType": "Condition",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K31.84",
+              "display": "Gastroparesis"
+            }
+          ],
+          "text": "Gastroparesis"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "onsetDateTime": "2023-09-10"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Condition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2d2dbe96-76e4-4db3-9384-1ef29c28442a",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin glargine (Lantus)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "dosageInstruction": [
+          {
+            "text": "28 units once daily at bedtime",
+            "timing": {
+              "code": {
+                "text": "once daily at bedtime"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Type 1 diabetes - basal insulin"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2856252a-5459-4ce0-8752-a022e0f24d69",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Insulin lispro (Humalog)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "dosageInstruction": [
+          {
+            "text": "sliding scale per carb ratio before each meal",
+            "timing": {
+              "code": {
+                "text": "before each meal"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Type 1 diabetes - mealtime insulin"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:05247a32-dd33-4c04-ac0a-86f3865f3212",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Sertraline (Zoloft)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "dosageInstruction": [
+          {
+            "text": "100mg once daily",
+            "timing": {
+              "code": {
+                "text": "once daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Major depressive disorder"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a6304d55-1f59-41d8-8219-95cdfcd37387",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Metoclopramide"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "dosageInstruction": [
+          {
+            "text": "10mg 30 minutes before meals, 3 times daily",
+            "timing": {
+              "code": {
+                "text": "30 minutes before meals, 3 times daily"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Gastroparesis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: ongoing"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:782740e9-dd3d-4ccb-9e9d-9b5f06b88a4b",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "text": "Potassium chloride"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "dosageInstruction": [
+          {
+            "text": "20mEq once daily for 3 days",
+            "timing": {
+              "code": {
+                "text": "once daily for 3 days"
+              }
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "Potassium replacement post-DKA"
+          }
+        ],
+        "note": [
+          {
+            "text": "Duration: 3 days"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "MedicationRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d5e3f256-ca08-4e03-8398-16576a71a7e8",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "text": "Metformin"
+        },
+        "patient": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "text": "Severe lactic acidosis"
+              }
+            ],
+            "severity": "severe"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "AllergyIntolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4da2efbb-9e36-4cfe-81ca-aa28e62463aa",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "Arterial blood gas"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8803e714-0b38-4b7b-bbcd-dd765a8d97dc",
+      "resource": {
+        "resourceType": "Procedure",
+        "status": "completed",
+        "code": {
+          "text": "IV insulin infusion"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "performedDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Procedure"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1d5aec27-fff0-4490-bbfd-a0ac7867a025",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood glucose (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "valueString": "520 mg/dL",
+        "interpretation": [
+          {
+            "text": "Critically high"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fb313ba1-7133-4407-8c5b-200ffec245f1",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "pH (admission)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "valueString": "7.18",
+        "interpretation": [
+          {
+            "text": "Acidosis"
+          }
+        ],
+        "effectiveDateTime": "2026-05-01"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1e55e61b-c52a-4444-aaba-fed179cd8a86",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Blood glucose (discharge)"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "valueString": "185 mg/dL",
+        "interpretation": [
+          {
+            "text": "Improving"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:478424d3-de74-411e-af5c-e4fda21f5e44",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Potassium"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "valueString": "3.4 mEq/L",
+        "interpretation": [
+          {
+            "text": "Low-normal"
+          }
+        ],
+        "effectiveDateTime": "2026-05-03"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ba99fd89-294c-4d26-8062-b2eaad9b6d3d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "valueString": "11.2%",
+        "interpretation": [
+          {
+            "text": "Very poor control"
+          }
+        ],
+        "effectiveDateTime": "2026-05-02"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cdddc3fa-dfca-42b2-ac1c-2dc7464f8b70",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "text": "Bicarbonate"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        },
+        "valueString": "22 mEq/L",
+        "interpretation": [
+          {
+            "text": "Normalized"
+          }
+        ],
+        "effectiveDateTime": "2026-05-04"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4ac35ef2-e6f7-4d5e-a508-ef79f0799251",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Endocrinology follow-up"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dd6d0079-2cbf-4ca9-b4de-8f073c956c60",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Diabetes education class"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0a3cd2a4-0999-4a94-854a-1cb21823ac00",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "text": "Continuous glucose monitor setup"
+        },
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:45c51918-2eb2-4c7a-a94b-b794a829fb4e",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Endocrinology follow-up",
+        "start": "2026-05-08T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b4c78f21-4b55-478d-a63a-f5ed2bf90593",
+      "resource": {
+        "resourceType": "Appointment",
+        "status": "booked",
+        "description": "Mental health follow-up",
+        "start": "2026-05-12T09:00:00Z",
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Appointment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:78c1ba6a-ad29-49fd-984b-46c9eaeafa75",
+      "resource": {
+        "resourceType": "CarePlan",
+        "status": "active",
+        "intent": "plan",
+        "title": "Diabetes Self-Management",
+        "description": "Insulin management, blood glucose monitoring, sick day rules",
+        "subject": {
+          "reference": "urn:uuid:6196e6ef-d13d-41f2-8e32-4e23948f11b7"
+        },
+        "encounter": {
+          "reference": "urn:uuid:cff4fdca-c0c2-4f3f-8b27-c18e33c462bb"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "CarePlan"
+      }
+    }
+  ]
+}
