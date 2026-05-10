@@ -1,3 +1,12 @@
+---
+title: DischargeIQ
+emoji: 🏥
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # DischargeIQ 🏥
 
 **An AI-powered hospital discharge optimization MCP server for the [Agents Assemble](https://agents-assemble.devpost.com/) hackathon.**

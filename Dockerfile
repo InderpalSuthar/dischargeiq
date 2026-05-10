@@ -16,11 +16,13 @@ COPY python/ .
 RUN chown -R dischargeiq:dischargeiq /app
 USER dischargeiq
 
-EXPOSE 8000
+# Hugging Face Space expects port 7860
+EXPOSE 7860
 
 # Health check — Docker/Railway can verify the server is responsive
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')" || exit 1
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:7860/health')" || exit 1
 
 # Production: 2 workers for concurrent FHIR requests, graceful shutdown
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2", "--timeout-graceful-shutdown", "10"]
+# Using shell form to support the $PORT variable from Hugging Face/Railway
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-7860} --workers 2 --timeout-graceful-shutdown 10"]
