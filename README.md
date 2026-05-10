@@ -1,67 +1,143 @@
-# DischargeIQ 🏥 — Grand Prize Contender for Agents Assemble
+# DischargeIQ 🏥
 
-DischargeIQ is a **Prompt Opinion (PO) Community MCP Server** that bridges the gap between raw EHR data and safe, personalized hospital discharges. It gives clinical AI agents the context they need to prevent readmissions, identify care gaps, and educate patients.
+**An AI-powered hospital discharge optimization MCP server for the [Agents Assemble](https://agents-assemble.devpost.com/) hackathon.**
 
-Built specifically for the **Agents Assemble** hackathon, DischargeIQ uses a **hybrid architecture** that combines deterministic clinical rule engines with the reasoning capabilities of the PO platform's LLM.
+DischargeIQ is a **Prompt Opinion (PO) Community MCP Server** that bridges the gap between raw EHR data and safe, personalized hospital discharges. It gives clinical AI agents the context they need to prevent readmissions, identify care gaps, and educate patients — in the patient's own language.
 
-## The Problem: The 30-Day Readmission Crisis
-Hospital readmissions cost the US healthcare system **$26 billion annually**. The primary drivers are:
-1. **Medication confusion** (polypharmacy, undocumented interactions).
-2. **Missing follow-ups** (patients falling through the cracks).
-3. **Poor patient education** (generic discharge instructions the patient doesn't understand).
-4. **Social Determinants of Health (SDOH)** (e.g., prescribing a diabetic diet to a patient in a food desert).
+## The Problem
 
-## The Solution: DischargeIQ
-DischargeIQ provides **7 clinical tools** to clinical agents, seamlessly pulling data from any FHIR R4 server using **SHARP** (Secure Health Access & Routing Protocol) for zero-integration credential passing.
+Hospital readmissions cost the US healthcare system **$26 billion annually** and cause **125,000 preventable deaths**. The primary drivers are:
 
-### Why This Wins (Judging Criteria)
+1. 💊 **Medication confusion** — polypharmacy, undocumented interactions, low health literacy
+2. 📅 **Missing follow-ups** — patients falling through the cracks after discharge
+3. 📝 **Poor patient education** — generic discharge instructions the patient doesn't understand
+4. 🏘️ **Social determinants** — prescribing a diabetic diet to a patient in a food desert
 
-1. **The AI Factor:** *We compute what's computable, and we use GenAI for what requires reasoning.* We don't ask the LLM to guess a LACE score; we compute it deterministically from FHIR data and ask the LLM to *interpret* it. We use a rules engine for high-alert medication gaps, and AI for nuanced context.
-2. **Potential Impact:** DischargeIQ addresses all major drivers of the $26B readmission crisis. The multilingual Medication Card alone addresses a massive health equity gap.
-3. **Feasibility:** Fully standard-compliant. Uses only standard FHIR R4 resources. Stateless, Docker-deployable, and horizontally scalable. Uses the "decision-support" framing to avoid FDA medical device regulation.
+## The Solution: Hybrid Deterministic + AI Architecture
+
+DischargeIQ uses a **hybrid architecture** that is the strongest possible answer to the "AI Factor" judging criterion:
+
+> **We compute what's computable, and use GenAI for what requires reasoning.**
+
+- **Deterministic Engine** (Python): LACE readmission score, Charlson Comorbidity Index, polypharmacy risk, medication gap rules, SDOH flags
+- **AI Reasoning** (PO Platform LLM): Clinical interpretation, personalized recommendations, context-dependent gap analysis, multilingual output
+
+We never ask the LLM to do arithmetic or enforce rules. We never ask Python to interpret nuance.
 
 ## Tool Inventory (7 Tools)
 
-DischargeIQ provides the following tools to the Prompt Opinion platform:
-
-| Tool | Type | Description |
-|---|---|---|
-| **GetDischargeReadinessDashboard** | ⚙️ Deterministic | Instant, fully deterministic dashboard aggregating LACE score, polypharmacy risk, and clinical gaps with pass/warn/fail indicators. Run this first. |
-| **CalculateLACEScore** | 🧠 Hybrid | Computes the evidence-based LACE readmission risk index deterministically (LOS, Acuity, Charlson Comorbidities, ED visits), then uses AI to interpret the score. |
-| **CheckDrugInteractions** | 🧠 Hybrid | Computes a deterministic polypharmacy risk score, then uses AI to identify dangerous drug-drug and drug-condition interactions. |
-| **IdentifyReadmissionRiskGaps** | 🧠 Hybrid | Two-layer gap analysis: (1) Deterministic rules engine finds evidence-based gaps (e.g., warfarin without INR), (2) AI finds nuanced contextual gaps. |
-| **GeneratePersonalizedDischargePlan** | 🤖 AI Context | Generates a patient-friendly education plan. Supports multilingual routing based on `Patient.communication`. |
-| **GenerateMedicationCard** | 🤖 AI Context | Creates a fridge-friendly, time-of-day medication schedule in the patient's primary language. |
-| **DraftTransitionCareSummary** | 🤖 AI Context | Generates structured, recipient-tailored handoff documents (Primary Care vs. SNF vs. Family Caregiver). |
+| # | Tool | Type | Key Feature |
+|---|---|---|---|
+| 1 | **GetDischargeReadinessDashboard** | ⚙️ Deterministic | Instant at-a-glance risk dashboard with pass/warn/fail indicators |
+| 2 | **CalculateLACEScore** | 🧠 Hybrid | Deterministic LACE score (van Walraven, CMAJ 2010) + AI interpretation |
+| 3 | **CheckDrugInteractions** | 🧠 Hybrid | Polypharmacy risk score + AI drug-drug/drug-allergy analysis |
+| 4 | **IdentifyReadmissionRiskGaps** | 🧠 Hybrid | 6-rule deterministic engine + AI nuanced gap detection |
+| 5 | **GeneratePersonalizedDischargePlan** | 🤖 AI Context | Multilingual patient education plan |
+| 6 | **GenerateMedicationCard** | 🤖 AI Context | Fridge-friendly med schedule in patient's language |
+| 7 | **DraftTransitionCareSummary** | 🤖 AI Context | Recipient-tailored handoff (PCP / SNF / Home Health / Family) |
 
 ## Architecture
 
-DischargeIQ implements the **Context Enrichment Pattern**. It does not call an LLM directly. Instead, it processes FHIR data and returns highly structured context and instructions back to the Prompt Opinion platform, which executes the AI reasoning.
+```
+┌─────────────────────┐     SHARP Headers      ┌──────────────────────────┐
+│                     │  ──────────────────────▶│                          │
+│  Prompt Opinion     │     Tool Call           │     DischargeIQ MCP      │
+│  Platform Agent     │◀──────────────────────  │                          │
+│                     │     Structured Context  │  1. Parse SHARP context  │
+│  (LLM Reasoning)    │                         │  2. Parallel FHIR fetch  │
+│                     │                         │  3. Deterministic rules  │
+└─────────────────────┘                         │  4. Format + return      │
+                                                └──────────┬───────────────┘
+                                                           │ asyncio.gather
+                                                    ┌──────▼──────┐
+                                                    │  FHIR R4    │
+                                                    │  Server     │
+                                                    └─────────────┘
+```
 
-1. **Platform Request:** PO platform agent calls a tool.
-2. **Identity Propagation:** DischargeIQ parses the `X-SHARP-Token` to identify the patient and EHR context.
-3. **Parallel Fetching:** DischargeIQ executes concurrent `asyncio.gather` calls against the FHIR server.
-4. **Deterministic Engine:** Clinical rules are run locally (CCI mapping, LACE computation, SDOH flaggers).
-5. **Context Return:** DischargeIQ returns the computed data, formatted summaries, and strict system prompts back to the PO platform.
+DischargeIQ **does not call any LLM**. It fetches FHIR data, runs deterministic clinical logic, and returns structured context + system prompts back to the PO platform, which executes the AI reasoning.
+
+## Deterministic Clinical Logic
+
+### LACE Readmission Risk Index
+- **L**: Length of Stay computed from `Encounter.period` (days → score via published lookup table)
+- **A**: Acuity from `Encounter.class` (emergency/urgent = 3, elective = 0)
+- **C**: Charlson Comorbidity Index — 17 ICD-10 category mappings from `Condition.code`
+- **E**: ED visits in 6 months prior from `Encounter` history
+
+### Gap Detection Rules Engine (6 Rules)
+1. High-alert medications without monitoring orders (warfarin→INR, insulin→glucose, metformin→creatinine, digoxin, lithium, phenytoin, amiodarone)
+2. No follow-up appointment within 14 days
+3. Polypharmacy (5+ meds) without documented caregiver
+4. Fall-risk medications in elderly patients (age ≥65)
+5. Diabetic patient in food desert ZIP code (SDOH)
+6. COPD/CHF without home health or monitoring order
+
+### Polypharmacy Risk Score
+- Medication count tiers (5+ polypharmacy, 10+ hyperpolypharmacy)
+- Age-based risk multiplier (≥65, ≥80)
+- High-alert medication counting
+
+## Test Data
+
+The `fhir_bundles/` directory contains **50 diverse synthetic patient bundles** covering a wide range of clinical scenarios — from simple elective procedures to complex multi-morbidity elderly patients with polypharmacy. These bundles can be uploaded to any FHIR R4 server using the included `upload_bundle.py` utility.
+
+## Project Structure
+
+```
+dischargeiq/
+├── Dockerfile                     # Production-hardened (non-root, healthcheck, multi-worker)
+├── docker-compose.yml             # Local development
+├── .dockerignore                  # Optimized image (excludes test data)
+├── fhir_bundles/                  # 50 synthetic patient FHIR bundles
+│   ├── patient-001_bundle.json
+│   └── ...
+├── flow.svg                       # Architecture sequence diagram
+└── python/
+    ├── main.py                    # FastAPI entry point + /health + /tools endpoints
+    ├── mcp_instance.py            # 7 tool registrations + FHIR capability scopes
+    ├── fhir_client.py             # Async FHIR R4 client with connection pooling
+    ├── fhir_context.py            # SHARP context dataclass
+    ├── fhir_utilities.py          # JWT parsing for patient ID extraction
+    ├── mcp_constants.py           # Header name constants
+    ├── mcp_utilities.py           # Graceful error response utility
+    ├── summarizers.py             # 13 shared FHIR resource summarizers (DRY)
+    ├── clinical_rules.py          # Deterministic rules engine (LACE, CCI, gaps, polypharmacy)
+    ├── upload_bundle.py           # Utility to upload FHIR bundles to HAPI sandbox
+    ├── run_stdio.py               # Claude Desktop stdio mode runner
+    ├── requirements.txt           # Dependencies (no anthropic — we don't call LLMs)
+    ├── pytest.ini                 # Test configuration
+    ├── prompts/                   # System prompts for each tool
+    │   ├── discharge_plan_prompt.py
+    │   ├── readmission_gaps_prompt.py
+    │   ├── transition_summary_prompt.py
+    │   ├── drug_interaction_prompt.py
+    │   ├── lace_score_prompt.py   # Interpretation-only (score is pre-computed)
+    │   └── medication_card_prompt.py
+    ├── tools/                     # Tool implementations
+    │   ├── discharge_plan.py
+    │   ├── readmission_gaps.py
+    │   ├── transition_summary.py
+    │   ├── drug_interaction_check.py
+    │   ├── lace_score.py
+    │   ├── medication_card.py
+    │   └── discharge_readiness.py
+    └── tests/                     # Integration tests (23 tests, all passing)
+        ├── __init__.py
+        └── test_clinical_rules.py
+```
 
 ## Getting Started
 
 ### Prerequisites
 - Python 3.11+
-- A FHIR R4 Server (e.g., HAPI FHIR Public Sandbox)
-- Prompt Opinion Developer Account
+- A FHIR R4 server (e.g., [HAPI FHIR Public Sandbox](https://hapi.fhir.org/baseR4))
 
 ### Installation
 
 ```bash
 git clone https://github.com/InderpalSuthar/dischargeiq.git
 cd dischargeiq/python
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Or venv\Scripts\activate on Windows
-
-# Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -71,21 +147,61 @@ pip install -r requirements.txt
 python main.py
 ```
 
-The MCP server will start on `http://0.0.0.0:8000` with Server-Sent Events (SSE) enabled.
+The MCP server starts on `http://0.0.0.0:8000`.
 
-Endpoints:
-- `/`: SSE endpoint for MCP connection.
-- `/health`: Health check endpoint.
-- `/tools`: Tool metadata.
+| Endpoint | Purpose |
+|---|---|
+| `/` | MCP Streamable HTTP endpoint |
+| `/health` | Health check (returns version, tool count, timestamp) |
+| `/tools` | Tool metadata listing |
 
-### Running Integration Tests
-
-Our deterministic clinical rules engine is fully tested:
+### Running Tests
 
 ```bash
-export PYTEST_DISABLE_PLUGIN_AUTOLOAD="1"
-pytest tests/test_clinical_rules.py -v
+# Windows
+$env:PYTEST_DISABLE_PLUGIN_AUTOLOAD="1"; python -m pytest tests/ -v
+
+# Linux/Mac
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest tests/ -v
 ```
 
+**23 tests** covering Charlson Index computation, LACE scoring, polypharmacy risk, and all 6 gap detection rules.
+
+### Docker
+
+```bash
+docker build -t dischargeiq .
+docker run -p 8000:8000 dischargeiq
+```
+
+### Upload Test Data to FHIR Server
+
+```bash
+python upload_bundle.py ../fhir_bundles/patient-001_bundle.json
+```
+
+## Why This Wins
+
+| Criterion | Our Answer |
+|---|---|
+| **The AI Factor** | Hybrid architecture: deterministic computation + AI interpretation. We don't ask the LLM to guess a LACE score — we compute it. |
+| **Potential Impact** | 7 tools covering the full discharge workflow. Multilingual medication cards address health equity. SDOH zip-code flagging catches social risks. |
+| **Feasibility** | FHIR R4 compliant, SHARP context propagation, stateless Docker deployment, connection pooling, 23 passing tests, non-root container. |
+
+## Submission Checklist
+
+- [x] MCP server deployed and accessible
+- [x] Published to Prompt Opinion Marketplace
+- [x] SHARP Extension Specs implemented for context propagation
+- [x] Uses FHIR R4 data from a live FHIR server
+- [x] Demo video under 3 minutes showing tools in Prompt Opinion platform
+- [x] Source code on GitHub
+- [x] Devpost submission complete
+
 ## Disclaimer
-DischargeIQ is designed as a **clinical decision support tool**, not a replacement for medical judgment. All outputs are generated as **DRAFTS** and must be reviewed by a qualified healthcare professional before being added to a patient's chart or handed to a patient.
+
+DischargeIQ is a **clinical decision support tool**, not a replacement for medical judgment. All outputs are generated as **DRAFTS** and must be reviewed by a qualified healthcare professional before delivery to a patient.
+
+---
+
+*Built for the [Agents Assemble](https://agents-assemble.devpost.com/) hackathon by the DischargeIQ team.*

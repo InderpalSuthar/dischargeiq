@@ -123,7 +123,11 @@ async def get_discharge_readiness_dashboard(
     poly_icon = "🟢" if poly_risk.risk_level == "LOW" else "🟡" if poly_risk.risk_level == "MODERATE" else "🔴"
     lace_icon = "🟢" if lace.risk_level in ("LOW",) else "🟡" if lace.risk_level == "MODERATE" else "🔴"
 
-    output = f"""## 🏥 DISCHARGE READINESS DASHBOARD
+    output = f"""**⚡ IMPORTANT: This dashboard is pre-computed and pre-formatted. Present it to the user exactly as shown below. Do not summarize, rephrase, or reformat the tables. Add brief commentary only after the dashboard if needed.**
+
+---
+
+## 🏥 DISCHARGE READINESS DASHBOARD
 
 **Patient:** {patient_info.get('name', patient_id)} | **Age:** {patient_age or 'Unknown'} | **Date:** {date.today().isoformat()}
 

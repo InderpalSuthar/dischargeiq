@@ -3,3 +3,15 @@ __pycache__/
 *.py[cod]
 *$py.class
 .DS_Store
+.env
+.env.*
+result.txt
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
