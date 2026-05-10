@@ -106,7 +106,7 @@ async def generate_personalized_discharge_plan(
 {DISCHARGE_PLAN_SYSTEM_PROMPT}{language_instruction}
 
 ### Patient Clinical Data (from FHIR R4)
-{json.dumps(clinical_context, indent=2)}
+{json.dumps(clinical_context, separators=(',', ':'))}
 
 ---
 Please use the above clinical data and instructions to generate a personalized discharge plan for this patient."""

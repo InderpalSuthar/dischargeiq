@@ -113,7 +113,7 @@ async def check_drug_interactions(
 {DRUG_INTERACTION_SYSTEM_PROMPT}
 
 ### Patient Clinical Data (from FHIR R4)
-{json.dumps(clinical_context, indent=2)}
+{json.dumps(clinical_context, separators=(',', ':'))}
 
 ---
 Please analyze ALL medication pairs, drug-allergy cross-reactivity, and drug-condition contraindications for this patient. The polypharmacy risk assessment above is already computed — focus on specific interaction pairs."""

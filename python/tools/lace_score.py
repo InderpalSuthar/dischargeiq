@@ -123,7 +123,6 @@ async def calculate_lace_readmission_score(
         "current_encounter": summarize_encounter(current_encounter, include_hospitalization=True) if current_encounter else "No encounter found",
         "encounter_source": encounter_source,
         "all_conditions": [summarize_condition(c, include_icd=True) for c in conditions],
-        "all_encounters_summary": [_summarize_encounter_brief(e) for e in all_encounters],
     }
 
     output = f"""## LACE READMISSION RISK SCORE — Deterministic Computation
@@ -145,7 +144,7 @@ async def calculate_lace_readmission_score(
 {LACE_SCORE_SYSTEM_PROMPT}
 
 ### Computed Data (use this — do NOT re-compute the score)
-{json.dumps(clinical_context, indent=2)}
+{json.dumps(clinical_context, separators=(',', ':'))}
 
 ---
 The LACE score above has been computed deterministically from FHIR data. Please provide:

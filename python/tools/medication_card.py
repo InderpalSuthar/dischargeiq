@@ -81,7 +81,7 @@ async def generate_medication_card(
 {MEDICATION_CARD_SYSTEM_PROMPT}{language_instruction}
 
 ### Patient Clinical Data (from FHIR R4)
-{json.dumps(clinical_context, indent=2)}
+{json.dumps(clinical_context, separators=(',', ':'))}
 
 ---
 Please generate a fridge-friendly medication schedule card for this patient."""

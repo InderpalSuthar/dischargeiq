@@ -155,7 +155,7 @@ The following gaps were ALREADY identified by the rules engine above. Do NOT rep
 {chr(10).join(f"- {g.issue}" for g in deterministic_gaps) if deterministic_gaps else "- (none)"}
 
 ### Patient Clinical Data (from FHIR R4)
-{json.dumps(clinical_context, indent=2)}
+{json.dumps(clinical_context, separators=(',', ':'))}
 
 ---
 Please analyze the above clinical data and identify any ADDITIONAL gaps not already caught by the rules engine above. Focus on nuanced, context-dependent issues that require clinical reasoning."""

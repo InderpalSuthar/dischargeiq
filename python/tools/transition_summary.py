@@ -132,7 +132,7 @@ async def draft_transition_care_summary(
 {TRANSITION_SUMMARY_SYSTEM_PROMPT}
 
 ### Patient Clinical Data (from FHIR R4)
-{json.dumps(clinical_context, indent=2)}
+{json.dumps(clinical_context, separators=(',', ':'))}
 
 ---
 Please generate a transition of care summary tailored for the **{recipient_type}** recipient using the above clinical data and instructions."""
