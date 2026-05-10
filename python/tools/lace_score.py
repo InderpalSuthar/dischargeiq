@@ -1,12 +1,13 @@
 import asyncio
 import json
+import logging
 from typing import Annotated
 
 from mcp.server.fastmcp import Context
 from pydantic import Field
 
 from clinical_rules import compute_lace_score, format_lace_score_table
-from fhir_client import FhirClient
+from fhir_client import FhirClient, find_current_encounter
 from fhir_utilities import get_fhir_context, get_patient_id_if_context_exists
 from mcp_utilities import create_text_response
 from prompts.lace_score_prompt import LACE_SCORE_SYSTEM_PROMPT
@@ -15,6 +16,8 @@ from summarizers import (
     summarize_encounter,
     summarize_patient,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def _summarize_encounter_brief(encounter: dict) -> dict:
@@ -35,7 +38,7 @@ async def calculate_lace_readmission_score(
     ] = None,
     encounter_id: Annotated[
         str | None,
-        Field(description="The encounter ID for the current hospitalization. Required for accurate Length of Stay and Acuity calculation."),
+        Field(description="The encounter ID for the current hospitalization. If not provided, the most recent encounter is auto-detected."),
     ] = None,
     ctx: Context = None,
 ) -> str:
@@ -61,15 +64,26 @@ async def calculate_lace_readmission_score(
     if not patient:
         return create_text_response(f"Patient {patient_id} not found on FHIR server.", is_error=True)
 
-    # Parallel FHIR fetching
-    conditions, all_encounters = await asyncio.gather(
+    # Parallel FHIR fetching with error resilience
+    results = await asyncio.gather(
         fhir_client.get_conditions(patient_id),
         fhir_client.get_all_encounters(patient_id),
+        return_exceptions=True,
     )
+    conditions = results[0] if not isinstance(results[0], Exception) else []
+    all_encounters = results[1] if not isinstance(results[1], Exception) else []
 
+    if isinstance(results[0], Exception):
+        logger.warning("Failed to fetch conditions: %s", results[0])
+    if isinstance(results[1], Exception):
+        logger.warning("Failed to fetch encounters: %s", results[1])
+
+    # --- Encounter auto-detection ---
     current_encounter = None
     if encounter_id:
         current_encounter = await fhir_client.get_encounter(encounter_id)
+    if not current_encounter:
+        current_encounter = find_current_encounter(all_encounters)
 
     # --- Deterministic LACE computation ---
     lace = compute_lace_score(
@@ -85,6 +99,8 @@ async def calculate_lace_readmission_score(
         data_gaps_section = "\n**Data Gaps (affected scoring accuracy):**\n" + "\n".join(
             f"- {gap}" for gap in lace.data_gaps
         )
+
+    encounter_source = "auto-detected (most recent)" if not encounter_id else "specified"
 
     clinical_context = {
         "patient": summarize_patient(patient),
@@ -104,14 +120,15 @@ async def calculate_lace_readmission_score(
                 "E_score": lace.e_score,
             },
         },
-        "current_encounter": summarize_encounter(current_encounter, include_hospitalization=True) if current_encounter else "Not provided",
+        "current_encounter": summarize_encounter(current_encounter, include_hospitalization=True) if current_encounter else "No encounter found",
+        "encounter_source": encounter_source,
         "all_conditions": [summarize_condition(c, include_icd=True) for c in conditions],
         "all_encounters_summary": [_summarize_encounter_brief(e) for e in all_encounters],
     }
 
     output = f"""## LACE READMISSION RISK SCORE — Deterministic Computation
 
-**Patient:** {patient_id}
+**Patient:** {patient_id} | **Encounter:** {encounter_source}
 
 ---
 

@@ -1,5 +1,6 @@
 import asyncio
 import json
+import logging
 from typing import Annotated
 
 from mcp.server.fastmcp import Context
@@ -18,6 +19,8 @@ from summarizers import (
     summarize_observation,
     summarize_patient,
 )
+
+logger = logging.getLogger(__name__)
 
 
 async def check_drug_interactions(
@@ -53,13 +56,23 @@ async def check_drug_interactions(
     if not patient:
         return create_text_response(f"Patient {patient_id} not found on FHIR server.", is_error=True)
 
-    # Parallel FHIR fetching
-    medications, allergies, conditions, observations = await asyncio.gather(
+    # Parallel FHIR fetching with error resilience
+    results = await asyncio.gather(
         fhir_client.get_medications(patient_id, encounter_id),
         fhir_client.get_allergies(patient_id),
         fhir_client.get_conditions(patient_id),
         fhir_client.get_observations(patient_id, "laboratory"),
+        return_exceptions=True,
     )
+
+    medications = results[0] if not isinstance(results[0], Exception) else []
+    allergies = results[1] if not isinstance(results[1], Exception) else []
+    conditions = results[2] if not isinstance(results[2], Exception) else []
+    observations = results[3] if not isinstance(results[3], Exception) else []
+
+    for i, res in enumerate(results):
+        if isinstance(res, Exception):
+            logger.warning("FHIR fetch %d failed: %s", i, res)
 
     if not medications:
         return create_text_response("No active medications found for this patient. No interaction check needed.")

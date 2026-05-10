@@ -1,5 +1,6 @@
 import asyncio
 import json
+import logging
 from typing import Annotated
 
 from mcp.server.fastmcp import Context
@@ -9,6 +10,7 @@ from fhir_client import FhirClient
 from fhir_utilities import get_fhir_context, get_patient_id_if_context_exists
 from mcp_utilities import create_text_response
 from prompts.medication_card_prompt import MEDICATION_CARD_SYSTEM_PROMPT
+from shared_constants import get_language_instruction
 from summarizers import (
     get_patient_age,
     get_patient_language_code,
@@ -16,6 +18,8 @@ from summarizers import (
     summarize_medication,
     summarize_patient,
 )
+
+logger = logging.getLogger(__name__)
 
 
 async def generate_medication_card(
@@ -29,53 +33,38 @@ async def generate_medication_card(
     ] = None,
     ctx: Context = None,
 ) -> str:
-    """Generates a simple, fridge-friendly medication schedule card that ANY patient or caregiver
-    can follow regardless of health literacy. Organizes medications by time of day (morning,
-    afternoon, evening, bedtime), uses plain language, includes specific warnings for this
-    patient's medication combination, and generates in the patient's primary language if not English.
-    Designed to be printed and posted at home to prevent medication errors post-discharge."""
+    """Generates a fridge-friendly medication schedule card organized by time of day.
+    Supports multilingual output based on Patient.communication.language."""
 
     if not patient_id:
         patient_id = get_patient_id_if_context_exists(ctx)
         if not patient_id:
-            return create_text_response("No patient context found. Please provide a patient_id or ensure SHARP context headers are present.", is_error=True)
+            return create_text_response("No patient context found.", is_error=True)
 
     fhir_context = get_fhir_context(ctx)
     if not fhir_context:
-        return create_text_response("FHIR context could not be retrieved. Ensure X-FHIR-Server-URL header is present.", is_error=True)
+        return create_text_response("FHIR context could not be retrieved.", is_error=True)
 
     fhir_client = FhirClient(base_url=fhir_context.url, token=fhir_context.token)
 
     patient = await fhir_client.get_patient(patient_id)
     if not patient:
-        return create_text_response(f"Patient {patient_id} not found on FHIR server.", is_error=True)
+        return create_text_response(f"Patient {patient_id} not found.", is_error=True)
 
-    # Parallel FHIR fetching
-    medications, allergies = await asyncio.gather(
+    results = await asyncio.gather(
         fhir_client.get_medications(patient_id, encounter_id),
         fhir_client.get_allergies(patient_id),
+        return_exceptions=True,
     )
+
+    medications = results[0] if not isinstance(results[0], Exception) else []
+    allergies = results[1] if not isinstance(results[1], Exception) else []
 
     if not medications:
         return create_text_response("No active medications found. Cannot generate medication card.")
 
-    # Language routing
     language_code = get_patient_language_code(patient)
-    language_instruction = ""
-    if language_code and language_code.lower() not in ("en", "english"):
-        language_name_map = {
-            "es": "Spanish", "zh": "Chinese (Simplified)", "ar": "Arabic",
-            "fr": "French", "de": "German", "hi": "Hindi", "pt": "Portuguese",
-            "ru": "Russian", "ko": "Korean", "ja": "Japanese", "vi": "Vietnamese",
-            "tl": "Tagalog", "it": "Italian", "pl": "Polish",
-        }
-        lang_name = language_name_map.get(language_code.lower(), language_code)
-        language_instruction = (
-            f"\n\n⚠️ LANGUAGE: Generate the ENTIRE medication card in {lang_name}. "
-            f"This patient's primary language is {lang_name} (code: {language_code}). "
-            f"All text including headings, instructions, and warnings must be in {lang_name}."
-        )
-
+    language_instruction = get_language_instruction(language_code)
     patient_age = get_patient_age(patient)
 
     clinical_context = {
@@ -95,6 +84,6 @@ async def generate_medication_card(
 {json.dumps(clinical_context, indent=2)}
 
 ---
-Please generate a fridge-friendly medication schedule card for this patient using the above data."""
+Please generate a fridge-friendly medication schedule card for this patient."""
 
     return output

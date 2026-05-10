@@ -1,12 +1,13 @@
 import asyncio
 import json
+import logging
 from typing import Annotated
 
 from mcp.server.fastmcp import Context
 from pydantic import Field
 
 from clinical_rules import ClinicalGap, run_gap_rules_engine
-from fhir_client import FhirClient
+from fhir_client import FhirClient, find_current_encounter
 from fhir_utilities import get_fhir_context, get_patient_id_if_context_exists
 from mcp_utilities import create_text_response
 from prompts.readmission_gaps_prompt import READMISSION_GAPS_SYSTEM_PROMPT
@@ -21,6 +22,8 @@ from summarizers import (
     summarize_related_person,
     summarize_service_request,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def _format_deterministic_gaps(gaps: list[ClinicalGap]) -> str:
@@ -44,7 +47,7 @@ async def identify_readmission_risk_gaps(
     ] = None,
     encounter_id: Annotated[
         str | None,
-        Field(description="The encounter ID for the current hospitalization."),
+        Field(description="The encounter ID for the current hospitalization. If not provided, the most recent encounter is auto-detected."),
     ] = None,
     ctx: Context = None,
 ) -> str:
@@ -69,16 +72,8 @@ async def identify_readmission_risk_gaps(
     if not patient:
         return create_text_response(f"Patient {patient_id} not found on FHIR server.", is_error=True)
 
-    # Parallel FHIR fetching
-    (
-        conditions,
-        medications,
-        service_requests,
-        appointments,
-        related_persons,
-        observations,
-        care_plans,
-    ) = await asyncio.gather(
+    # Parallel FHIR fetching with error resilience
+    results = await asyncio.gather(
         fhir_client.get_conditions(patient_id),
         fhir_client.get_medications(patient_id, encounter_id),
         fhir_client.get_service_requests(patient_id),
@@ -86,11 +81,29 @@ async def identify_readmission_risk_gaps(
         fhir_client.get_related_persons(patient_id),
         fhir_client.get_observations(patient_id, "laboratory"),
         fhir_client.get_care_plans(patient_id),
+        fhir_client.get_all_encounters(patient_id),
+        return_exceptions=True,
     )
 
+    conditions = results[0] if not isinstance(results[0], Exception) else []
+    medications = results[1] if not isinstance(results[1], Exception) else []
+    service_requests = results[2] if not isinstance(results[2], Exception) else []
+    appointments = results[3] if not isinstance(results[3], Exception) else []
+    related_persons = results[4] if not isinstance(results[4], Exception) else []
+    observations = results[5] if not isinstance(results[5], Exception) else []
+    care_plans = results[6] if not isinstance(results[6], Exception) else []
+    all_encounters = results[7] if not isinstance(results[7], Exception) else []
+
+    for i, res in enumerate(results):
+        if isinstance(res, Exception):
+            logger.warning("FHIR fetch %d failed: %s", i, res)
+
+    # --- Encounter auto-detection ---
     encounter = None
     if encounter_id:
         encounter = await fhir_client.get_encounter(encounter_id)
+    if not encounter:
+        encounter = find_current_encounter(all_encounters)
 
     # --- Deterministic rules engine runs first ---
     deterministic_gaps = run_gap_rules_engine(
@@ -109,7 +122,7 @@ async def identify_readmission_risk_gaps(
 
     clinical_context = {
         "patient": summarize_patient(patient, include_address=True),
-        "encounter": summarize_encounter(encounter) if encounter else "No encounter specified",
+        "encounter": summarize_encounter(encounter) if encounter else "No encounter found",
         "active_conditions": [summarize_condition(c, include_icd=True) for c in conditions],
         "discharge_medications": [summarize_medication(m) for m in medications],
         "active_service_requests": [summarize_service_request(sr) for sr in service_requests],

@@ -130,3 +130,35 @@ class FhirClient:
             logger.debug("Empty bundle (no entries) for %s search.", resource_type)
             return []
         return [entry.get("resource", {}) for entry in bundle["entry"]]
+
+
+def find_current_encounter(all_encounters: list[dict]) -> dict | None:
+    """Auto-detect the current/most recent encounter when no encounter_id is provided.
+
+    Priority:
+    1. In-progress encounter (patient is currently admitted)
+    2. Most recently started finished/completed encounter
+    3. None if no encounters exist
+
+    This is CRITICAL — the PO platform agent almost never passes an encounter_id.
+    Without this, LACE scores and dashboards return garbage.
+    """
+    if not all_encounters:
+        return None
+
+    # Priority 1: in-progress encounter
+    for enc in all_encounters:
+        if enc.get("status") in ("in-progress", "arrived", "triaged"):
+            return enc
+
+    # Priority 2: most recent finished encounter by start date
+    finished = [e for e in all_encounters if e.get("status") in ("finished", "completed", "discharged")]
+    if finished:
+        def _get_start(enc: dict) -> str:
+            return enc.get("period", {}).get("start", "") or ""
+        finished.sort(key=_get_start, reverse=True)
+        return finished[0]
+
+    # Priority 3: any encounter at all (sorted by date already from FHIR)
+    return all_encounters[0] if all_encounters else None
+

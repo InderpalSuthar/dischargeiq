@@ -1,4 +1,5 @@
 import asyncio
+import logging
 from datetime import date
 from typing import Annotated
 
@@ -10,10 +11,12 @@ from clinical_rules import (
     compute_polypharmacy_risk,
     run_gap_rules_engine,
 )
-from fhir_client import FhirClient
+from fhir_client import FhirClient, find_current_encounter
 from fhir_utilities import get_fhir_context, get_patient_id_if_context_exists
 from mcp_utilities import create_text_response
 from summarizers import get_patient_age, summarize_patient
+
+logger = logging.getLogger(__name__)
 
 
 async def get_discharge_readiness_dashboard(
@@ -23,7 +26,7 @@ async def get_discharge_readiness_dashboard(
     ] = None,
     encounter_id: Annotated[
         str | None,
-        Field(description="The encounter ID for the current hospitalization."),
+        Field(description="The encounter ID for the current hospitalization. If not provided, the most recent encounter is auto-detected."),
     ] = None,
     ctx: Context = None,
 ) -> str:
@@ -49,17 +52,8 @@ async def get_discharge_readiness_dashboard(
     if not patient:
         return create_text_response(f"Patient {patient_id} not found on FHIR server.", is_error=True)
 
-    # Parallel FHIR fetching — everything in one shot
-    (
-        conditions,
-        medications,
-        service_requests,
-        appointments,
-        related_persons,
-        observations,
-        care_plans,
-        all_encounters,
-    ) = await asyncio.gather(
+    # Parallel FHIR fetching with error resilience
+    results = await asyncio.gather(
         fhir_client.get_conditions(patient_id),
         fhir_client.get_medications(patient_id, encounter_id),
         fhir_client.get_service_requests(patient_id),
@@ -68,11 +62,29 @@ async def get_discharge_readiness_dashboard(
         fhir_client.get_observations(patient_id, "laboratory"),
         fhir_client.get_care_plans(patient_id),
         fhir_client.get_all_encounters(patient_id),
+        return_exceptions=True,
     )
 
+    # Gracefully handle individual failures
+    conditions = results[0] if not isinstance(results[0], Exception) else []
+    medications = results[1] if not isinstance(results[1], Exception) else []
+    service_requests = results[2] if not isinstance(results[2], Exception) else []
+    appointments = results[3] if not isinstance(results[3], Exception) else []
+    related_persons = results[4] if not isinstance(results[4], Exception) else []
+    observations = results[5] if not isinstance(results[5], Exception) else []
+    care_plans = results[6] if not isinstance(results[6], Exception) else []
+    all_encounters = results[7] if not isinstance(results[7], Exception) else []
+
+    for i, res in enumerate(results):
+        if isinstance(res, Exception):
+            logger.warning("FHIR fetch %d failed: %s", i, res)
+
+    # --- Encounter auto-detection ---
     current_encounter = None
     if encounter_id:
         current_encounter = await fhir_client.get_encounter(encounter_id)
+    if not current_encounter:
+        current_encounter = find_current_encounter(all_encounters)
 
     patient_info = summarize_patient(patient, include_address=True, include_language=True)
     patient_age = get_patient_age(patient)
@@ -123,13 +135,15 @@ async def get_discharge_readiness_dashboard(
     poly_icon = "🟢" if poly_risk.risk_level == "LOW" else "🟡" if poly_risk.risk_level == "MODERATE" else "🔴"
     lace_icon = "🟢" if lace.risk_level in ("LOW",) else "🟡" if lace.risk_level == "MODERATE" else "🔴"
 
+    encounter_source = "auto-detected" if not encounter_id else "specified"
+
     output = f"""**⚡ IMPORTANT: This dashboard is pre-computed and pre-formatted. Present it to the user exactly as shown below. Do not summarize, rephrase, or reformat the tables. Add brief commentary only after the dashboard if needed.**
 
 ---
 
 ## 🏥 DISCHARGE READINESS DASHBOARD
 
-**Patient:** {patient_info.get('name', patient_id)} | **Age:** {patient_age or 'Unknown'} | **Date:** {date.today().isoformat()}
+**Patient:** {patient_info.get('name', patient_id)} | **Age:** {patient_age or 'Unknown'} | **Date:** {date.today().isoformat()} | **Encounter:** {encounter_source}
 
 ---
 
