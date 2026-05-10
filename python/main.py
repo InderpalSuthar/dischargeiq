@@ -1,10 +1,23 @@
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 
 from mcp_instance import mcp
+
+VERSION = "2.0.0"
+TOOLS = [
+    "GeneratePersonalizedDischargePlan",
+    "IdentifyReadmissionRiskGaps",
+    "DraftTransitionCareSummary",
+    "CheckDrugInteractions",
+    "CalculateLACEScore",
+    "GenerateMedicationCard",
+    "GetDischargeReadinessDashboard",
+]
 
 
 class AcceptHeaderMiddleware(BaseHTTPMiddleware):
@@ -33,7 +46,7 @@ async def lifespan(app: FastAPI):
         yield
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(lifespan=lifespan, title="DischargeIQ MCP Server", version=VERSION)
 
 app.add_middleware(AcceptHeaderMiddleware)
 
@@ -43,6 +56,28 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/health")
+async def health_check():
+    return JSONResponse({
+        "status": "healthy",
+        "service": "DischargeIQ",
+        "version": VERSION,
+        "tool_count": len(TOOLS),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    })
+
+
+@app.get("/tools")
+async def list_tools():
+    return JSONResponse({
+        "service": "DischargeIQ",
+        "version": VERSION,
+        "tools": TOOLS,
+        "description": "AI-powered hospital discharge workflow tools for the PO Community MCP.",
+    })
+
 
 app.mount("/", mcp.streamable_http_app())
 

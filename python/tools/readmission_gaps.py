@@ -1,13 +1,40 @@
+import asyncio
 import json
 from typing import Annotated
 
 from mcp.server.fastmcp import Context
 from pydantic import Field
 
+from clinical_rules import ClinicalGap, run_gap_rules_engine
 from fhir_client import FhirClient
 from fhir_utilities import get_fhir_context, get_patient_id_if_context_exists
 from mcp_utilities import create_text_response
 from prompts.readmission_gaps_prompt import READMISSION_GAPS_SYSTEM_PROMPT
+from summarizers import (
+    summarize_appointment,
+    summarize_care_plan,
+    summarize_condition,
+    summarize_encounter,
+    summarize_medication,
+    summarize_observation,
+    summarize_patient,
+    summarize_related_person,
+    summarize_service_request,
+)
+
+
+def _format_deterministic_gaps(gaps: list[ClinicalGap]) -> str:
+    if not gaps:
+        return "✅ No deterministic gaps detected by rules engine."
+    lines = []
+    for i, gap in enumerate(gaps, 1):
+        lines.append(f"""### Gap {i} — [{gap.severity}] *(Rules Engine)*
+**Issue:** {gap.issue}
+**Evidence:** {gap.evidence}
+**Clinical Risk:** {gap.clinical_risk}
+**ACTION:** {gap.action}
+""")
+    return "\n".join(lines)
 
 
 async def identify_readmission_risk_gaps(
@@ -23,8 +50,9 @@ async def identify_readmission_risk_gaps(
 ) -> str:
     """Analyzes the patient's full FHIR context at the moment of discharge and identifies
     specific, named, actionable gaps that will cause a readmission if not addressed before
-    the patient leaves. Not a risk score — a list of specific things that are broken in
-    this patient's discharge plan right now. Output is for clinical team review."""
+    the patient leaves. Combines a deterministic rules engine (for reliable, evidence-based
+    gaps) with AI analysis (for nuanced, context-dependent gaps). Not a risk score — a list
+    of specific things that are broken in this patient's discharge plan right now."""
 
     if not patient_id:
         patient_id = get_patient_id_if_context_exists(ctx)
@@ -41,127 +69,82 @@ async def identify_readmission_risk_gaps(
     if not patient:
         return create_text_response(f"Patient {patient_id} not found on FHIR server.", is_error=True)
 
-    conditions = await fhir_client.get_conditions(patient_id)
-    medications = await fhir_client.get_medications(patient_id, encounter_id)
-    service_requests = await fhir_client.get_service_requests(patient_id)
-    appointments = await fhir_client.get_appointments(patient_id)
-    related_persons = await fhir_client.get_related_persons(patient_id)
-    observations = await fhir_client.get_observations(patient_id, "laboratory")
-    care_plans = await fhir_client.get_care_plans(patient_id)
+    # Parallel FHIR fetching
+    (
+        conditions,
+        medications,
+        service_requests,
+        appointments,
+        related_persons,
+        observations,
+        care_plans,
+    ) = await asyncio.gather(
+        fhir_client.get_conditions(patient_id),
+        fhir_client.get_medications(patient_id, encounter_id),
+        fhir_client.get_service_requests(patient_id),
+        fhir_client.get_appointments(patient_id),
+        fhir_client.get_related_persons(patient_id),
+        fhir_client.get_observations(patient_id, "laboratory"),
+        fhir_client.get_care_plans(patient_id),
+    )
 
     encounter = None
     if encounter_id:
         encounter = await fhir_client.get_encounter(encounter_id)
 
+    # --- Deterministic rules engine runs first ---
+    deterministic_gaps = run_gap_rules_engine(
+        patient=patient,
+        medications=medications,
+        service_requests=service_requests,
+        appointments=appointments,
+        care_plans=care_plans,
+        related_persons=related_persons,
+        conditions=conditions,
+        observations=observations,
+    )
+
+    deterministic_section = _format_deterministic_gaps(deterministic_gaps)
+    det_count = len(deterministic_gaps)
+
     clinical_context = {
-        "patient": _summarize_patient(patient),
-        "encounter": _summarize_encounter(encounter) if encounter else "No encounter specified",
-        "active_conditions": [_summarize_condition(c) for c in conditions],
-        "discharge_medications": [_summarize_medication(m) for m in medications],
-        "active_service_requests": [_summarize_service_request(sr) for sr in service_requests],
-        "scheduled_appointments": [_summarize_appointment(a) for a in appointments],
-        "caregivers": [_summarize_related_person(rp) for rp in related_persons],
-        "recent_labs": [_summarize_observation(o) for o in observations[:15]],
-        "active_care_plans": [_summarize_care_plan(cp) for cp in care_plans],
+        "patient": summarize_patient(patient, include_address=True),
+        "encounter": summarize_encounter(encounter) if encounter else "No encounter specified",
+        "active_conditions": [summarize_condition(c, include_icd=True) for c in conditions],
+        "discharge_medications": [summarize_medication(m) for m in medications],
+        "active_service_requests": [summarize_service_request(sr) for sr in service_requests],
+        "scheduled_appointments": [summarize_appointment(a) for a in appointments],
+        "caregivers": [summarize_related_person(rp) for rp in related_persons],
+        "recent_labs": [summarize_observation(o) for o in observations[:15]],
+        "active_care_plans": [summarize_care_plan(cp) for cp in care_plans],
     }
 
-    output = f"""## READMISSION RISK GAP ANALYSIS CONTEXT
+    output = f"""## READMISSION RISK GAP ANALYSIS
 
-### Instructions for Identifying Gaps
+**Patient:** {patient_id} | **Deterministic Gaps Found:** {det_count}
+
+---
+
+## PART 1: Deterministic Gap Analysis (Rules Engine)
+*The following gaps were identified by a deterministic rules engine based on evidence-based clinical protocols. These are reliable, reproducible findings.*
+
+{deterministic_section}
+
+---
+
+## PART 2: AI-Assisted Gap Analysis
+
+### Instructions for AI Gap Analysis
 {READMISSION_GAPS_SYSTEM_PROMPT}
+
+### Important: Avoid Duplicating Rules Engine Gaps
+The following gaps were ALREADY identified by the rules engine above. Do NOT repeat them:
+{chr(10).join(f"- {g.issue}" for g in deterministic_gaps) if deterministic_gaps else "- (none)"}
 
 ### Patient Clinical Data (from FHIR R4)
 {json.dumps(clinical_context, indent=2)}
 
 ---
-Please analyze the above clinical data and identify all specific, actionable readmission risk gaps for this patient."""
+Please analyze the above clinical data and identify any ADDITIONAL gaps not already caught by the rules engine above. Focus on nuanced, context-dependent issues that require clinical reasoning."""
 
     return output
-
-
-def _summarize_patient(patient: dict) -> dict:
-    name_parts = patient.get("name", [{}])[0]
-    given = " ".join(name_parts.get("given", []))
-    family = name_parts.get("family", "")
-    addresses = patient.get("address", [])
-    postal_code = addresses[0].get("postalCode", "") if addresses else ""
-    return {
-        "name": f"{given} {family}".strip(),
-        "birth_date": patient.get("birthDate"),
-        "gender": patient.get("gender"),
-        "postal_code": postal_code,
-    }
-
-
-def _summarize_encounter(encounter: dict) -> dict:
-    return {
-        "status": encounter.get("status"),
-        "period": encounter.get("period"),
-        "reason": [rc.get("text") or (rc.get("coding", [{}])[0].get("display")) for rc in encounter.get("reasonCode", [])],
-    }
-
-
-def _summarize_condition(condition: dict) -> dict:
-    code = condition.get("code", {})
-    return {
-        "name": code.get("text") or (code.get("coding", [{}])[0].get("display", "Unknown")),
-        "clinical_status": condition.get("clinicalStatus", {}).get("coding", [{}])[0].get("code"),
-    }
-
-
-def _summarize_medication(med: dict) -> dict:
-    med_code = med.get("medicationCodeableConcept", {})
-    dosage = med.get("dosageInstruction", [{}])[0] if med.get("dosageInstruction") else {}
-    return {
-        "name": med_code.get("text") or (med_code.get("coding", [{}])[0].get("display", "Unknown")),
-        "dosage_text": dosage.get("text", ""),
-        "status": med.get("status"),
-    }
-
-
-def _summarize_service_request(sr: dict) -> dict:
-    code = sr.get("code", {})
-    return {
-        "description": code.get("text") or (code.get("coding", [{}])[0].get("display", "Unknown")),
-        "status": sr.get("status"),
-        "intent": sr.get("intent"),
-    }
-
-
-def _summarize_appointment(appt: dict) -> dict:
-    return {
-        "status": appt.get("status"),
-        "start": appt.get("start"),
-        "description": appt.get("description", ""),
-        "type": [t.get("text") for t in appt.get("appointmentType", {}).get("coding", [])],
-    }
-
-
-def _summarize_related_person(rp: dict) -> dict:
-    name_parts = rp.get("name", [{}])[0]
-    given = " ".join(name_parts.get("given", []))
-    family = name_parts.get("family", "")
-    relationship = rp.get("relationship", [{}])[0].get("coding", [{}])[0].get("display", "Unknown")
-    return {
-        "name": f"{given} {family}".strip(),
-        "relationship": relationship,
-    }
-
-
-def _summarize_observation(obs: dict) -> dict:
-    code = obs.get("code", {})
-    value = obs.get("valueQuantity", {})
-    return {
-        "name": code.get("text") or (code.get("coding", [{}])[0].get("display", "Unknown")),
-        "value": f"{value.get('value', '')} {value.get('unit', '')}".strip() if value else obs.get("valueString", ""),
-        "date": obs.get("effectiveDateTime", ""),
-    }
-
-
-def _summarize_care_plan(cp: dict) -> dict:
-    return {
-        "title": cp.get("title", ""),
-        "status": cp.get("status"),
-        "description": cp.get("description", ""),
-        "categories": [cat.get("text") or (cat.get("coding", [{}])[0].get("display", "")) for cat in cp.get("category", [])],
-    }

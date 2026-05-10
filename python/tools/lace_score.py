@@ -1,13 +1,31 @@
+import asyncio
 import json
 from typing import Annotated
 
 from mcp.server.fastmcp import Context
 from pydantic import Field
 
+from clinical_rules import compute_lace_score, format_lace_score_table
 from fhir_client import FhirClient
 from fhir_utilities import get_fhir_context, get_patient_id_if_context_exists
 from mcp_utilities import create_text_response
 from prompts.lace_score_prompt import LACE_SCORE_SYSTEM_PROMPT
+from summarizers import (
+    summarize_condition,
+    summarize_encounter,
+    summarize_patient,
+)
+
+
+def _summarize_encounter_brief(encounter: dict) -> dict:
+    enc_class = encounter.get("class", {})
+    return {
+        "class_code": enc_class.get("code"),
+        "class_display": enc_class.get("display"),
+        "period": encounter.get("period"),
+        "status": encounter.get("status"),
+        "reason": [rc.get("text") or (rc.get("coding", [{}])[0].get("display")) for rc in encounter.get("reasonCode", [])],
+    }
 
 
 async def calculate_lace_readmission_score(
@@ -21,11 +39,12 @@ async def calculate_lace_readmission_score(
     ] = None,
     ctx: Context = None,
 ) -> str:
-    """Computes the evidence-based LACE readmission risk index (van Walraven et al., CMAJ 2010)
-    from the patient's FHIR data. LACE = Length of stay + Acuity of admission + Comorbidities
-    (Charlson Index) + Emergency department visits in prior 6 months. Returns a quantitative
-    score (0-19) with risk stratification and specific clinical recommendations. Complements
-    qualitative gap analysis with a validated, published metric that hospital quality teams track."""
+    """Deterministically computes the evidence-based LACE readmission risk index
+    (van Walraven et al., CMAJ 2010) directly from the patient's FHIR data.
+    LACE = Length of stay + Acuity of admission + Comorbidities (Charlson Index)
+    + Emergency department visits in prior 6 months.
+    The score (0-19) is computed in code — not estimated by AI.
+    AI is then used to provide personalized clinical interpretation and recommendations."""
 
     if not patient_id:
         patient_id = get_patient_id_if_context_exists(ctx)
@@ -42,78 +61,81 @@ async def calculate_lace_readmission_score(
     if not patient:
         return create_text_response(f"Patient {patient_id} not found on FHIR server.", is_error=True)
 
-    conditions = await fhir_client.get_conditions(patient_id)
-    all_encounters = await fhir_client.get_all_encounters(patient_id)
+    # Parallel FHIR fetching
+    conditions, all_encounters = await asyncio.gather(
+        fhir_client.get_conditions(patient_id),
+        fhir_client.get_all_encounters(patient_id),
+    )
 
     current_encounter = None
     if encounter_id:
         current_encounter = await fhir_client.get_encounter(encounter_id)
 
+    # --- Deterministic LACE computation ---
+    lace = compute_lace_score(
+        current_encounter=current_encounter,
+        all_encounters=all_encounters,
+        conditions=conditions,
+    )
+
+    lace_table = format_lace_score_table(lace)
+
+    data_gaps_section = ""
+    if lace.data_gaps:
+        data_gaps_section = "\n**Data Gaps (affected scoring accuracy):**\n" + "\n".join(
+            f"- {gap}" for gap in lace.data_gaps
+        )
+
     clinical_context = {
-        "patient": _summarize_patient(patient),
-        "current_encounter": _summarize_encounter(current_encounter) if current_encounter else "No encounter specified — Length of Stay and Acuity cannot be calculated precisely",
-        "all_conditions": [_summarize_condition(c) for c in conditions],
-        "all_encounters_last_12_months": [_summarize_encounter_brief(e) for e in all_encounters],
+        "patient": summarize_patient(patient),
+        "lace_score_computed": {
+            "total": lace.total,
+            "risk_level": lace.risk_level,
+            "readmission_probability": lace.readmission_probability_pct,
+            "components": {
+                "L_length_of_stay_days": lace.length_of_stay_days,
+                "L_score": lace.l_score,
+                "A_acuity": lace.admission_acuity,
+                "A_score": lace.a_score,
+                "C_charlson_conditions": lace.cci_conditions_matched,
+                "C_cci_score": lace.cci_score,
+                "C_score": lace.c_score,
+                "E_ed_visits_6mo": lace.ed_visits_6mo,
+                "E_score": lace.e_score,
+            },
+        },
+        "current_encounter": summarize_encounter(current_encounter, include_hospitalization=True) if current_encounter else "Not provided",
+        "all_conditions": [summarize_condition(c, include_icd=True) for c in conditions],
+        "all_encounters_summary": [_summarize_encounter_brief(e) for e in all_encounters],
     }
 
-    output = f"""## LACE READMISSION RISK SCORE CONTEXT
+    output = f"""## LACE READMISSION RISK SCORE — Deterministic Computation
 
-### Instructions for Computing LACE Score
+**Patient:** {patient_id}
+
+---
+
+### Score Breakdown (Computed from FHIR Data)
+
+{lace_table}
+{data_gaps_section}
+
+---
+
+## AI Clinical Interpretation
+
+### Instructions
 {LACE_SCORE_SYSTEM_PROMPT}
 
-### Patient Clinical Data (from FHIR R4)
+### Computed Data (use this — do NOT re-compute the score)
 {json.dumps(clinical_context, indent=2)}
 
 ---
-Please compute the LACE readmission risk score for this patient using the scoring algorithm above and the provided clinical data."""
+The LACE score above has been computed deterministically from FHIR data. Please provide:
+1. Clinical interpretation of this specific score for THIS patient
+2. Patient-specific recommendations based on their conditions and score
+3. Any additional risk factors visible in the clinical data that the LACE score does not capture
+
+Do NOT recompute the score. Use the computed values above."""
 
     return output
-
-
-def _summarize_patient(patient: dict) -> dict:
-    name_parts = patient.get("name", [{}])[0]
-    given = " ".join(name_parts.get("given", []))
-    family = name_parts.get("family", "")
-    return {
-        "name": f"{given} {family}".strip(),
-        "birth_date": patient.get("birthDate"),
-        "gender": patient.get("gender"),
-    }
-
-
-def _summarize_encounter(encounter: dict) -> dict:
-    enc_class = encounter.get("class", {})
-    return {
-        "status": encounter.get("status"),
-        "class_code": enc_class.get("code"),
-        "class_display": enc_class.get("display"),
-        "period": encounter.get("period"),
-        "reason": [rc.get("text") or (rc.get("coding", [{}])[0].get("display")) for rc in encounter.get("reasonCode", [])],
-        "admission_source": encounter.get("hospitalization", {}).get("admitSource", {}).get("text"),
-        "discharge_disposition": encounter.get("hospitalization", {}).get("dischargeDisposition", {}).get("text"),
-        "priority": encounter.get("priority", {}).get("coding", [{}])[0].get("display") if encounter.get("priority") else None,
-    }
-
-
-def _summarize_encounter_brief(encounter: dict) -> dict:
-    enc_class = encounter.get("class", {})
-    return {
-        "class_code": enc_class.get("code"),
-        "class_display": enc_class.get("display"),
-        "period": encounter.get("period"),
-        "status": encounter.get("status"),
-        "reason": [rc.get("text") or (rc.get("coding", [{}])[0].get("display")) for rc in encounter.get("reasonCode", [])],
-    }
-
-
-def _summarize_condition(condition: dict) -> dict:
-    code = condition.get("code", {})
-    coding = code.get("coding", [{}])[0]
-    return {
-        "name": code.get("text") or coding.get("display", "Unknown"),
-        "icd_code": coding.get("code", ""),
-        "system": coding.get("system", ""),
-        "clinical_status": condition.get("clinicalStatus", {}).get("coding", [{}])[0].get("code"),
-        "verification_status": condition.get("verificationStatus", {}).get("coding", [{}])[0].get("code") if condition.get("verificationStatus") else None,
-        "onset": condition.get("onsetDateTime"),
-    }

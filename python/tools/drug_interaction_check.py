@@ -1,13 +1,23 @@
+import asyncio
 import json
 from typing import Annotated
 
 from mcp.server.fastmcp import Context
 from pydantic import Field
 
+from clinical_rules import compute_polypharmacy_risk
 from fhir_client import FhirClient
 from fhir_utilities import get_fhir_context, get_patient_id_if_context_exists
 from mcp_utilities import create_text_response
 from prompts.drug_interaction_prompt import DRUG_INTERACTION_SYSTEM_PROMPT
+from summarizers import (
+    get_patient_age,
+    summarize_allergy,
+    summarize_condition,
+    summarize_medication,
+    summarize_observation,
+    summarize_patient,
+)
 
 
 async def check_drug_interactions(
@@ -22,9 +32,10 @@ async def check_drug_interactions(
     ctx: Context = None,
 ) -> str:
     """Analyzes ALL discharge medications for dangerous drug-drug interactions, drug-allergy
-    conflicts, and drug-condition contraindications. Catches combinations like warfarin + NSAIDs,
-    ACE inhibitors + potassium-sparing diuretics, or prescribing a cephalosporin to a patient with
-    penicillin allergy. Flags severity (CRITICAL/MAJOR/MODERATE/MINOR) with specific actions.
+    conflicts, and drug-condition contraindications. Also computes a deterministic polypharmacy
+    risk score. Catches combinations like warfarin + NSAIDs, ACE inhibitors + potassium-sparing
+    diuretics, or prescribing a cephalosporin to a patient with penicillin allergy. Flags
+    severity (CRITICAL/MAJOR/MODERATE/MINOR) with specific actions.
     Output is for pharmacist/clinician review before discharge."""
 
     if not patient_id:
@@ -42,24 +53,48 @@ async def check_drug_interactions(
     if not patient:
         return create_text_response(f"Patient {patient_id} not found on FHIR server.", is_error=True)
 
-    medications = await fhir_client.get_medications(patient_id, encounter_id)
-    allergies = await fhir_client.get_allergies(patient_id)
-    conditions = await fhir_client.get_conditions(patient_id)
-    observations = await fhir_client.get_observations(patient_id, "laboratory")
+    # Parallel FHIR fetching
+    medications, allergies, conditions, observations = await asyncio.gather(
+        fhir_client.get_medications(patient_id, encounter_id),
+        fhir_client.get_allergies(patient_id),
+        fhir_client.get_conditions(patient_id),
+        fhir_client.get_observations(patient_id, "laboratory"),
+    )
 
     if not medications:
         return create_text_response("No active medications found for this patient. No interaction check needed.")
 
+    # Deterministic polypharmacy risk computation
+    patient_age = get_patient_age(patient)
+    poly_risk = compute_polypharmacy_risk(medications, patient_age)
+
+    poly_section = f"""## POLYPHARMACY RISK ASSESSMENT (Deterministic)
+
+| Metric | Value |
+|---|---|
+| Total Medications | {poly_risk.total_medications} |
+| High-Alert Medications | {', '.join(poly_risk.high_alert_medications) or 'None detected'} |
+| Risk Level | **{poly_risk.risk_level}** |
+
+**Flags:** {'; '.join(poly_risk.flags) if poly_risk.flags else 'None'}
+"""
+
     clinical_context = {
-        "patient": _summarize_patient(patient),
-        "discharge_medications": [_summarize_medication(m) for m in medications],
-        "allergies": [_summarize_allergy(a) for a in allergies],
-        "active_conditions": [_summarize_condition(c) for c in conditions],
-        "recent_labs": [_summarize_observation(o) for o in observations[:10]],
+        "patient": summarize_patient(patient),
+        "patient_age": patient_age,
+        "discharge_medications": [summarize_medication(m, include_codes=True) for m in medications],
+        "allergies": [summarize_allergy(a, include_reactions=True) for a in allergies],
+        "active_conditions": [summarize_condition(c, include_icd=True) for c in conditions],
+        "recent_labs": [summarize_observation(o) for o in observations[:10]],
         "medication_count": len(medications),
+        "polypharmacy_risk_level": poly_risk.risk_level,
     }
 
-    output = f"""## DRUG INTERACTION SAFETY CHECK CONTEXT
+    output = f"""{poly_section}
+
+---
+
+## DRUG INTERACTION SAFETY CHECK CONTEXT
 
 ### Instructions for Analyzing Interactions
 {DRUG_INTERACTION_SYSTEM_PROMPT}
@@ -68,74 +103,6 @@ async def check_drug_interactions(
 {json.dumps(clinical_context, indent=2)}
 
 ---
-Please analyze ALL medication pairs, drug-allergy cross-reactivity, and drug-condition contraindications for this patient."""
+Please analyze ALL medication pairs, drug-allergy cross-reactivity, and drug-condition contraindications for this patient. The polypharmacy risk assessment above is already computed — focus on specific interaction pairs."""
 
     return output
-
-
-def _summarize_patient(patient: dict) -> dict:
-    name_parts = patient.get("name", [{}])[0]
-    given = " ".join(name_parts.get("given", []))
-    family = name_parts.get("family", "")
-    return {
-        "name": f"{given} {family}".strip(),
-        "birth_date": patient.get("birthDate"),
-        "gender": patient.get("gender"),
-    }
-
-
-def _summarize_medication(med: dict) -> dict:
-    med_code = med.get("medicationCodeableConcept", {})
-    coding = med_code.get("coding", [{}])[0]
-    dosage = med.get("dosageInstruction", [{}])[0] if med.get("dosageInstruction") else {}
-    route = dosage.get("route", {})
-    return {
-        "name": med_code.get("text") or coding.get("display", "Unknown"),
-        "code": coding.get("code", ""),
-        "system": coding.get("system", ""),
-        "dosage_text": dosage.get("text", ""),
-        "route": route.get("text") or (route.get("coding", [{}])[0].get("display", "") if route.get("coding") else ""),
-        "timing": dosage.get("timing", {}).get("repeat", {}),
-        "status": med.get("status"),
-    }
-
-
-def _summarize_allergy(allergy: dict) -> dict:
-    code = allergy.get("code", {})
-    coding = code.get("coding", [{}])[0]
-    reactions = []
-    for r in allergy.get("reaction", []):
-        for m in r.get("manifestation", []):
-            display = m.get("coding", [{}])[0].get("display") or m.get("text", "")
-            if display:
-                reactions.append(display)
-    return {
-        "substance": code.get("text") or coding.get("display", "Unknown"),
-        "code": coding.get("code", ""),
-        "reactions": reactions,
-        "criticality": allergy.get("criticality"),
-        "type": allergy.get("type"),
-        "category": allergy.get("category", []),
-    }
-
-
-def _summarize_condition(condition: dict) -> dict:
-    code = condition.get("code", {})
-    coding = code.get("coding", [{}])[0]
-    return {
-        "name": code.get("text") or coding.get("display", "Unknown"),
-        "code": coding.get("code", ""),
-        "system": coding.get("system", ""),
-        "clinical_status": condition.get("clinicalStatus", {}).get("coding", [{}])[0].get("code"),
-    }
-
-
-def _summarize_observation(obs: dict) -> dict:
-    code = obs.get("code", {})
-    value = obs.get("valueQuantity", {})
-    return {
-        "name": code.get("text") or (code.get("coding", [{}])[0].get("display", "Unknown")),
-        "value": f"{value.get('value', '')} {value.get('unit', '')}".strip() if value else obs.get("valueString", ""),
-        "date": obs.get("effectiveDateTime", ""),
-        "interpretation": [i.get("text", "") for i in obs.get("interpretation", [])],
-    }
