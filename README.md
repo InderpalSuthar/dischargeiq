@@ -13,6 +13,7 @@
 The last 2 hours of a hospital stay determine the next 30 days of a patient's health.
 
 **The numbers that matter to judges and hospital executives:**
+
 - 20% of Medicare patients are readmitted within 30 days of discharge
 - 30-day readmissions cost the US healthcare system **$26 billion per year**
 - CMS (Centers for Medicare & Medicaid Services) financially penalizes hospitals up to **3% of all Medicare reimbursements** for high readmission rates
@@ -44,6 +45,7 @@ When a clinician on the Prompt Opinion platform says "prepare this patient for d
 ## Hackathon Context
 
 ### The Competition
+
 - **Hackathon Page:** https://agents-assemble.devpost.com/
 - **Organizer:** Prompt Opinion (Darena Health), 200 Chesterfield Business Pkwy, Suite 200, Chesterfield, MO 63005
 - **Theme:** Build Interoperable Healthcare Agents at the Intersection of MCP, A2A, and FHIR
@@ -52,13 +54,14 @@ When a clinician on the Prompt Opinion platform says "prepare this patient for d
 
 ### Judging Criteria (What We Are Optimizing For)
 
-| Criterion | What Judges Are Looking For | How DischargeIQ Answers |
-|-----------|----------------------------|------------------------|
-| **The AI Factor** | Does it use Gen AI for something rule-based software cannot do? | LLM reasons over patient-specific FHIR context to generate personalized narratives — no template or rule engine can do this |
-| **Potential Impact** | Significant pain point? Hypothesis for improved outcomes, reduced costs, saved time? | $26B readmission problem, CMS penalty reduction, medication adherence improvement, lives saved |
-| **Feasibility** | Could this exist in a real healthcare system today? Does it respect data privacy, safety, regulatory constraints? | Uses only FHIR R4 standard data. Decision-support framing (not autonomous diagnosis). SHARP context handles HIPAA-compliant token passing. No new data sources needed. |
+| Criterion                  | What Judges Are Looking For                                                                                       | How DischargeIQ Answers                                                                                                                                                |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **The AI Factor**    | Does it use Gen AI for something rule-based software cannot do?                                                   | LLM reasons over patient-specific FHIR context to generate personalized narratives — no template or rule engine can do this                                           |
+| **Potential Impact** | Significant pain point? Hypothesis for improved outcomes, reduced costs, saved time?                              | $26B readmission problem, CMS penalty reduction, medication adherence improvement, lives saved                                                                         |
+| **Feasibility**      | Could this exist in a real healthcare system today? Does it respect data privacy, safety, regulatory constraints? | Uses only FHIR R4 standard data. Decision-support framing (not autonomous diagnosis). SHARP context handles HIPAA-compliant token passing. No new data sources needed. |
 
 ### Judges Panel
+
 - **Alice Zheng, MD, MBA, MPH** — Venture Capitalist, ex-McKinsey, Women's Health x AI
 - **Josh Mandel, MD** — Chief Architect for Health, Microsoft Research (wrote SMART on FHIR)
 - **Joshua Hickey** — Principal Technical Product Manager, Mayo Clinic
@@ -78,29 +81,29 @@ sequenceDiagram
     participant FHIRServer as External FHIR Server (EHR)
 
     Clinician->>Platform: "Prepare this patient for discharge"
-    
+  
     Note over Platform: Identifies tools needed<br/>Extracts FHIR Context (URL, Token, Patient ID)
-    
+  
     Platform->>MCPServer: POST /mcp (JSON-RPC Request)
     Note right of MCPServer: FastAPI mounts FastMCP streamable app
-    
+  
     MCPServer->>FHIRServer: GET /Patient, /Condition, /MedicationRequest...
     Note right of MCPServer: FHIR Client uses credentials from context
-    
+  
     FHIRServer-->>MCPServer: Return FHIR Resource Bundles (JSON)
-    
+  
     Note over MCPServer: Logic Layer:<br/>LLM reasons over patient data<br/>Generates personalized plan/risk gaps
-    
+  
     MCPServer-->>Platform: MCP Response (JSON-RPC)
-    
+  
     Platform->>Clinician: "Here is the drafted discharge plan for review..."
 ```
 
 **Key Connection Logic:**
+
 1. **FastAPI Wrapper**: The server runs as a FastAPI application, providing a high-performance ASGI interface.
 2. **Capability Patching**: During initialization, the server patches the MCP `get_capabilities` to declare support for `ai.promptopinion/fhir-context`, requesting specific FHIR scopes (Patient, Condition, MedicationRequest, etc.).
 3. **Stateless HTTP**: Uses the MCP Streamable HTTP transport via `stateless_http=True`, allowing for easy scaling and cloud deployment.
-
 
 ---
 
@@ -116,6 +119,7 @@ Generic discharge instruction: "Take your antibiotics for 7 days. Do not stop ea
 DischargeIQ output: "You were treated for a kidney infection (pyelonephritis). The bacteria causing your infection need the full 7 days of Ciprofloxacin to be fully eliminated. After day 4 you will feel normal — but this is misleading. The bacteria that survive to day 4 are the strongest, most resistant ones. If you stop now, those bacteria multiply, and your next infection will NOT respond to standard antibiotics. You would need IV antibiotics in a hospital. Please complete all 7 days even when you feel completely well."
 
 **FHIR Resources Used:**
+
 - `Patient` — demographics, language, age
 - `Condition` — active diagnoses being discharged with
 - `MedicationRequest` — all medications prescribed at discharge
@@ -125,6 +129,7 @@ DischargeIQ output: "You were treated for a kidney infection (pyelonephritis). T
 - `RelatedPerson` — caregiver/family context
 
 **Input:**
+
 ```json
 {
   "patient_id": "patient-123",
@@ -144,6 +149,7 @@ DischargeIQ output: "You were treated for a kidney infection (pyelonephritis). T
 Analyzes the patient's full FHIR context at the moment of discharge and identifies specific, named, actionable gaps that will cause a readmission if not addressed before the patient leaves. Not a risk score (LACE, HOSPITAL score already exist). A list of specific things that are broken in this patient's discharge plan right now.
 
 **Example Output:**
+
 ```
 Gap 1 [HIGH]: No PCP follow-up appointment found in FHIR ServiceRequest or Appointment 
 resources. Patient is being discharged on Lisinopril and Metoprolol. Blood pressure 
@@ -165,6 +171,7 @@ ACTION: Social work consult for food access resources.
 ```
 
 **FHIR Resources Used:**
+
 - `MedicationRequest` — all discharge medications
 - `ServiceRequest` — ordered follow-up labs, tests
 - `Appointment` — scheduled follow-up visits
@@ -184,6 +191,7 @@ The warfarin + no INR order gap seems simple. But the LLM also needs to understa
 Generates a structured, recipient-tailored Transition of Care (ToC) document. CMS requires this document legally under Conditions of Participation. In practice it is a rushed, generic copy-paste. DischargeIQ generates it in 30 seconds and tailors it to whoever is receiving the patient next.
 
 **Recipient Types:**
+
 - `primary_care` — PCP summary: prioritizes what changed, what needs monitoring, medication changes
 - `home_health` — Home health nurse summary: prioritizes functional status, wound care, medication schedule, fall risk, equipment needed
 - `skilled_nursing_facility` — SNF physician summary: full clinical picture, code status, diet, therapy orders, infection precautions
@@ -193,6 +201,7 @@ Generates a structured, recipient-tailored Transition of Care (ToC) document. CM
 The SAME patient gets FOUR different documents, each optimized for what that recipient needs to know FIRST to prevent readmission. A home health nurse doesn't need a 3-page clinical summary. They need: medications, wound care instructions, red flags to call the doctor about, and fall precautions. That's it. The LLM knows this. A template doesn't.
 
 **FHIR Resources Used:**
+
 - `Patient`, `Encounter`, `Condition`, `Procedure`
 - `MedicationRequest` — full discharge med list
 - `DiagnosticReport` / `Observation` — key lab results
@@ -201,6 +210,7 @@ The SAME patient gets FOUR different documents, each optimized for what that rec
 - `ServiceRequest` — pending orders that transfer with patient
 
 **Input:**
+
 ```json
 {
   "patient_id": "patient-123",
@@ -214,87 +224,96 @@ The SAME patient gets FOUR different documents, each optimized for what that rec
 ## Tech Stack
 
 ### Core Server
-| Technology | Purpose | Version | Link |
-|-----------|---------|---------|------|
-| **Python** | Primary language | 3.11+ | https://python.org |
-| **FastAPI** | High-performance web framework | Latest | https://fastapi.tiangolo.com |
-| **FastMCP** | MCP server framework (Stateless mode) | Latest | https://github.com/jlowin/fastmcp |
-| **Uvicorn** | ASGI server for HTTP/SSE transport | Latest | https://www.uvicorn.org |
-| **Pydantic** | Input validation and structured outputs | v2 | https://docs.pydantic.dev |
-| **httpx** | Async HTTP client for FHIR queries | Latest | https://www.python-httpx.org |
+
+| Technology         | Purpose                                 | Version | Link                              |
+| ------------------ | --------------------------------------- | ------- | --------------------------------- |
+| **Python**   | Primary language                        | 3.11+   | https://python.org                |
+| **FastAPI**  | High-performance web framework          | Latest  | https://fastapi.tiangolo.com      |
+| **FastMCP**  | MCP server framework (Stateless mode)   | Latest  | https://github.com/jlowin/fastmcp |
+| **Uvicorn**  | ASGI server for HTTP/SSE transport      | Latest  | https://www.uvicorn.org           |
+| **Pydantic** | Input validation and structured outputs | v2      | https://docs.pydantic.dev         |
+| **httpx**    | Async HTTP client for FHIR queries      | Latest  | https://www.python-httpx.org      |
 
 ### Healthcare Standards
-| Standard | Purpose | Link |
-|----------|---------|------|
-| **FHIR R4** | Patient data format and API standard | https://hl7.org/fhir/R4/ |
-| **SMART on FHIR** | OAuth2 authorization for EHR access | https://smarthealthit.org |
-| **SHARP** | Prompt Opinion's healthcare context protocol for MCP | Prompt Opinion docs |
-| **MCP (Model Context Protocol)** | Anthropic's open protocol for AI tool integration | https://modelcontextprotocol.io |
+
+| Standard                               | Purpose                                              | Link                            |
+| -------------------------------------- | ---------------------------------------------------- | ------------------------------- |
+| **FHIR R4**                      | Patient data format and API standard                 | https://hl7.org/fhir/R4/        |
+| **SMART on FHIR**                | OAuth2 authorization for EHR access                  | https://smarthealthit.org       |
+| **SHARP**                        | Prompt Opinion's healthcare context protocol for MCP | Prompt Opinion docs             |
+| **MCP (Model Context Protocol)** | Anthropic's open protocol for AI tool integration    | https://modelcontextprotocol.io |
 
 ### AI / LLM
-| Technology | Purpose | Link |
-|-----------|---------|------|
-| **Anthropic Claude API** | LLM reasoning layer inside each tool | https://docs.anthropic.com |
-| **claude-sonnet-4-20250514** | Primary model for reasoning | https://docs.anthropic.com/models |
+
+| Technology                         | Purpose                              | Link                              |
+| ---------------------------------- | ------------------------------------ | --------------------------------- |
+| **Anthropic Claude API**     | LLM reasoning layer inside each tool | https://docs.anthropic.com        |
+| **claude-sonnet-4-20250514** | Primary model for reasoning          | https://docs.anthropic.com/models |
 
 ### FHIR Data (Demo)
-| Resource | Purpose | Link |
-|----------|---------|------|
-| **HAPI FHIR Public Sandbox** | Free R4-compliant FHIR server with synthetic patient data | https://hapi.fhir.org/baseR4 |
-| **Synthea** | Synthetic patient data generator for testing | https://github.com/synthetichealth/synthea |
+
+| Resource                           | Purpose                                                   | Link                                       |
+| ---------------------------------- | --------------------------------------------------------- | ------------------------------------------ |
+| **HAPI FHIR Public Sandbox** | Free R4-compliant FHIR server with synthetic patient data | https://hapi.fhir.org/baseR4               |
+| **Synthea**                  | Synthetic patient data generator for testing              | https://github.com/synthetichealth/synthea |
 
 ### Deployment
-| Technology | Purpose | Link |
-|-----------|---------|------|
+
+| Technology        | Purpose                    | Link                |
+| ----------------- | -------------------------- | ------------------- |
 | **Railway** | Free-tier cloud deployment | https://railway.app |
-| **Docker** | Containerization | https://docker.com |
+| **Docker**  | Containerization           | https://docker.com  |
 
 ---
 
 ## Key Platforms & Links
 
 ### Hackathon & Competition
-| Platform | Link |
-|----------|------|
-| Hackathon Page (Devpost) | https://agents-assemble.devpost.com/ |
-| Hackathon Rules | https://agents-assemble.devpost.com/rules |
-| Hackathon Resources | https://agents-assemble.devpost.com/resources |
-| Project Gallery | https://agents-assemble.devpost.com/project-gallery |
+
+| Platform                 | Link                                                |
+| ------------------------ | --------------------------------------------------- |
+| Hackathon Page (Devpost) | https://agents-assemble.devpost.com/                |
+| Hackathon Rules          | https://agents-assemble.devpost.com/rules           |
+| Hackathon Resources      | https://agents-assemble.devpost.com/resources       |
+| Project Gallery          | https://agents-assemble.devpost.com/project-gallery |
 
 ### Prompt Opinion Platform
-| Resource | Link |
-|----------|------|
-| Platform App | https://app.promptopinion.ai |
-| Getting Started Video | https://youtu.be/Qvs_QK4meHc |
-| GitHub Organization | https://github.com/prompt-opinion |
-| Community MCP Reference Repo (C#) | https://github.com/prompt-opinion/po-community-mcp |
-| ADK Python Reference Repo | https://github.com/prompt-opinion/po-adk-python |
-| ADK TypeScript Reference Repo | https://github.com/prompt-opinion/po-adk-typescript |
-| Discord Community | https://discord.gg/JS2bZVruUg |
+
+| Resource                          | Link                                                |
+| --------------------------------- | --------------------------------------------------- |
+| Platform App                      | https://app.promptopinion.ai                        |
+| Getting Started Video             | https://youtu.be/Qvs_QK4meHc                        |
+| GitHub Organization               | https://github.com/prompt-opinion                   |
+| Community MCP Reference Repo (C#) | https://github.com/prompt-opinion/po-community-mcp  |
+| ADK Python Reference Repo         | https://github.com/prompt-opinion/po-adk-python     |
+| ADK TypeScript Reference Repo     | https://github.com/prompt-opinion/po-adk-typescript |
+| Discord Community                 | https://discord.gg/JS2bZVruUg                       |
 
 ### MCP Protocol
-| Resource | Link |
-|----------|------|
-| MCP Official Docs | https://modelcontextprotocol.io |
-| MCP Python SDK | https://github.com/modelcontextprotocol/python-sdk |
-| MCP C# SDK | https://github.com/modelcontextprotocol/csharp-sdk |
-| FastMCP Framework | https://github.com/jlowin/fastmcp |
+
+| Resource                   | Link                                                     |
+| -------------------------- | -------------------------------------------------------- |
+| MCP Official Docs          | https://modelcontextprotocol.io                          |
+| MCP Python SDK             | https://github.com/modelcontextprotocol/python-sdk       |
+| MCP C# SDK                 | https://github.com/modelcontextprotocol/csharp-sdk       |
+| FastMCP Framework          | https://github.com/jlowin/fastmcp                        |
 | MCP Spec (Streamable HTTP) | https://modelcontextprotocol.io/docs/concepts/transports |
 
 ### FHIR Resources
-| Resource | Link |
-|----------|------|
-| FHIR R4 Spec | https://hl7.org/fhir/R4/ |
-| HAPI FHIR Sandbox | https://hapi.fhir.org/baseR4 |
-| FHIR Patient Resource | https://hl7.org/fhir/R4/patient.html |
-| FHIR MedicationRequest | https://hl7.org/fhir/R4/medicationrequest.html |
-| FHIR Condition | https://hl7.org/fhir/R4/condition.html |
-| FHIR Encounter | https://hl7.org/fhir/R4/encounter.html |
-| FHIR ServiceRequest | https://hl7.org/fhir/R4/servicerequest.html |
-| FHIR Appointment | https://hl7.org/fhir/R4/appointment.html |
-| FHIR Observation | https://hl7.org/fhir/R4/observation.html |
-| FHIR RelatedPerson | https://hl7.org/fhir/R4/relatedperson.html |
-| Synthea Synthetic Patients | https://github.com/synthetichealth/synthea |
+
+| Resource                   | Link                                           |
+| -------------------------- | ---------------------------------------------- |
+| FHIR R4 Spec               | https://hl7.org/fhir/R4/                       |
+| HAPI FHIR Sandbox          | https://hapi.fhir.org/baseR4                   |
+| FHIR Patient Resource      | https://hl7.org/fhir/R4/patient.html           |
+| FHIR MedicationRequest     | https://hl7.org/fhir/R4/medicationrequest.html |
+| FHIR Condition             | https://hl7.org/fhir/R4/condition.html         |
+| FHIR Encounter             | https://hl7.org/fhir/R4/encounter.html         |
+| FHIR ServiceRequest        | https://hl7.org/fhir/R4/servicerequest.html    |
+| FHIR Appointment           | https://hl7.org/fhir/R4/appointment.html       |
+| FHIR Observation           | https://hl7.org/fhir/R4/observation.html       |
+| FHIR RelatedPerson         | https://hl7.org/fhir/R4/relatedperson.html     |
+| Synthea Synthetic Patients | https://github.com/synthetichealth/synthea     |
 
 ---
 
@@ -329,7 +348,6 @@ dischargeiq-mcp/
 └── README.md                          # This file
 ```
 
-
 ---
 
 ## SHARP Context Protocol
@@ -346,13 +364,13 @@ SHARP (**Standardized Healthcare Agent Remote Protocol**) is Prompt Opinion's ex
 3. **Automatic Parsing**: Our `fhir_utilities.py` parses these headers from the MCP request context. It can also decode the JWT token to extract the `patient` claim if the header is missing.
 
 **This means DischargeIQ works against ANY FHIR R4 server:**
+
 - Epic MyChart sandbox
 - Cerner Millennium
 - HAPI FHIR (our demo)
 - Any hospital's FHIR endpoint
 
 Zero vendor lock-in. Zero custom auth code per hospital. This is the power of SHARP + MCP together.
-
 
 ---
 
@@ -429,6 +447,7 @@ CarePlan (existing care plans)
 ## Demo Scenario (3-Minute Video Script)
 
 ### Scenario 1 — The Antibiotic Patient (Tool 1)
+
 Patient: 34-year-old treated for pyelonephritis (kidney infection). Discharged on 7-day Ciprofloxacin. Lives alone.
 
 Doctor opens Prompt Opinion platform. Patient context loaded via SHARP. Doctor says: "Prepare discharge plan for this patient."
@@ -438,6 +457,7 @@ Agent calls `generate_personalized_discharge_plan`. DischargeIQ fetches FHIR dat
 **Judge moment:** Every clinician in the room has had this patient come back 3 weeks later with a resistant infection. They will feel this.
 
 ### Scenario 2 — The Warfarin Gap (Tool 2)
+
 Patient: 67-year-old cardiac patient being discharged on warfarin, Lisinopril, Metoprolol. No INR monitoring order placed. No PCP follow-up scheduled.
 
 Agent calls `identify_readmission_risk_gaps`. Tool scans FHIR. Finds: warfarin on MedicationRequest, no INR ServiceRequest, no Appointment in next 30 days. Flags: HIGH RISK — INR monitoring gap, HIGH RISK — no follow-up appointment. Care coordinator sees this before patient leaves. Gaps addressed. Readmission prevented.
@@ -445,6 +465,7 @@ Agent calls `identify_readmission_risk_gaps`. Tool scans FHIR. Finds: warfarin o
 **Judge moment:** This exact scenario (warfarin without monitoring) kills patients every month. Mayo Clinic and Cleveland Clinic see it constantly.
 
 ### Scenario 3 — The Handoff (Tool 3)
+
 Same patient being transferred to home health nursing.
 
 Agent calls `draft_transition_care_summary(recipient_type="home_health")`. DischargeIQ generates a home-health-specific document: what the nurse needs to check on day 1, medication schedule in plain English, wound/procedure care if applicable, red flag symptoms to call the doctor about, INR monitoring instructions. Concise. Actionable. Calibrated to what a home health nurse actually needs.
@@ -456,6 +477,7 @@ Agent calls `draft_transition_care_summary(recipient_type="home_health")`. Disch
 ## Setup & Development
 
 ### Prerequisites
+
 ```bash
 Python 3.11+
 pip
@@ -464,6 +486,7 @@ A free Prompt Opinion account (https://app.promptopinion.ai)
 ```
 
 ### Installation
+
 ```bash
 git clone https://github.com/YOUR_USERNAME/dischargeiq-mcp
 cd dischargeiq-mcp/python
@@ -475,19 +498,21 @@ pip install -r requirements.txt
 ```
 
 ### Run Locally
+
 ```bash
 python main.py
 # Server starts at http://localhost:8000
 # MCP endpoint available at http://localhost:8000/mcp
 ```
 
-
 ### Test Against HAPI Sandbox
+
 ```bash
 python tests/test_fhir_client.py
 ```
 
 ### Deploy to Railway
+
 ```bash
 # Install Railway CLI
 npm install -g @railway/cli

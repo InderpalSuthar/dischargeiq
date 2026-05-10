@@ -94,6 +94,10 @@ class FhirClient:
         bundle = await self.search("DiagnosticReport", {"patient": patient_id, "_sort": "-date", "_count": "10"})
         return self._extract_entries(bundle)
 
+    async def get_all_encounters(self, patient_id: str) -> list[dict]:
+        bundle = await self.search("Encounter", {"patient": patient_id, "_sort": "-date", "_count": "50"})
+        return self._extract_entries(bundle)
+
     def _extract_entries(self, bundle: dict | None) -> list[dict]:
         if not bundle or not bundle.get("entry"):
             return []
