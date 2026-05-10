@@ -120,9 +120,9 @@ async def calculate_lace_readmission_score(
                 "E_score": lace.e_score,
             },
         },
-        "current_encounter": summarize_encounter(current_encounter, include_hospitalization=True) if current_encounter else "No encounter found",
+        "current_encounter": summarize_encounter(current_encounter) if current_encounter else "No encounter found",
         "encounter_source": encounter_source,
-        "all_conditions": [summarize_condition(c, include_icd=True) for c in conditions],
+        "active_conditions": [c.get("name") for c in [summarize_condition(c) for c in conditions]],
     }
 
     output = f"""## LACE READMISSION RISK SCORE — Deterministic Computation

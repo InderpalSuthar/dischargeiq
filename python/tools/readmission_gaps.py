@@ -121,15 +121,12 @@ async def identify_readmission_risk_gaps(
     det_count = len(deterministic_gaps)
 
     clinical_context = {
-        "patient": summarize_patient(patient, include_address=True),
-        "encounter": summarize_encounter(encounter) if encounter else "No encounter found",
-        "active_conditions": [summarize_condition(c, include_icd=True) for c in conditions],
-        "discharge_medications": [summarize_medication(m) for m in medications],
+        "active_conditions": [c.get("name") for c in [summarize_condition(c) for c in conditions]],
+        "discharge_medications": [m.get("name") for m in [summarize_medication(m) for m in medications]],
         "active_service_requests": [summarize_service_request(sr) for sr in service_requests],
         "scheduled_appointments": [summarize_appointment(a) for a in appointments],
-        "caregivers": [summarize_related_person(rp) for rp in related_persons],
-        "recent_labs": [summarize_observation(o) for o in observations[:15]],
-        "active_care_plans": [summarize_care_plan(cp) for cp in care_plans],
+        "recent_labs": [summarize_observation(o) for o in observations[:5]],
+        "active_care_plans": [cp.get("title") for cp in [summarize_care_plan(cp) for cp in care_plans]],
     }
 
     output = f"""## READMISSION RISK GAP ANALYSIS
