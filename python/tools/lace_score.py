@@ -131,14 +131,14 @@ async def calculate_lace_readmission_score(
 
 ---
 
-### Score Breakdown (Computed from FHIR Data)
+### Score Breakdown (Computed from FHIR Data) `[DETERMINISTIC]`
 
 {lace_table}
 {data_gaps_section}
 
 ---
 
-## AI Clinical Interpretation
+## AI Clinical Interpretation `[AI-INTERPRETED — requires clinician review]`
 
 ### Instructions
 {LACE_SCORE_SYSTEM_PROMPT}

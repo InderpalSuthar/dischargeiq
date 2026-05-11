@@ -39,4 +39,6 @@ OUTPUT STRUCTURE:
 
 ---
 *DRAFT — Requires clinician review and approval before delivery to patient.*
+
+IMPORTANT: This is an `[AI-GENERATED]` document. Preserve the confidence marker in your output header.
 """

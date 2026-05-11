@@ -10,6 +10,7 @@ from clinical_rules import compute_polypharmacy_risk
 from fhir_client import FhirClient
 from fhir_utilities import get_fhir_context, get_patient_id_if_context_exists
 from mcp_utilities import create_text_response
+from openfda_client import lookup_drug_interactions
 from prompts.drug_interaction_prompt import DRUG_INTERACTION_SYSTEM_PROMPT
 from summarizers import (
     get_patient_age,
@@ -81,7 +82,49 @@ async def check_drug_interactions(
     patient_age = get_patient_age(patient)
     poly_risk = compute_polypharmacy_risk(medications, patient_age)
 
-    poly_section = f"""## POLYPHARMACY RISK ASSESSMENT (Deterministic)
+    # Extract drug names for OpenFDA lookup
+    drug_names = []
+    for m in medications:
+        med_code = m.get("medicationCodeableConcept", {})
+        name = med_code.get("text", "")
+        if not name:
+            codings = med_code.get("coding", [])
+            name = codings[0].get("display", "") if codings else ""
+        if name:
+            drug_names.append(name)
+
+    # OpenFDA drug label lookup (parallel, non-blocking)
+    fda_data = {"interactions": [], "warnings": [], "boxed_warnings": [], "drugs_found": 0, "drugs_not_found": [], "source": "OpenFDA Drug Label API"}
+    try:
+        fda_data = await lookup_drug_interactions(drug_names)
+    except Exception as e:
+        logger.warning("OpenFDA lookup failed entirely, continuing without FDA data: %s", e)
+
+    # Build FDA section
+    fda_section = ""
+    if fda_data["interactions"] or fda_data["boxed_warnings"]:
+        fda_section = "\n\n## FDA DRUG LABEL DATA [FDA-SOURCED]\n"
+        fda_section += f"*Source: OpenFDA Drug Label API | Drugs found: {fda_data['drugs_found']}/{len(drug_names)}*\n"
+
+        if fda_data["boxed_warnings"]:
+            fda_section += "\n### ⚠️ FDA BOXED WARNINGS\n"
+            for bw in fda_data["boxed_warnings"]:
+                fda_section += f"\n**{bw['drug']}:** {bw['warning'][:300]}\n"
+
+        if fda_data["interactions"]:
+            fda_section += "\n### FDA-Documented Drug Interactions\n"
+            for ix in fda_data["interactions"]:
+                fda_section += f"\n**[{ix['severity']}] {ix['drug_a']} + {ix['drug_b']}**\n"
+                fda_section += f"> {ix['description']}\n"
+                fda_section += f"*Source: {ix['source']}*\n"
+
+        if fda_data["drugs_not_found"]:
+            fda_section += f"\n*FDA labels not found for: {', '.join(fda_data['drugs_not_found'][:5])}*\n"
+    elif drug_names:
+        fda_section = "\n\n## FDA DRUG LABEL DATA [FDA-SOURCED]\n"
+        fda_section += f"*OpenFDA queried for {len(drug_names)} drugs — no documented interactions found between these medications.*\n"
+
+    poly_section = f"""## POLYPHARMACY RISK ASSESSMENT [DETERMINISTIC]
 
 | Metric | Value |
 |---|---|
@@ -104,10 +147,11 @@ async def check_drug_interactions(
     }
 
     output = f"""{poly_section}
+{fda_section}
 
 ---
 
-## DRUG INTERACTION SAFETY CHECK CONTEXT
+## DRUG INTERACTION SAFETY CHECK CONTEXT [AI-INTERPRETED]
 
 ### Instructions for Analyzing Interactions
 {DRUG_INTERACTION_SYSTEM_PROMPT}
@@ -116,6 +160,6 @@ async def check_drug_interactions(
 {json.dumps(clinical_context, separators=(',', ':'))}
 
 ---
-Please analyze ALL medication pairs, drug-allergy cross-reactivity, and drug-condition contraindications for this patient. The polypharmacy risk assessment above is already computed — focus on specific interaction pairs."""
+Please analyze ALL medication pairs, drug-allergy cross-reactivity, and drug-condition contraindications for this patient. The polypharmacy risk assessment and FDA drug label data above are already computed — prioritize FDA-sourced interactions, then add AI-identified ones."""
 
     return output

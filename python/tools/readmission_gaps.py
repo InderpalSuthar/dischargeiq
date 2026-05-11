@@ -135,14 +135,14 @@ async def identify_readmission_risk_gaps(
 
 ---
 
-## PART 1: Deterministic Gap Analysis (Rules Engine)
+## PART 1: Deterministic Gap Analysis (Rules Engine) `[DETERMINISTIC]`
 *The following gaps were identified by a deterministic rules engine based on evidence-based clinical protocols. These are reliable, reproducible findings.*
 
 {deterministic_section}
 
 ---
 
-## PART 2: AI-Assisted Gap Analysis
+## PART 2: AI-Assisted Gap Analysis `[AI-INTERPRETED — requires clinician review]`
 
 ### Instructions for AI Gap Analysis
 {READMISSION_GAPS_SYSTEM_PROMPT}
