@@ -117,10 +117,9 @@ dischargeiq/
 ├── Dockerfile                     # Production-hardened (non-root, healthcheck, multi-worker)
 ├── docker-compose.yml             # Local development
 ├── .dockerignore                  # Optimized image (excludes test data)
-├── fhir_bundles/                  # 50 synthetic patient FHIR bundles
+├── fhir_bundles/                  # 51 synthetic patient FHIR bundles
 │   ├── patient-001_bundle.json
 │   └── ...
-├── flow.svg                       # Architecture sequence diagram
 └── python/
     ├── main.py                    # FastAPI entry point + /health + /tools endpoints
     ├── mcp_instance.py            # 7 tool registrations + FHIR capability scopes
