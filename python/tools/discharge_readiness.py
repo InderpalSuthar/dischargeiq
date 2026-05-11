@@ -142,6 +142,7 @@ async def get_discharge_readiness_dashboard(
 ---
 
 ## 🏥 DISCHARGE READINESS DASHBOARD
+> ⚙️ Source: Deterministic Rules Engine | Confidence: Verified | All values below are `[DETERMINISTIC]` — computed by Python rules engine, verified, reproducible.
 
 **Patient:** {patient_info.get('name', patient_id)} | **Age:** {patient_age or 'Unknown'} | **Date:** {date.today().isoformat()} | **Encounter:** {encounter_source}
 

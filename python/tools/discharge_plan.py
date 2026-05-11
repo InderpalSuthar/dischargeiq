@@ -100,7 +100,7 @@ async def generate_personalized_discharge_plan(
         "caregivers": [summarize_related_person(rp) for rp in related_persons],
     }
 
-    output = f"""## DISCHARGE PLAN GENERATION CONTEXT
+    output = f"""## DISCHARGE PLAN GENERATION CONTEXT `[AI-GENERATED — DRAFT for clinician review]`
 
 ### Instructions for Generating the Discharge Plan
 {DISCHARGE_PLAN_SYSTEM_PROMPT}{language_instruction}

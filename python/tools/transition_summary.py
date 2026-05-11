@@ -124,7 +124,7 @@ async def draft_transition_care_summary(
         "allergies": [summarize_allergy(a) for a in allergies],
     }
 
-    output = f"""## TRANSITION OF CARE SUMMARY CONTEXT
+    output = f"""## TRANSITION OF CARE SUMMARY CONTEXT `[AI-GENERATED — DRAFT for clinician review]`
 
 ### Recipient Type: {recipient_type}
 

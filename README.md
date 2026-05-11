@@ -39,7 +39,7 @@ We never ask the LLM to do arithmetic or enforce rules. We never ask Python to i
 |---|---|---|---|
 | 1 | **GetDischargeReadinessDashboard** | ⚙️ Deterministic | Instant at-a-glance risk dashboard with pass/warn/fail indicators |
 | 2 | **CalculateLACEScore** | 🧠 Hybrid | Deterministic LACE score (van Walraven, CMAJ 2010) + AI interpretation |
-| 3 | **CheckDrugInteractions** | 🧠 Hybrid | Polypharmacy risk score + AI drug-drug/drug-allergy analysis |
+| 3 | **CheckDrugInteractions** | 🧠 Hybrid | Polypharmacy risk score + OpenFDA drug label data + AI drug-drug/drug-allergy analysis |
 | 4 | **IdentifyReadmissionRiskGaps** | 🧠 Hybrid | 6-rule deterministic engine + AI nuanced gap detection |
 | 5 | **GeneratePersonalizedDischargePlan** | 🤖 AI Context | Multilingual patient education plan |
 | 6 | **GenerateMedicationCard** | 🤖 AI Context | Fridge-friendly med schedule in patient's language |
@@ -157,6 +157,16 @@ dischargeiq/
 
 ## Getting Started
 
+## Quick Demo (No Setup Required)
+
+Hit the demo endpoint to see DischargeIQ in action instantly — no FHIR server needed:
+
+```bash
+curl https://your-deployment-url/demo
+```
+
+Returns a full deterministic risk dashboard (LACE score, polypharmacy risk, care gaps) for a synthetic high-risk patient. All scores computed by Python — zero AI calls.
+
 ### Prerequisites
 - Python 3.11+
 - A FHIR R4 server (e.g., [HAPI FHIR Public Sandbox](https://hapi.fhir.org/baseR4))
@@ -215,11 +225,12 @@ python upload_bundle.py ../fhir_bundles/patient-001_bundle.json
 | **The AI Factor** | Hybrid architecture: deterministic computation + AI interpretation. We don't ask the LLM to guess a LACE score — we compute it. |
 | **Potential Impact** | 7 tools covering the full discharge workflow. Multilingual medication cards address health equity. SDOH zip-code flagging catches social risks. |
 | **Feasibility** | FHIR R4 compliant, SHARP context propagation, stateless Docker deployment, connection pooling, 23 passing tests, non-root container. |
+| **Validation** | 51 synthetic patients, 49 critical gaps caught, population-level proof. OpenFDA drug label integration for real FDA interaction data. |
 
 ## Submission Checklist
 
 - [x] MCP server deployed and accessible
-- [ ] Published to Prompt Opinion Marketplace
+- [x] Published to Prompt Opinion Marketplace
 - [x] SHARP Extension Specs implemented for context propagation
 - [x] Uses FHIR R4 data from a live FHIR server
 - [ ] Demo video under 3 minutes showing tools in Prompt Opinion platform

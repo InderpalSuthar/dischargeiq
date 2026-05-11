@@ -27,4 +27,6 @@ The LACE score, its components, and the raw clinical data have been provided to 
 
 ---
 *LACE Index (van Walraven et al., CMAJ 2010). Clinical decision support — requires clinician review.*
+
+IMPORTANT: Preserve all `[DETERMINISTIC]` and `[AI-INTERPRETED]` confidence markers in your output. Do not remove or relocate these tags.
 """

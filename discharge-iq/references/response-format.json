@@ -1,0 +1,207 @@
+{
+  "type": "object",
+  "properties": {
+    "patient_summary": {
+      "type": "object",
+      "description": "Brief patient identification context",
+      "properties": {
+        "patient_id": {
+          "type": "string",
+          "description": "FHIR Patient resource ID"
+        },
+        "age": {
+          "type": "integer",
+          "description": "Patient age in years"
+        },
+        "primary_language": {
+          "type": "string",
+          "description": "Patient preferred language from FHIR Patient.communication"
+        }
+      },
+      "required": ["patient_id"]
+    },
+    "risk_assessment": {
+      "type": "object",
+      "description": "Deterministic risk scores computed from FHIR data",
+      "properties": {
+        "lace_score": {
+          "type": "integer",
+          "description": "LACE readmission risk index (0-19)"
+        },
+        "lace_risk_tier": {
+          "type": "string",
+          "enum": ["low", "moderate", "high", "very_high"],
+          "description": "Risk tier: low (0-4), moderate (5-9), high (10-14), very_high (15+)"
+        },
+        "lace_components": {
+          "type": "object",
+          "description": "Individual LACE component scores",
+          "properties": {
+            "length_of_stay": { "type": "integer" },
+            "acuity": { "type": "integer" },
+            "comorbidity": { "type": "integer" },
+            "ed_visits": { "type": "integer" }
+          }
+        },
+        "polypharmacy_risk": {
+          "type": "string",
+          "enum": ["none", "moderate", "high", "very_high"],
+          "description": "Polypharmacy risk level based on medication count, high-alert meds, and age"
+        },
+        "medication_count": {
+          "type": "integer",
+          "description": "Total active discharge medications"
+        },
+        "charlson_comorbidity_index": {
+          "type": "integer",
+          "description": "CCI computed from 17 ICD-10 condition categories"
+        }
+      },
+      "required": ["lace_score", "lace_risk_tier", "polypharmacy_risk"]
+    },
+    "care_gaps": {
+      "type": "array",
+      "description": "Clinical gaps detected by the deterministic rules engine and AI analysis",
+      "items": {
+        "type": "object",
+        "properties": {
+          "gap_id": {
+            "type": "string",
+            "description": "Unique identifier for the gap"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "high", "moderate", "low"],
+            "description": "Gap severity level"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "missing_monitoring",
+              "no_followup",
+              "polypharmacy_no_caregiver",
+              "fall_risk",
+              "sdoh",
+              "chronic_disease_management",
+              "drug_interaction",
+              "ai_identified"
+            ],
+            "description": "Gap category from the 6-rule engine or AI"
+          },
+          "description": {
+            "type": "string",
+            "description": "Plain-language description of the gap"
+          },
+          "evidence": {
+            "type": "string",
+            "description": "FHIR resource reference supporting the gap detection"
+          },
+          "recommended_action": {
+            "type": "string",
+            "description": "Specific action to close this gap before discharge"
+          },
+          "source": {
+            "type": "string",
+            "enum": ["deterministic", "ai"],
+            "description": "Whether gap was found by the rules engine or AI analysis"
+          }
+        },
+        "required": ["severity", "category", "description", "recommended_action", "source"]
+      }
+    },
+    "discharge_readiness": {
+      "type": "object",
+      "description": "Overall discharge readiness assessment",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["ready", "ready_with_conditions", "not_ready"],
+          "description": "Discharge readiness status"
+        },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Conditions that must be met before discharge (if status is ready_with_conditions)"
+        },
+        "blockers": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Critical blockers preventing discharge (if status is not_ready)"
+        }
+      },
+      "required": ["status"]
+    },
+    "clinical_interpretation": {
+      "type": "string",
+      "description": "AI-generated interpretation of the risk scores specific to this patient's clinical context. References specific conditions, medications, and social factors."
+    },
+    "recommended_interventions": {
+      "type": "array",
+      "description": "Patient-specific discharge interventions ranked by impact",
+      "items": {
+        "type": "object",
+        "properties": {
+          "intervention": {
+            "type": "string",
+            "description": "Specific intervention description"
+          },
+          "rationale": {
+            "type": "string",
+            "description": "Why this intervention matters for THIS patient"
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["immediate", "before_discharge", "within_48h", "within_14d"],
+            "description": "When this intervention should happen"
+          }
+        },
+        "required": ["intervention", "rationale", "priority"]
+      }
+    },
+    "generated_documents": {
+      "type": "object",
+      "description": "Patient-facing materials generated (all are DRAFTs for clinician review)",
+      "properties": {
+        "discharge_plan": {
+          "type": "string",
+          "description": "Personalized discharge education plan in patient's preferred language"
+        },
+        "medication_card": {
+          "type": "string",
+          "description": "Fridge-friendly medication schedule organized by time of day"
+        },
+        "transition_summary": {
+          "type": "string",
+          "description": "Transition of care document tailored to the specified recipient"
+        },
+        "transition_recipient": {
+          "type": "string",
+          "enum": ["primary_care", "home_health", "skilled_nursing_facility", "family_caregiver"],
+          "description": "Intended recipient of the transition summary"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Response metadata",
+      "properties": {
+        "tools_invoked": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of DischargeIQ tools that were called"
+        },
+        "data_gaps": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "FHIR resources that were missing or incomplete"
+        },
+        "disclaimer": {
+          "type": "string",
+          "description": "Always: 'DRAFT — Clinical decision support for clinician review. Not for direct patient delivery.'"
+        }
+      },
+      "required": ["tools_invoked", "disclaimer"]
+    }
+  },
+  "required": ["patient_summary", "risk_assessment", "discharge_readiness", "metadata"]
+}

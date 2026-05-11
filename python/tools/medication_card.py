@@ -75,7 +75,7 @@ async def generate_medication_card(
         "total_medications": len(medications),
     }
 
-    output = f"""## MEDICATION CARD GENERATION CONTEXT
+    output = f"""## MEDICATION CARD GENERATION CONTEXT `[AI-GENERATED — DRAFT for clinician review]`
 
 ### Instructions
 {MEDICATION_CARD_SYSTEM_PROMPT}{language_instruction}
